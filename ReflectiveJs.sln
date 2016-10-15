@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectiveJs.Server.Api", "ReflectiveJs.Server.Api\ReflectiveJs.Server.Api.csproj", "{CE168062-B754-40CB-9AD5-077841365280}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectiveJs.Server.Model", "ReflectiveJs.Server.Model\ReflectiveJs.Server.Model.csproj", "{B3D7D349-0FCB-4591-8F2D-7B6FDBBF72DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectiveJs.Server.Logic", "ReflectiveJs.Server.Logic\ReflectiveJs.Server.Logic.csproj", "{9027A469-0EB8-47F1-8FEC-FF3892F03491}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectiveJs.Server.Utility", "ReflectiveJs.Server.Utility\ReflectiveJs.Server.Utility.csproj", "{302DA8CA-1CC0-4287-85AC-DD4DB4B2E06D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE168062-B754-40CB-9AD5-077841365280}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE168062-B754-40CB-9AD5-077841365280}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE168062-B754-40CB-9AD5-077841365280}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE168062-B754-40CB-9AD5-077841365280}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3D7D349-0FCB-4591-8F2D-7B6FDBBF72DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3D7D349-0FCB-4591-8F2D-7B6FDBBF72DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3D7D349-0FCB-4591-8F2D-7B6FDBBF72DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3D7D349-0FCB-4591-8F2D-7B6FDBBF72DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9027A469-0EB8-47F1-8FEC-FF3892F03491}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9027A469-0EB8-47F1-8FEC-FF3892F03491}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9027A469-0EB8-47F1-8FEC-FF3892F03491}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9027A469-0EB8-47F1-8FEC-FF3892F03491}.Release|Any CPU.Build.0 = Release|Any CPU
+		{302DA8CA-1CC0-4287-85AC-DD4DB4B2E06D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{302DA8CA-1CC0-4287-85AC-DD4DB4B2E06D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{302DA8CA-1CC0-4287-85AC-DD4DB4B2E06D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{302DA8CA-1CC0-4287-85AC-DD4DB4B2E06D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

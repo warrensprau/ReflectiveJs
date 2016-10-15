@@ -1,0 +1,7 @@
+NUGET
+  remote: https://www.nuget.org/api/v2
+    EntityFramework (6.1.3)
+    Microsoft.AspNet.Identity.Core (2.2.1)
+    Microsoft.AspNet.Identity.EntityFramework (2.2.1)
+      EntityFramework (>= 6.1)
+      Microsoft.AspNet.Identity.Core (>= 2.2.1)
