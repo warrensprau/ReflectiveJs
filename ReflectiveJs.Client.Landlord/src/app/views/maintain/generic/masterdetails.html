@@ -1,0 +1,116 @@
+﻿<div class="routeControl" ng-controller='routeControl'>
+    <div class="masterDetails">
+        <div class="row nopadding">
+            <div class="col-xs-2">
+                <i class='pe-7s-close' ng-click="closePanel()"></i>
+            </div>
+
+            <div class="col-xs-4 col-xs-offset-6">
+                <i class='pe-7s-expand1 pull-right' ng-click="zoomPanel()"></i>
+            </div>
+        </div>
+        <div class="row nopadding">
+            <div class="col-xs-12">
+                
+                <h3 ng-if="master.Name" class="panel-headings {{entityTypeName}}">{{master.Name}}</h3>
+                <h3 ng-if="!master.Name" class="panel-headings {{entityTypeName}}">{{entityTypeLabel}}</h3>
+
+                <div class="row">
+                    <div class="col-xs-12 extra-padding space-top" ng-controller="actionController">
+
+                        <button ng-click="performAction(action)" ng-repeat="action in actions | orderBy:'DisplayOrder'" class="{{action.Name}} btn btn-sm btn-primary">
+                            {{action.Label}}
+                        </button>
+
+                        <button ng-click="performAction(action)" ng-repeat="action in customActions | orderBy:'Displayorder'" class="{{action.Name}} btn btn-sm btn-primary">
+                            {{action.Label}}
+                        </button>
+
+                        <div ng-if="exception">{{exception}}</div>
+                    </div>
+                </div>
+
+                <div class="editBlock form-horizontal space">
+                    <div class="form-group" ng-repeat="field in nonCollectionFields | filter: {IsHidden:false } | orderBy:'DisplayOrder'" ng-switch on="getInputFieldType(field)">
+                        
+                        <label for="{{field.Label}}" class="fieldedit col-xs-3 panel-labels">
+                            <div ng-if="!field.IsRelationship || (field.IsRelationship && field.IsEnum)">
+                                {{field.Label}}
+                            </div>
+                            <div ng-if="field.IsRelationship && !field.IsEnum">
+                                <a href="#" ng-click="loadDetailsForFkey(master,field.Name)">
+                                    {{field.Label}}
+                                </a>
+                            </div>
+                        </label>
+
+                        <div class="propedit col-xs-9" ng-switch-when="number">
+                            <input type="text" class="form-control" name="{{master.entityType.shortName + '.' + field.Name}}" readonly ng-model="master[field.Name]" />
+                        </div>
+                        <div class="propedit col-xs-9" ng-switch-when="decimal">
+                            <input type="text" class="form-control" name="{{master.entityType.shortName + '.' + field.Name}}" readonly ng-model="master[field.Name]" />
+                        </div>
+                        <div class="propedit col-xs-9" ng-switch-when="textarea">
+                            <textarea class="form-control" name="{{master.entityType.shortName + '.' + field.Name}}" readonly ng-model="master[field.Name]"></textarea>
+                        </div>
+                        <div class="propedit col-xs-9" ng-switch-when="texteditor">
+                            <div class="ta-bind-disabled" name="{{master.entityType.shortName + '.' + field.Name}}" ta-bind ng-model="master[field.Name]"></div>
+                        </div>
+                        <div class="propedit col-xs-9" ng-switch-when="select">
+                            <select class="form-control" name="{{master.entityType.shortName + '.' + field.Name}}" disabled ng-model="master[field.Name]" ng-options="getKeyValue(item) as getDisplayName(item) for item in options[getTable(master,field.Name)]"></select>
+                        </div>
+                        <div class="propedit col-xs-9" ng-switch-when="checkbox">
+                            <div class="checkbox">
+                                <label>
+                                    <input name="{{master.entityType.shortName + '.' + field.Name}}" type="checkbox" checked disabled ng-model="master[field.Name]">
+                                    <span ng-model="master[field.Name]"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="propedit col-xs-9" ng-switch-when="date">
+                            <input type="text" class="form-control" readonly name="{{master.entityType.shortName + '.' + field.Name}}" ng-model="master[field.Name]" />
+                        </div>
+                        <div class="propedit col-xs-9" ng-switch-when="time">
+                            <input type="text" class="form-control" readonly name="{{master.entityType.shortName + '.' + field.Name}}" ng-model="master[field.Name]" />
+                        </div>
+                        <div class="propedit col-xs-9" ng-switch-when="text">
+                            <input type="text" class="form-control" readonly name="{{master.entityType.shortName + '.' + field.Name}}" ng-model="master[field.Name]" />
+                        </div>
+                        <div ng-switch-default>"Oops Somthing happened here:" {{field.Name}}=>{{field.InputType}}</div>
+                    </div>
+                </div>
+
+                <!-- Acords-->
+                <div class="row space nopadding">
+                    <div class="col-xs-12">
+                        <div ng-controller="grid" ng-repeat="cfield in collectionFields | filter: {IsHidden:false, IsUnused:false} | orderBy:'DisplayOrder'" class="simpleProperty">
+                            <v-accordion id="{{setAccodionId(cfield)}}-va" class="vAccordion--default" control="testAccordion" onexpand="loadListFor(master, cfield, isCustomGrid(cfield));">
+                                <v-pane id="{{accordionIdName}}-panel" expanded="cfield.IsExpanded">
+                                    <v-pane-header id="{{accordionIdName}}-header">
+                                        {{cfield.Label}}
+                                    </v-pane-header>
+                                    <v-pane-content id="{{accordionIdName}}-contents">
+                                        <div kendo-grid="{{cfield.Name}}Grid" k-options="gridOptions" k-rebind="gridOptions" k-on-change="handleChange(data, dataItem, columns, master, key)"></div>
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <button type="button" ng-click="reloadList()" class="btn btn-default btn-circle btn-space">
+                                                    <i class="glyphicon glyphicon-refresh"></i>
+                                                </button>
+                                                <button type="button" ng-click="addNewItem(cfield)" class="btn btn-default btn-circle btn-space">
+                                                    <i class="glyphicon glyphicon-pencil"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </v-pane-content>
+                                </v-pane>
+                            </v-accordion>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

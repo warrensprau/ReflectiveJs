@@ -1,0 +1,39 @@
+{
+  "name": "angular-growing-input",
+  "version": "1.0.2",
+  "homepage": "https://github.com/Serhioromano/angular-growing-input",
+  "authors": [
+    "Serhioromano <serg4172@mail.ru>"
+  ],
+  "description": "AngularJS directive that allow textarea to grow or expand while user is typing.",
+  "main": "angular-grow.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "angular",
+    "growinginput",
+    "expand",
+    "textarea",
+    "grow",
+    "growing",
+    "input"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "1.0.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.0.2",
+    "commit": "9f9e88ade64975412a141c01d184c9f2f0c8a5cb"
+  },
+  "_source": "https://github.com/Serhioromano/angular-growing-input.git",
+  "_target": "~1.0.2",
+  "_originalSource": "angular-growing-input"
+}

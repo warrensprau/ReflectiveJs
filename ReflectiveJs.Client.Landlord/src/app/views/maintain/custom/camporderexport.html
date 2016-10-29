@@ -1,0 +1,158 @@
+﻿<div class="routeControl" ng-controller='routeControl'>
+  <div class="actionDetails">
+    <div class="row nopadding">
+      <div class="col-xs-2">
+        <i class='pe-7s-close' ng-click="closePanel()"></i>
+      </div>
+
+      <div class="col-xs-4 col-xs-offset-6">
+        <i class='pe-7s-expand1 pull-right' ng-click="zoomPanel()"></i>
+      </div>
+    </div>
+
+    <div class="row nopadding">
+      <div class="col-xs-12">
+        <h3 class="panel-headings {{itemType}}">{{action.Label}}</h3>
+
+        <div ng-if="panelMode === 'view'">
+
+          <div class="row">
+            <div class="col-xs-12 extra-padding space-top" ng-controller="actionController">
+
+              <button ng-click="performAction(action)" ng-repeat="action in customActions | orderBy:'Displayorder' | filter:{DisplayPosition:'top'}" class="{{action.Name}} btn btn-sm btn-primary" ng-if="isViewMode()">
+                {{action.Label}}
+              </button>
+
+              <div ng-if="exception">{{exception}}</div>
+            </div>
+          </div>
+          <div class="row">
+            <div ng-repeat="error in errors">{{error.propertyName}} - {{error.errorMessage}}</div>
+          </div>
+        </div>
+
+        <div ng-if="panelMode === 'view'" class="editBlock form-horizontal space">
+          <div class="form-group" ng-repeat="field in nonCollectionFields | filter: {IsHidden:false, IsHiddenOnView:false, IsUnused:false} | orderBy:'DisplayOrder'" ng-switch on="field.InputType">
+            <label for="{{field.Label}}" class="fieldedit col-xs-3 panel-labels">{{field.Label}}</label>
+            <div class="propedit col-xs-9" ng-switch-when="number">
+              <input type="text" class="form-control" readonly name="{{master.entityType.shortName + '.' + field.Name}}" ng-model="master[field.Name]" />
+            </div>
+            <div class="propedit col-xs-9" ng-switch-when="decimal">
+              <input type="text" class="form-control" readonly name="{{master.entityType.shortName + '.' + field.Name}}" ng-model="master[field.Name]" />
+            </div>
+            <div class="propedit col-xs-9" ng-switch-when="textarea">
+              <textarea grow="300" name="{{master.entityType.shortName + '.' + field.Name}}" class="form-control" readonly ng-model="master[field.Name]"></textarea>
+            </div>
+            <div class="propedit col-xs-9" ng-switch-when="select">
+              <select class="form-control" name="{{master.entityType.shortName + '.' + field.Name}}" readonly ng-model="master[field.Name]" ng-options="getKeyValue(item) as getDisplayName(item) for item in options[getTable(master,field.Name)]"></select>
+            </div>
+            <div class="propedit col-xs-9" ng-switch-when="checkbox">
+              <div class="checkbox">
+                <label>
+                  <input name="{{master.entityType.shortName + '.' + field.Name}}" readonly type="checkbox" ng-model="master[field.Name]">
+                  <!--do not delete spans, required to manipulate checkbox appearence-->
+                  <span ng-model="master[field.Name]"></span>
+                </label>
+              </div>
+            </div>
+            <div class="propedit col-xs-9" ng-switch-when="date">
+              <input type="text" class="form-control" readonly name="{{master.entityType.shortName + '.' + field.Name}}" ng-model="master[field.Name]" />
+            </div>
+            <div class="propedit col-xs-9" ng-switch-when="time">
+              <input type="text" class="form-control" readonly name="{{master.entityType.shortName + '.' + field.Name}}" ng-model="master[field.Name]" />
+            </div>
+            <div class="propedit col-xs-9" ng-switch-when="text">
+              <input type="text" class="form-control" readonly name="{{master.entityType.shortName + '.' + field.Name}}" ng-model="master[field.Name]" />
+            </div>
+            <div ng-switch-default>"Oops Somthing happened here:" {{field.Name}}=>{{field.InputType}}</div>
+          </div>
+        </div>
+
+        <div ng-if="panelMode === 'new'" class="editBlock form-horizontal space">
+          <div class="form-group" ng-repeat="field in nonCollectionFields | filter: {IsHidden:false, IsHiddenOnNew:false, IsUnused:false} | orderBy:'DisplayOrder'" ng-switch on="field.InputType" ng-show="shownIf(field)">
+            <label for="{{field.Label}}" class="fieldedit col-xs-3 panel-labels">{{field.Label}}</label>
+            <div class="propedit col-xs-9" ng-switch-when=" number">
+              <input type="text" class="form-control" name="{{master.entityType.shortName + '.' + field.Name}}" ng-model="master[field.Name]" ng-blur="validate($event)" ng-readonly="field.IsReadOnly" data-z-validate />
+            </div>
+            <div class="propedit col-xs-9" ng-switch-when="decimal">
+              <input type="text" class="form-control" name="{{master.entityType.shortName + '.' + field.Name}}" ng-model="master[field.Name]" ng-blur="validate($event)" ng-readonly="field.IsReadOnly" data-z-validate />
+            </div>
+            <div class="propedit col-xs-9" ng-switch-when="textarea">
+              <textarea name="{{master.entityType.shortName + '.' + field.Name}}" class="form-control" ng-model="master[field.Name]" ng-blur="validate($event)" ng-readonly="field.IsReadOnly" data-z-validate></textarea>
+            </div>
+            <div class="propedit col-xs-9" ng-switch-when="select">
+              <select class="form-control select" name="{{master.entityType.shortName + '.' + field.Name}}" ng-init="getEnumValue(field)" ng-model="master[field.Name]" ng-blur="validate($event)" ng-options="getKeyValue(item) as getDisplayName(item) for item in options[getTable(master,field.Name)]" ng-disabled="field.IsReadOnly" data-z-validate></select>
+            </div>
+            <div class="propedit col-xs-9" ng-switch-when="checkbox">
+              <div class="checkbox">
+                <label>
+                  <input name="{{master.entityType.shortName + '.' + field.Name}}" type="checkbox" ng-blur="validate($event)" ng-model="master[field.Name]" ng-readonly="field.IsReadOnly" ng-disabled="field.IsReadOnly">
+                  <!--do not delete spans, required to manipulate checkbox appearence-->
+                  <span ng-model="master[field.Name]"></span>
+                </label>
+              </div>
+            </div>
+            <div class="propedit col-xs-9" ng-switch-when="date">
+              <datepicker date-format="MM/dd/yyyy" date-set-hidden="true">
+                <input type="text" class="form-control" name="master[field.name]" ng-model="master[field.Name]" ng-blur="validate($event)" ng-readonly="field.IsReadOnly" />
+              </datepicker>
+            </div>
+            <div class="propedit col-xs-9" ng-switch-when="time">
+              <input type="text" class="form-control" name="{{master.entityType.shortName + '.' + field.Name}}" ng-model="master[field.Name]" ng-blur="validate($event)" placeholder="(text)" ng-readonly="field.IsReadOnly" data-z-validate />
+            </div>
+            <div class="propedit col-xs-9" ng-switch-when="text">
+              <input type="text" class="form-control" name="{{master.entityType.shortName + '.' + field.Name}}" ng-model="master[field.Name]" ng-blur="validate($event)" placeholder="(text)" ng-readonly="field.IsReadOnly" data-z-validate />
+            </div>
+            <div ng-switch-default>"Oops Somthing happened here:" {{field.Name}}=>{{field.InputType}}</div>
+          </div>
+
+          <div ng-controller='camporderexportController'>
+            <div ng-if="master.CustomFormat">
+              Columns:
+              <!-- Here is who is available -->
+              <div class="well">
+                Available: ({{available.length}})
+                <ul>
+                  <li ng-repeat="n in available" ng-click="move(n, available, assigned)"><a>{{n.name}}</a></li>
+                </ul>
+              </div>
+              <!-- Here is who is assigned -->
+              <div class="well">
+                Assigned: ({{assigned.length}})
+                <ul>
+                  <li ng-repeat="n in assigned" ng-click="move(n, assigned, available)"><a>{{n.name}}</a></li>
+                </ul>
+              </div>
+            </div> <!--  row -->
+
+            <div>
+              <label class="fieldedit col-xs-3 panel-labels">Orders</label>
+              <div class="col-xs-12">
+                <div>
+                  <div kendo-grid="OrderGrid" k-options="gridOptions" k-rebind="gridOptions" k-on-change="handleChange(data, dataItem)"></div>
+                  <button class="btn btn-sm" ng-click="load()">Preview</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="col-xs-12 extra-padding space-top" ng-controller="actionController">
+
+              <div ng-repeat="error in errors">{{error.propertyName}} - {{error.errorMessage}}</div>
+              <div ng-if="exception">{{exception}}</div>
+
+              <button class="btn btn-primary" ng-click="saveActionChanges(panelNumber)">Ok</button>
+              <button class="btn btn-sm" ng-click="cancelActionChanges(panelNumber)">Cancel</button>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+

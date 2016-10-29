@@ -1,0 +1,442 @@
+﻿<div class="performance-dash" ng-controller="MasterIndexController">
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="navbar-brand navbar-left">
+          <a class="slideInDown"> Magpie</a>
+        </div>
+
+      </div>
+      <div class="navbar-brand navbar-right hidden-xs">
+        <ul class="nav navbar-top-links">
+          <li class="dropdown pull-right">
+            <a class="dropdown-toggle navbar-brand" data-toggle="dropdown" href="#">
+              <span class="slideInDown">Welcome {{userName}}</span>
+              <i class="fa fa-fw"></i>
+              <i class="fa fa-caret-down nav-dropdown"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+              <li>
+                <a href="#" class="slideInDown" ng-click="signout()">
+                  <i class="fa fa-user"></i> Profile
+                </a>
+              </li>
+              <li>
+                <a href="#" class="slideInDown" ng-click="signout()">
+                  <i class="fa fa-sign-out fa-fw"></i> Logout
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="navbar-collapse collapse">
+
+        <ul class="nav nav-justified">
+          <li class="hidden-xs">
+            <button class="btn md__button--round is-closed" ng-click="loadMenu();" loadmenu>
+              <i class="fa fa-bars md-bars"></i>
+            </button>
+          </li>
+          <li class="hidden visible-xs">
+            <a ng-click="loadOoids(); loadMenu();" loadmenu class="is-closed animated slideInDown">
+              <i class="fa fa-search"></i>
+              Search
+            </a>
+          </li>
+          <li class="hidden visible-xs">
+            <a href="#about" class="slideInDown">
+              <i class="fa fa-user"></i>
+              Profile
+            </a>
+          </li>
+          <li class="hidden visible-xs">
+            <a ng-click="signout()" class="slideInDown">
+              <i class="fa fa-sign-out fa-fw"></i>
+              Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </nav>
+  <div id="wrapper">
+    <div class="slideInLeft left-container" id="sidebar-wrapper">
+      <div class="nav sidebar-nav">
+          <div class="ooid-content">
+              <div class="ooid-top">
+                  <div class="row ">
+                      <div class="col-xs-12">
+                          <div class="col-xs-6 pull-right">
+                              <i class="pe-7s-close close" ng-click="loadMenu();"></i>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="form-horizontal ooid-start">
+                  <div class="container">
+                      <div class="row ">
+                          <div class="col-xs-12 ooid-space">
+                              <div class="form-group">
+                                  <label class="control-label ooid-label col-xs-4 col-lg-2 col-sm-3">Search:</label>
+                                  <div class="col-xs-8 col-lg-7 col-sm-9">
+                                      <input type="text" class="ooid-search form-control" placeholder="Search" ng-model="searchString" ng-change="onQueryChange(searchies)" />
+                                      <span class="ooid-bar"></span>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-xs-12 ooid-space">
+                              <div class="form-group">
+                                  <label class="control-label ooid-label col-xs-4 col-lg-2 col-sm-3">Filter:</label>
+                                  <div class="col-xs-8 col-lg-7 col-sm-9">
+                                      <div class="ooid-select" ng-model="myDropDown" ng-click="showDropdown(); filters.Type ='';" dropdown>
+                                          {{selectedListItem.label}}
+                                          <i class="caret"></i>
+                                      </div>
+                                      <div class="drop-down" ng-show="showList" dropdown-options ng-transclude>
+                                          <ul class="list-border">
+                                              <li class="AllBlack">
+                                                  <a href="" ng-click="selectDropdownItem();"> All</a>
+                                              </li>
+                                              <li class="{{listItem.type}}" ng-repeat="listItem in vmToolkitList | orderBy:toolkit.type">
+                                                  <a href="" ng-click="selectDropdownItem(listItem); filters.Type = listItem.type;">{{listItem.label}}</a>
+                                              </li>
+                                          </ul>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-xs-12 ooid-space">
+                              <div class="form-group">
+                                  <label class="control-label ooid-label col-xs-4 col-lg-2 col-sm-3">Sort:</label>
+                                  <div class="col-xs-8 col-lg-10 col-sm-9">
+                                      <a class="btn btn-sm btn-default" toggle ng-click="changeSort('created')">Created</a>
+                                      <a class="btn btn-sm btn-default" toggle ng-click="changeSort('modified')">Modified</a>
+                                      <a class="btn btn-sm btn-default" toggle ng-click="changeSort('name')">Name</a>
+                                      <a class="btn btn-sm btn-default" toggle ng-click="changeSort('Type')">Type</a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+                  </div>
+              </div>
+              <div class="toggler-container">
+                  <div class="row">
+                      <div class="col-xs-12">
+                          <div class="col-xs-offset-8 col-xs-4">
+                              <div class="icon-container">
+                                  <i class="fa fa-list toggler active pull-right" ng-class="{active: isLayout('list')}" ng-click="setLayout('list');"></i>
+                                  <i class="fa fa-th-large toggler pull-right" ng-class="{active: isLayout('card')}" ng-click="setLayout('card');"></i>
+                                  <i ng-hide="selectedListItem.label === 'All'" ng-click="clickNewid(selectedListItem);" class="fa fa-plus pull-right {{selectedListItem.type}}"></i>
+                                  <i class="fa fa-refresh pull-right toggler-refresh" ng-click="reloadOoids();"></i>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="container repeaterSpace">
+                  <div class="row">
+                      <div class="config-item animate-repeat list col-xs-12 {{ooid.Type}}" ng-show="isLayout('list')" ng-animate="'animate'" ng-repeat="ooid in ooids | orderBy:sort:reverse | filter:filters:true | searchFor:searchString track by $index">
+                          <div class="ooids-returned-content">
+                              <div class="row">
+                                  <div class="col-xs-12 nopadding">
+                                      <div class="col-lg-1 col-md-1 col-xs-1">
+                                          <div class="form-group">
+                                              <i class="fa fa-circle {{ooid.Type}}"></i>
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-5 col-md-7 col-xs-6 nopadding ooid-name" ng-click="clickOoid(ooid);">
+                                          <div class="form-group">
+                                              <label class="inline wrap small campaign-name">{{ooid.Name}}</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-3 col-md-3 col-xs-6 ooid-modified" ng-click="clickOoid(ooid);">
+                                          <div class="form-group">
+                                              <label class="inline wrap small">{{ooid.Modified}}</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-1 col-xs-6 ooid-active" ng-click="clickOoid(ooid);">
+                                          <div class="form-group">
+                                              <label class="inline wrap small">Yes</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-1 col-xs-1 ooid-owner" ng-click="clickOoid(ooid);">
+                                          <div class=" form-group">
+                                              <label class="inline wrap small">{{userName}}</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-1 col-md-1 col-xs-2 ooid-pull-down pull-right">
+                                          <div class="form-group">
+                                              <div ng-click="widgetExpanded = !widgetExpanded" class="toggleList">
+                                                  <a class="togglesList">
+                                                      <i id="like" class="{{ooid.Type}}" ng-class="{'fa fa-angle-double-up {{ooid.Type}}': open, 'fa fa-angle-double-down {{ooid.Type}}': !open}" ng-click="open=!open"></i>
+                                                  </a>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <p class="hidden">{{ooid.Meta}}</p>
+                              <p class="hidden">{{ooid.TypeLabel}}</p>
+                          </div>
+                          <div ng-slide-down="widgetExpanded" lazy-render duration="1">
+                              <div class="row">
+                                  <div class="col-xs-12">
+                                      <div class="col-lg-4">
+                                          <div class="form-group">
+                                              <label class="small identifier">Type:</label>
+                                              <label class="inline wrap small">{{ooid.TypeLabel}}</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-4">
+                                          <div class="form-group">
+                                              <label class="small identifier">Created:</label>
+                                              <label class="inline wrap small">{{ooid.Created}}</label>
+                                          </div>
+                                      </div>
+                                      <div class="col-lg-4">
+                                          <div class="form-group">
+                                              <label class="small identifier">last modified:</label>
+                                              <label class="inline wrap small">{{ooid.Modified}}</label>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+
+
+
+
+                      <div class="config-item card col-xs-12 bounceInDown {{ooid.Type}}" ng-show="isLayout('card')" ng-repeat="ooid in ooids | orderBy:sort:reverse | filter:filters:true | searchFor:searchString" ng-click="clickOoid(ooid);">
+                          <div class="row" ng-click="clickOoid(ooid);">
+                              <div class="col-xs-12 nopadding">
+                                  <div class="col-sm-11">
+                                      <div class="form-group">
+                                          <label class="inline wrap small">{{ooid.Name}}</label>
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-1 nopadding">
+                                      <div class="form-group">
+                                          <i class="fa fa-circle {{ooid.Type}} cardCircle"></i>
+                                      </div>
+                                  </div>
+
+                              </div>
+                          </div>
+
+                          <div class="row">
+                              <div class="col-xs-6">
+                                  <div class="form-group">
+                                      <label class="block small card-label">Created</label>
+                                      <label class="block small card-label">{{ooid.Created}}</label>
+                                  </div>
+                              </div>
+
+
+                              <div class="col-xs-6">
+                                  <div class="form-group">
+                                      <label class="block small card-label">Modified</label>
+                                      <label class="block small card-label">{{ooid.Modified}}</label>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-xs-6">
+                                  <div class="form-group">
+                                      <label class="block small card-label">Contact</label>
+                                      <label class="block small card-label">{{userName}}</label>
+                                  </div>
+                              </div>
+                              <div class="col-xs-6">
+                                  <div class="form-group">
+                                      <label class="block small card-label">Active</label>
+                                      <label class="block small card-label">Yes</label>
+                                  </div>
+                              </div>
+
+                          </div>
+
+                          <div class="row">
+                              <div class="col-xs-12">
+                                  <div ng-click="widgetExpanded = !widgetExpanded" class="toggleList">
+                                      <a class="togglesList">
+                                          <i id="like" class="{{ooid.Type}} text-center" ng-class="{'fa fa-angle-double-up {{ooid.Type}}': open, 'fa fa-angle-double-down {{ooid.Type}}': !open}" ng-click="open=!open"></i>
+                                      </a>
+                                  </div>
+                              </div>
+                          </div>
+                          <div ng-slide-down="widgetExpanded" lazy-render duration="1">
+
+                          </div>
+                      </div>
+
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-xs-offset-10 col-xs-2">
+                      <button scroller class='go-top'>
+                          <i class="fa fa-chevron-up"></i>
+                      </button>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+    </div>
+    <!-- Page Content -->
+    <div id="page-content-wrapper" ng-controller="MashboardController">
+      <div class="container perf-container nopadding">
+        <div class="row no-pad">
+          <div class="col-lg-4 col-md-6 col-xs-12" ng-repeat="poid in poids">
+            <div class="perf-item" ng-click="clickPoid(poid);">
+              <div class="header">
+                <p>{{poid.Label}}</p>
+              </div>
+              <d3-donut radius="radius" percent="poid.Percent" display="poid.Display | nospace"></d3-donut>
+            </div>
+          </div>
+        </div>
+
+        <div class="bottom-nav-wrapper">
+          <div class="bottom-nav-container">
+            <div class="bottom-nav-container-inner">
+              <div class="row">
+                <div class="col-xs-12">
+
+                  <div class="col-xs-2 filter-bottom-search-area">
+                    <div class="filter-bottom-search">
+                      <input type="text" ng-model="searchies" placeholder="Search performance">
+                    </div>
+                  </div>
+
+                  <div class="col-xs-2 filter-bottom-date-area text-center">
+                    <div class="input-group filter-date">
+                      <label class="control-label poid-label">Date:</label>
+                      <a toggler ng-class="{'btnSelected': isActive('Today')}" ng-click="activeButton('Today')" class="btn btn-xs btn-filters">Today</a>
+                    </div>
+                  </div>
+
+                  <div class="col-xs-4 filter-bottom-filter-area">
+                    <div class="input-group filter-filters">
+                      <label class="control-label poid-label">Metric:</label>
+                      <a toggler ng-class="{'btnSelected': isActive('Orders')}" ng-click="activeButton('Orders')" class="btn btn-xs btn-filters">Orders</a>
+                      <a toggler ng-class="{'btnSelected': isActive('Declines')}" ng-click="activeButton('Declines')" class="btn btn-xs btn-filters">Declines</a>
+                      <a toggler ng-class="{'btnSelected': isActive('RMAs')}" ng-click="activeButton('RMAs')" class="btn btn-xs btn-filters">RMAs</a>
+                      <a toggler ng-class="{'btnSelected': isActive('Returns')}" ng-click="activeButton('Returns')" class="btn btn-xs btn-filters">Returns</a>
+                      <a toggler ng-class="{'btnSelected': isActive('Chargebacks')}" ng-click="activeButton('Chargebacks')" class="btn btn-xs btn-filters">Chargebacks</a>
+                      <a toggler ng-class="{'btnSelected': isActive('Cancellations')}" ng-click="activeButton('Cancellations')" class="btn btn-xs btn-filters">Cancellations</a>
+                      <a toggler ng-class="{'btnSelected': isActive('Opportunities')}" ng-click="activeButton('Opportunities')" class="btn btn-xs btn-filters">Opportunities</a>
+
+
+                    </div>
+                  </div>
+                  <div class="col-xs-4 filter-bottom-sort-area">
+                    <div class="input-group filter-sorts">
+                      <label class="control-label poid-label">Breakdown:</label>
+                      <a toggler ng-class="{'btnSelected': isActive('BusinessUnit')}" ng-click="activeButton('BusinessUnit')" class="btn btn-xs btn-filters">BusinessUnit</a>
+                      <a toggler ng-class="{'btnSelected': isActive('Campaign')}" ng-click="activeButton('Campaign')" class="btn btn-xs btn-filters">Campaign</a>
+                      <a toggler ng-class="{'btnSelected': isActive('Product')}" ng-click="activeButton('Product')" class="btn btn-xs btn-filters">Product</a>
+                      <a toggler ng-class="{'btnSelected': isActive('Region')}" ng-click="activeButton('Region')" class="btn btn-xs btn-filters">Region</a>
+                      <a toggler ng-class="{'btnSelected': isActive('Currency')}" ng-click="activeButton('Currency')" class="btn btn-xs btn-filters">Currency</a>
+                      <a toggler ng-class="{'btnSelected': isActive('Supplier')}" ng-click="activeButton('Supplier')" class="btn btn-xs btn-filters">Supplier</a>
+                      <a toggler ng-class="{'btnSelected': isActive('ServiceScheme')}" ng-click="activeButton('ServiceScheme')" class="btn btn-xs btn-filters">ServiceScheme</a>
+                      <a toggler ng-class="{'btnSelected': isActive('Account')}" ng-click="activeButton('Account')" class="btn btn-xs btn-filters">Account</a>
+                      <a toggler ng-class="{'btnSelected': isActive('Fulfillments')}" ng-click="activeButton('Fulfillments')" class="btn btn-xs btn-filters">Fulfillments</a>
+
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- /#page-content-wrapper -->
+
+  </div>
+  <div class="right-container" equalize-height>
+    <div id="rflyout20" equalize-height-add class="rflyout"></div>
+    <div id="rflyout19" equalize-height-add class="rflyout"></div>
+    <div id="rflyout18" equalize-height-add class="rflyout"></div>
+    <div id="rflyout17" equalize-height-add class="rflyout"></div>
+    <div id="rflyout16" equalize-height-add class="rflyout"></div>
+    <div id="rflyout15" equalize-height-add class="rflyout"></div>
+    <div id="rflyout14" equalize-height-add class="rflyout"></div>
+    <div id="rflyout13" equalize-height-add class="rflyout"></div>
+    <div id="rflyout12" equalize-height-add class="rflyout"></div>
+    <div id="rflyout11" equalize-height-add class="rflyout"></div>
+    <div id="rflyout10" equalize-height-add class="rflyout"></div>
+    <div id="rflyout9" equalize-height-add class="rflyout"></div>
+    <div id="rflyout8" equalize-height-add class="rflyout"></div>
+    <div id="rflyout7" equalize-height-add class="rflyout"></div>
+    <div id="rflyout6" equalize-height-add class="rflyout"></div>
+    <div id="rflyout5" equalize-height-add class="rflyout"></div>
+    <div id="rflyout4" equalize-height-add class="rflyout"></div>
+    <div id="rflyout3" equalize-height-add class="rflyout"></div>
+    <div id="rflyout2" equalize-height-add class="rflyout"></div>
+    <div id="rflyout1" equalize-height-add class="rflyout"></div>
+  </div>
+
+</div>
+
+<script>
+
+
+
+  function setDivVisibility() {
+    if (($(window).width()) <= '1200') {
+      $('.config-item').removeClass('card').addClass('list');
+    }
+    else if (($(window).width()) <= '1154') {
+      $('.ooid-name').removeClass('col-lg-5 col-md-7 col-xs-6').addClass('col-xs-8');
+      $('.ooid-pull-down').removeClass('col-lg-1 col-md-1 pull-right').addClass('col-xs-3');
+    }
+
+
+
+    else if (($(window).width()) <= '1037') {
+      $('.datepicker-boxes').removeClass('text-center').addClass('nopadding');
+    }
+
+    else if (($(window).width()) <= '918') {
+      $('.datepicker-boxes').removeClass('nopadding col-sm-5').addClass('col-sm-6');
+      $('.search-area').removeClass('col-sm-3').addClass('hide');
+
+    }
+
+    else if (($(window).width()) <= '802') {
+      $('.datepicker-boxes').removeClass('col-sm-6').addClass('col-sm-7');
+    }
+
+    else if (($(window).width()) <= '768') {
+      $('.datepicker-boxes').removeClass('col-sm-6').addClass('hide');
+    }
+  }
+
+  $(window).resize(setDivVisibility);
+
+
+</script>
+
+

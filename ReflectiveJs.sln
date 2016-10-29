@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectiveJs.Server.Logic",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectiveJs.Server.Utility", "ReflectiveJs.Server.Utility\ReflectiveJs.Server.Utility.csproj", "{302DA8CA-1CC0-4287-85AC-DD4DB4B2E06D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectiveJs.Client.Landlord", "ReflectiveJs.Client.Landlord\ReflectiveJs.Client.Landlord.csproj", "{E6B87FBF-2930-483E-A6CC-E879E65AF45B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectiveJs.Client.Tenant", "ReflectiveJs.Client.Tenant\ReflectiveJs.Client.Tenant.csproj", "{908E5DA6-B3BC-4170-9334-2342F7210E6F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{302DA8CA-1CC0-4287-85AC-DD4DB4B2E06D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{302DA8CA-1CC0-4287-85AC-DD4DB4B2E06D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{302DA8CA-1CC0-4287-85AC-DD4DB4B2E06D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6B87FBF-2930-483E-A6CC-E879E65AF45B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6B87FBF-2930-483E-A6CC-E879E65AF45B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6B87FBF-2930-483E-A6CC-E879E65AF45B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6B87FBF-2930-483E-A6CC-E879E65AF45B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{908E5DA6-B3BC-4170-9334-2342F7210E6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{908E5DA6-B3BC-4170-9334-2342F7210E6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{908E5DA6-B3BC-4170-9334-2342F7210E6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{908E5DA6-B3BC-4170-9334-2342F7210E6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

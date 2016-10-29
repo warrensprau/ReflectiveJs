@@ -1,0 +1,123 @@
+﻿.route:hover {
+  color: #fff;
+  background: #000;
+}
+
+.route {
+  width: 400px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.grid {
+  height: 200px;
+  background-color: #d3d3d3;
+}
+
+.serviceParam { padding: 5px }
+
+.clear { clear: both }
+
+#loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30000;
+  width: 400px;
+  text-align: center;
+  margin: auto;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.simpleProperty,
+.detailProperty { margin-top: 10px }
+
+.verticalListItem {
+  height: auto;
+  width: 86%;
+  margin: 1em;
+  padding: 1em;
+}
+
+.editField:hover >.helpText { display: inline }
+
+input.ng-invalid {
+  border-color: #da4453;
+  box-shadow: none;
+}
+
+input.ng-valid.ng-touched {
+  border-color: none;
+  box-shadow: none;
+}
+
+.routeCount {
+  display: inline-block;
+  width: 50px;
+  text-align: right;
+}
+
+.flyoutContents,
+.editField { padding: 10px }
+
+.btn { margin: 2px }
+
+
+.k-block,
+.k-widget,
+.k-popup,
+.k-content,
+.k-toolbar,
+.k-dropdown .k-input { color: #333 }
+
+.k-header,
+.k-treemap-title,
+.k-grid-header .k-header > .k-link {
+  color: black;
+}
+
+
+div.k-grid-header { border-bottom: 3px solid #03a9f4 }
+
+.k-grid-content {
+  border-bottom: 3px solid #03a9f4;
+  margin-bottom: -1px;
+  z-index: 3;
+}
+
+.k-grid .k-pager-numbers { z-index: 3 }
+
+.k-grid-header th.k-header { padding: 12px 8px 12px 8px }
+
+.k-grid-header-wrap { border: none }
+
+
+.k-state-selected, .k-state-selected:link, .k-state-selected:visited, .k-list > .k-state-selected, .k-list > .k-state-highlight, .k-panel > .k-state-selected, .k-ghost-splitbar-vertical, .k-ghost-splitbar-horizontal, .k-draghandle.k-state-selected:hover, .k-scheduler .k-scheduler-toolbar .k-state-selected, .k-scheduler .k-today.k-state-selected, .k-marquee-color{
+    color:#fff;
+    background-color:#03a9f4;
+    border-color: #03a9f4;
+}
+
+div.k-grid-header, div.k-grid-footer{
+    padding-right:0!important;
+}
+
+.k-grid tr:hover{
+    color: #1e1e20;
+  background-color:#EEEEEE;
+}
+
+.k-grid tr:hover .k-state-focused, .k-grid tr.k-state-selected:hover td, .k-grid tr .k-state-focused.k-state-selected, .k-grid tr.k-state-selected td.k-state-focused, .k-grid tr:hover .k-state-focused.k-state-selected, .k-grid tr.k-state-selected:hover td.k-state-focused{
+  box-shadow:none
+}
+.k-alt, .k-separator, .k-resource.k-alt, .k-pivot-layout > tbody > tr:first-child > td:first-child{
+  background-color:transparent;
+}
+.k-state-hover, .k-state-hover:hover, .k-splitbar-horizontal-hover:hover, .k-splitbar-vertical-hover:hover, .k-list > .k-state-hover, .k-scheduler .k-scheduler-toolbar ul li.k-state-hover, .k-pager-wrap .k-link:hover, .k-dropdown .k-state-focused, .k-filebrowser-dropzone, .k-mobile-list .k-item > .k-link:active, .k-mobile-list .k-item > .k-label:active, .k-mobile-list .k-edit-label.k-check:active, .k-mobile-list .k-recur-view .k-check:active{
+    border-color: #03a9f4;
+}
