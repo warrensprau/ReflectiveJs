@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
@@ -24,8 +25,12 @@ namespace ReflectiveJs.Server.Api
         public void ConfigureAuth(IAppBuilder app)
         {
             // Configure the db context and user manager to use a single instance per request
-            app.CreatePerOwinContext(ApplicationDbContext.Create);
+            //app.CreatePerOwinContext(ApplicationDbContext.Create);
+            //app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
+            app.CreatePerOwinContext<ApplicationDbContext>(CreateApplicationDbContext);
+            app.CreatePerOwinContext<ApplicationContextProvider>(CreateApplicationContextProvider);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
+            app.CreatePerOwinContext<ApplicationRoleManager>(ApplicationRoleManager.Create);
 
             // Enable the application to use a cookie to store information for the signed in user
             // and to use a cookie to temporarily store information about a user logging in with a third party login provider
@@ -65,6 +70,22 @@ namespace ReflectiveJs.Server.Api
             //    ClientId = "",
             //    ClientSecret = ""
             //});
+        }
+
+        public static ApplicationDbContext CreateApplicationDbContext(IdentityFactoryOptions<ApplicationDbContext> options, IOwinContext context)
+        {
+            //Sharding sharding = new Sharding();
+            //string connString = "";
+
+            //var tenantId = context.Request.Query.Get("tenantId");
+            //var dbContext = new ApplicationDbContext(sharding.ShardMap, tenantId, connString);
+
+            return new ApplicationDbContext();
+        }
+
+        public ApplicationContextProvider CreateApplicationContextProvider(IdentityFactoryOptions<ApplicationContextProvider> options, IOwinContext context)
+        {
+            return new ApplicationContextProvider();
         }
     }
 }

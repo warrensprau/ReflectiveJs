@@ -22,14 +22,14 @@ namespace ReflectiveJs.Server.Utility {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class CommonText {
+    public class OrganizationalText {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal CommonText() {
+        internal OrganizationalText() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace ReflectiveJs.Server.Utility {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ReflectiveJs.Server.Utility.CommonText", typeof(CommonText).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ReflectiveJs.Server.Utility.OrganizationalText", typeof(OrganizationalText).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,56 +61,47 @@ namespace ReflectiveJs.Server.Utility {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Created.
+        ///   Looks up a localized string similar to Addresses.
         /// </summary>
-        public static string FieldName_Created {
+        public static string FieldName_OrgAddresses {
             get {
-                return ResourceManager.GetString("FieldName_Created", resourceCulture);
+                return ResourceManager.GetString("FieldName_OrgAddresses", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Created By.
+        ///   Looks up a localized string similar to Children.
         /// </summary>
-        public static string FieldName_CreatedBy {
+        public static string FieldName_OrgChildren {
             get {
-                return ResourceManager.GetString("FieldName_CreatedBy", resourceCulture);
+                return ResourceManager.GetString("FieldName_OrgChildren", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Description.
+        ///   Looks up a localized string similar to Members.
         /// </summary>
-        public static string FieldName_EnumDescription {
+        public static string FieldName_OrgMembers {
             get {
-                return ResourceManager.GetString("FieldName_EnumDescription", resourceCulture);
+                return ResourceManager.GetString("FieldName_OrgMembers", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
-        public static string FieldName_EnumName {
+        public static string FieldName_OrgName {
             get {
-                return ResourceManager.GetString("FieldName_EnumName", resourceCulture);
+                return ResourceManager.GetString("FieldName_OrgName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Last Updated.
+        ///   Looks up a localized string similar to Parent.
         /// </summary>
-        public static string FieldName_LastUpdated {
+        public static string FieldName_OrgParent {
             get {
-                return ResourceManager.GetString("FieldName_LastUpdated", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Last Updated By.
-        /// </summary>
-        public static string FieldName_LastUpdatedBy {
-            get {
-                return ResourceManager.GetString("FieldName_LastUpdatedBy", resourceCulture);
+                return ResourceManager.GetString("FieldName_OrgParent", resourceCulture);
             }
         }
     }

@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectiveJs.Client.Landlor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectiveJs.Client.Tenant", "ReflectiveJs.Client.Tenant\ReflectiveJs.Client.Tenant.csproj", "{908E5DA6-B3BC-4170-9334-2342F7210E6F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectiveJs.Test.Server.Api", "ReflectiveJs.Test.Server.Api\ReflectiveJs.Test.Server.Api.csproj", "{33608197-1B5D-4440-AFE1-58FAEFFE56FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{908E5DA6-B3BC-4170-9334-2342F7210E6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{908E5DA6-B3BC-4170-9334-2342F7210E6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{908E5DA6-B3BC-4170-9334-2342F7210E6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33608197-1B5D-4440-AFE1-58FAEFFE56FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33608197-1B5D-4440-AFE1-58FAEFFE56FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33608197-1B5D-4440-AFE1-58FAEFFE56FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33608197-1B5D-4440-AFE1-58FAEFFE56FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

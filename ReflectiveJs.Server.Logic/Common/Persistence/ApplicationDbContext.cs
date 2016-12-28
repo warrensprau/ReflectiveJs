@@ -5,10 +5,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity.EntityFramework;
 using ReflectiveJs.Server.Model.Common;
+using ReflectiveJs.Server.Model.Organizational;
 
 namespace ReflectiveJs.Server.Logic.Common.Persistence
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<User>
     {
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -87,5 +88,9 @@ namespace ReflectiveJs.Server.Logic.Common.Persistence
 
             return base.SaveChangesAsync();
         }
+
+        public DbSet<Member> Members { get; set; }
+        public DbSet<Org> Orgs { get; set; }
+        public DbSet<OrgMember> OrgMembers { get; set; }
     }
 }

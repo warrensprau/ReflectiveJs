@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Execution\Caller.cs" />
+    <Compile Include="Common\Execution\ICaller.cs" />
     <Compile Include="Common\Persistence\ApplicationDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -48,7 +50,12 @@
       <Project>{b3d7d349-0fcb-4591-8f2d-7b6fdbbf72de}</Project>
       <Name>ReflectiveJs.Server.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ReflectiveJs.Server.Utility\ReflectiveJs.Server.Utility.csproj">
+      <Project>{302DA8CA-1CC0-4287-85AC-DD4DB4B2E06D}</Project>
+      <Name>ReflectiveJs.Server.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

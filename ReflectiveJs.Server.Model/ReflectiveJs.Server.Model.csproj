@@ -40,10 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\ApplicationUser.cs" />
+    <Compile Include="Common\EnumType.cs" />
+    <Compile Include="Common\User.cs" />
     <Compile Include="Common\AuditedEntity.cs" />
     <Compile Include="Common\BaseEntity.cs" />
     <Compile Include="Common\IAuditable.cs" />
+    <Compile Include="Organizational\Member.cs" />
+    <Compile Include="Organizational\Org.cs" />
+    <Compile Include="Organizational\OrgMember.cs" />
+    <Compile Include="Organizational\Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +57,7 @@
       <Name>ReflectiveJs.Server.Utility</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

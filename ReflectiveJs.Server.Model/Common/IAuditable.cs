@@ -10,7 +10,7 @@ namespace ReflectiveJs.Server.Model.Common
         DateTime? Created { get; set; }
         DateTime? LastUpdated { get; set; }
 
-        ApplicationUser CreatedBy { get; set; }
-        ApplicationUser LastUpdatedBy { get; set; }
+        User CreatedBy { get; set; }
+        User LastUpdatedBy { get; set; }
     }
 }

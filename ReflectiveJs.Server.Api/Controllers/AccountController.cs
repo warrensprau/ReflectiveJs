@@ -323,7 +323,7 @@ namespace ReflectiveJs.Server.Api.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser {UserName = model.Email, Email = model.Email};
+            var user = new User {UserName = model.Email, Email = model.Email};
 
             var result = await UserManager.CreateAsync(user, model.Password);
 
@@ -352,7 +352,7 @@ namespace ReflectiveJs.Server.Api.Controllers
                 return InternalServerError();
             }
 
-            var user = new ApplicationUser {UserName = model.Email, Email = model.Email};
+            var user = new User {UserName = model.Email, Email = model.Email};
 
             var result = await UserManager.CreateAsync(user);
             if (!result.Succeeded)

@@ -40,6 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Error.cs" />
+    <Compile Include="OrganizationalText.Designer.cs">
+      <DependentUpon>OrganizationalText.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="CommonText.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -48,6 +54,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="OrganizationalText.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>OrganizationalText.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CommonText.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>CommonText.Designer.cs</LastGenOutput>

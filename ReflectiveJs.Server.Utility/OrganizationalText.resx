@@ -117,22 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="FieldName_Created" xml:space="preserve">
-    <value>Created</value>
+  <data name="FieldName_OrgAddresses" xml:space="preserve">
+    <value>Addresses</value>
   </data>
-  <data name="FieldName_CreatedBy" xml:space="preserve">
-    <value>Created By</value>
+  <data name="FieldName_OrgChildren" xml:space="preserve">
+    <value>Children</value>
   </data>
-  <data name="FieldName_EnumDescription" xml:space="preserve">
-    <value>Description</value>
+  <data name="FieldName_OrgMembers" xml:space="preserve">
+    <value>Members</value>
   </data>
-  <data name="FieldName_EnumName" xml:space="preserve">
+  <data name="FieldName_OrgName" xml:space="preserve">
     <value>Name</value>
   </data>
-  <data name="FieldName_LastUpdated" xml:space="preserve">
-    <value>Last Updated</value>
-  </data>
-  <data name="FieldName_LastUpdatedBy" xml:space="preserve">
-    <value>Last Updated By</value>
+  <data name="FieldName_OrgParent" xml:space="preserve">
+    <value>Parent</value>
   </data>
 </root>

@@ -17,12 +17,12 @@ namespace ReflectiveJs.Server.Model.Common
         [ForeignKey("CreatedBy")]
         public string CreatedById { get; set; }
 
-        public virtual ApplicationUser CreatedBy { get; set; }
+        public virtual User CreatedBy { get; set; }
 
         [Display(ResourceType = typeof(CommonText), Name = "FieldName_LastUpdatedBy", Order = 10)]
         [ForeignKey("LastUpdatedBy")]
         public string LastUpdatedById { get; set; }
 
-        public virtual ApplicationUser LastUpdatedBy { get; set; }
+        public virtual User LastUpdatedBy { get; set; }
     }
 }
