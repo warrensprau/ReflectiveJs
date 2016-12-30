@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -28,7 +29,6 @@ namespace ReflectiveJs.Server.Api
             //app.CreatePerOwinContext(ApplicationDbContext.Create);
             //app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.CreatePerOwinContext<ApplicationDbContext>(CreateApplicationDbContext);
-            app.CreatePerOwinContext<ApplicationContextProvider>(CreateApplicationContextProvider);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.CreatePerOwinContext<ApplicationRoleManager>(ApplicationRoleManager.Create);
 
@@ -70,6 +70,29 @@ namespace ReflectiveJs.Server.Api
             //    ClientId = "",
             //    ClientSecret = ""
             //});
+
+            InitializeSharding(app);
+        }
+
+        public static void InitializeSharding(IAppBuilder app)
+        {
+            var connStrBldr = new SqlConnectionStringBuilder
+            {
+                UserID = "landlord",
+                Password = "Landl0rd.",
+                ApplicationName = "reflective"
+            };
+
+            // Bootstrap the shard map manager, register shards, and store mappings of tenants to shards 
+            // Note that you can keep working with existing shard maps. There is no need to  
+            // re-create and populate the shard map from scratch every time. 
+            Console.WriteLine("Checking for existing shard map and creating new shard map if necessary.");
+
+            var shardMgr = new ShardManager("tcp:reflective.database.windows.net,1433", "reflective_landlord", connStrBldr.ConnectionString);
+            shardMgr.RegisterNewShard("tcp:reflective.database.windows.net,1433", "reflective_client1", connStrBldr.ConnectionString, 1);
+            shardMgr.RegisterNewShard("tcp:reflective.database.windows.net,1433", "reflective_client2", connStrBldr.ConnectionString, 2);
+
+            AppGlobals.ShardManager = shardMgr;
         }
 
         public static ApplicationDbContext CreateApplicationDbContext(IdentityFactoryOptions<ApplicationDbContext> options, IOwinContext context)
@@ -80,12 +103,7 @@ namespace ReflectiveJs.Server.Api
             //var tenantId = context.Request.Query.Get("tenantId");
             //var dbContext = new ApplicationDbContext(sharding.ShardMap, tenantId, connString);
 
-            return new ApplicationDbContext();
-        }
-
-        public ApplicationContextProvider CreateApplicationContextProvider(IdentityFactoryOptions<ApplicationContextProvider> options, IOwinContext context)
-        {
-            return new ApplicationContextProvider();
+            return new ApplicationDbContext(AppGlobals.ShardManager.ShardMap, 1, AppGlobals.ShardManager.ConnectionString);
         }
     }
 }

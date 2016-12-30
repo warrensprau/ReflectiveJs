@@ -7,6 +7,7 @@ using Breeze.WebApi2;
 using Microsoft.AspNet.Identity.Owin;
 using Newtonsoft.Json.Linq;
 using ReflectiveJs.Server.Api.Providers;
+using ReflectiveJs.Server.Logic.Common.Persistence;
 
 namespace ReflectiveJs.Server.Api.Controllers
 {
@@ -25,7 +26,7 @@ namespace ReflectiveJs.Server.Api.Controllers
             get
             {
                 return _contextProvider ??
-                       (_contextProvider = Request.GetOwinContext().Get<ApplicationContextProvider>());
+                       (_contextProvider = new ApplicationContextProvider(Request.GetOwinContext().Get<ApplicationDbContext>()));
             }
             private set { _contextProvider = value; }
         }
