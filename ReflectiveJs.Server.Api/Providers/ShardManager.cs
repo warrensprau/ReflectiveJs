@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement;
+using ReflectiveJs.Server.Api.App_Data;
 using ReflectiveJs.Server.Logic.Common.Persistence;
 
 namespace ReflectiveJs.Server.Api.Providers
@@ -16,11 +18,14 @@ namespace ReflectiveJs.Server.Api.Providers
 
         public string ConnectionString { get; set; }
 
+        public IDatabaseInitializer<ApplicationDbContext> ShardInitializer { get; set; }
+
         // Bootstrap Elastic Scale by creating a new shard map manager and a shard map on  
         // the shard map manager database if necessary. 
-        public ShardManager(string smmserver, string smmdatabase, string smmconnstr)
+        public ShardManager(string smmserver, string smmdatabase, string smmconnstr, IDatabaseInitializer<ApplicationDbContext> shardInitializer)
         {
             this.ConnectionString = smmconnstr;
+            this.ShardInitializer = shardInitializer;
 
             // Connection string with administrative credentials for the root database 
             SqlConnectionStringBuilder connStrBldr = new SqlConnectionStringBuilder(smmconnstr);
@@ -70,6 +75,8 @@ namespace ReflectiveJs.Server.Api.Providers
             // This requires an un-opened connection. 
             using (var db = new ApplicationDbContext(connStrBldr.ConnectionString))
             {
+                Database.SetInitializer<ApplicationDbContext>(ShardInitializer);
+
                 // Run a query to engage EF migrations 
                 (from b in db.Members
                  select b).Count();
