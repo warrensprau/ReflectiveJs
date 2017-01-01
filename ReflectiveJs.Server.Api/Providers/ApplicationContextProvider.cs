@@ -27,7 +27,7 @@ namespace ReflectiveJs.Server.Api.Providers
 
         private readonly ApplicationDbContext _applicationDbContext;
 
-        protected virtual ApplicationDbContext CreateContext()
+        protected override ApplicationDbContext CreateContext()
         {
             return _applicationDbContext;
         }

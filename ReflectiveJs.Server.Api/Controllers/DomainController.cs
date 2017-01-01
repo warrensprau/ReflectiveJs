@@ -11,6 +11,13 @@ namespace ReflectiveJs.Server.Api.Controllers
     [BreezeController]
     public class DomainController : NTierController
     {
+        [Route("Orgs")]
+        [HttpGet]
+        public IQueryable<Org> Orgs()
+        {
+            return ContextProvider.Context.Orgs;
+        }
+
         [Route("Members")]
         [HttpGet]
         public IQueryable<Member> Members()

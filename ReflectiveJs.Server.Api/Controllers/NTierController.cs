@@ -26,7 +26,7 @@ namespace ReflectiveJs.Server.Api.Controllers
             get
             {
                 return _contextProvider ??
-                       (_contextProvider = new ApplicationContextProvider(Request.GetOwinContext().Get<ApplicationDbContext>()));
+                       (_contextProvider = new ApplicationContextProvider(DbContext));
             }
             private set { _contextProvider = value; }
         }
