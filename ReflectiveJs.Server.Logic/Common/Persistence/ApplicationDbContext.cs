@@ -21,16 +21,8 @@ namespace ReflectiveJs.Server.Logic.Common.Persistence
 
         // C'tor to deploy schema and migrations to a new shard 
         public ApplicationDbContext(string connectionString) 
-            : base(SetInitializerForConnection(connectionString)) 
+            : base(connectionString) 
         {
-        }
-
-        // Only static methods are allowed in calls into base class c'tors 
-        private static string SetInitializerForConnection(string connnectionString)
-        {
-            // We want existence checks so that the schema can get deployed 
-            Database.SetInitializer<ApplicationDbContext>(new CreateDatabaseIfNotExists<ApplicationDbContext>());
-            return connnectionString;
         }
 
         // C'tor for data dependent routing. This call will open a validated connection routed to the proper 

@@ -10,6 +10,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
+using ReflectiveJs.Server.Api.App_Data;
 using ReflectiveJs.Server.Api.Providers;
 using ReflectiveJs.Server.Api.Models;
 using ReflectiveJs.Server.Logic.Common.Persistence;
@@ -88,9 +89,9 @@ namespace ReflectiveJs.Server.Api
             // re-create and populate the shard map from scratch every time. 
             Console.WriteLine("Checking for existing shard map and creating new shard map if necessary.");
 
-            var shardMgr = new ShardManager("tcp:reflective.database.windows.net,1433", "reflective_landlord", connStrBldr.ConnectionString);
+            var shardMgr = new ShardManager("tcp:reflective.database.windows.net,1433", "reflective_landlord", connStrBldr.ConnectionString, new TenantModelInitializer(new TenantSeeder()));
             shardMgr.RegisterNewShard("tcp:reflective.database.windows.net,1433", "reflective_client1", connStrBldr.ConnectionString, 1);
-            shardMgr.RegisterNewShard("tcp:reflective.database.windows.net,1433", "reflective_client2", connStrBldr.ConnectionString, 2);
+            //shardMgr.RegisterNewShard("tcp:reflective.database.windows.net,1433", "reflective_client2", connStrBldr.ConnectionString, 2);
 
             AppGlobals.ShardManager = shardMgr;
         }
