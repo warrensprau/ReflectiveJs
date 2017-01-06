@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Web.WebPages;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -72,7 +73,7 @@ namespace ReflectiveJs.Server.Api
             //    ClientSecret = ""
             //});
 
-            InitializeSharding(app);
+            //InitializeSharding(app);
         }
 
         public static void InitializeSharding(IAppBuilder app)
@@ -101,10 +102,14 @@ namespace ReflectiveJs.Server.Api
             //Sharding sharding = new Sharding();
             //string connString = "";
 
-            //var tenantId = context.Request.Query.Get("tenantId");
-            //var dbContext = new ApplicationDbContext(sharding.ShardMap, tenantId, connString);
+            var tenantIdString = context.Request.Query.Get("tenantId");
+            var tenantId = tenantIdString?.AsInt() ?? -1;
 
-            return new ApplicationDbContext(AppGlobals.ShardManager.ShardMap, 1, AppGlobals.ShardManager.ConnectionString);
+            if (tenantId < 0)
+            {
+                throw new Exception("Tenant Id missing.");
+            }
+            return new ApplicationDbContext(AppGlobals.ShardManager.ShardMap, tenantId, AppGlobals.ShardManager.ConnectionString);
         }
     }
 }
