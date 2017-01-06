@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net.Http;
 using System.Web.Http;
 using Breeze.ContextProvider;
 using Breeze.WebApi2;
-using Microsoft.AspNet.Identity.Owin;
 using Newtonsoft.Json.Linq;
 using ReflectiveJs.Server.Api.Providers;
-using ReflectiveJs.Server.Logic.Common.Persistence;
 
 namespace ReflectiveJs.Server.Api.Controllers
 {
@@ -15,11 +12,6 @@ namespace ReflectiveJs.Server.Api.Controllers
     public class NTierController : ResourceController
     {
         private ApplicationContextProvider _contextProvider;
-
-        public NTierController()
-            : base()
-        {
-        }
 
         protected ApplicationContextProvider ContextProvider
         {

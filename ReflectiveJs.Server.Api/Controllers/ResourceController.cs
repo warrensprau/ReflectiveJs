@@ -14,16 +14,11 @@ namespace ReflectiveJs.Server.Api.Controllers
     public class ResourceController : ApiController
     {
         private static readonly ResourceManager ResourceManager = new ResourceManager(typeof(CommonText));
-
-        private ApplicationDbContext _dbContext;
         private ICaller _caller;
 
-        private ApplicationUserManager _userManager;
+        private ApplicationDbContext _dbContext;
 
-        public ResourceController()
-            : base()
-        {
-        }
+        private ApplicationUserManager _userManager;
 
         protected ICaller Caller
         {
@@ -59,12 +54,8 @@ namespace ReflectiveJs.Server.Api.Controllers
 
         protected ApplicationDbContext DbContext
         {
-            get
-            {
-                return _dbContext ?? (_dbContext = Request.GetOwinContext().Get<ApplicationDbContext>());
-            }
+            get { return _dbContext ?? (_dbContext = Request.GetOwinContext().Get<ApplicationDbContext>()); }
             private set { _dbContext = value; }
-
         }
 
         protected ApplicationUserManager UserManager
@@ -73,10 +64,7 @@ namespace ReflectiveJs.Server.Api.Controllers
             {
                 return _userManager ?? (_userManager = Request.GetOwinContext().GetUserManager<ApplicationUserManager>());
             }
-            private set
-            {
-                _userManager = value;
-            }
+            private set { _userManager = value; }
         }
 
         protected override void Dispose(bool disposing)
