@@ -51,6 +51,7 @@
     <Compile Include="Organizational\OrgMember.cs" />
     <Compile Include="Organizational\Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\UiAction.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ReflectiveJs.Server.Utility\ReflectiveJs.Server.Utility.csproj">

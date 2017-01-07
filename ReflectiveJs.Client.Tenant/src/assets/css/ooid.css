@@ -1,0 +1,948 @@
+﻿.left-container {
+  position: fixed;
+  background-color: transparent;
+}
+
+.ooid-top {
+  position: relative;
+  height: 40px;
+  width: 100%;
+  background-color: #fff;
+}
+
+.ooid-top-title {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+}
+
+.ooid-icon-top { margin-top: 10px }
+
+.ooid-top-title-span {
+  position: absolute;
+  bottom: 2px;
+}
+
+.ooid-start { margin-top: 5px }
+
+.ooid-space{
+  margin-top: 25px;
+  margin-bottom: 5px;
+}
+
+
+.ooid-content {
+  height: 100vh;
+  width: 100%;
+  background: #fff;
+  padding-bottom: 50px;
+  overflow: scroll;
+}
+
+.ooid-content::-webkit-scrollbar { width: 0 !important }
+
+
+.ooid-search{
+  width:100%;
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid #45494c;
+  background-color:transparent;
+  box-shadow:none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+        border-radius: 0;
+}
+
+.ooid-search:focus{
+   outline:none;
+   box-shadow:none;
+}
+
+.ooid-bar{
+   position:relative;
+   display:block;
+   width:100%;
+}
+.ooid-bar:before, .ooid-bar:after 	{
+  content:'';
+  height:2px; 
+  width:0;
+  bottom:4px; 
+  position:absolute;
+  background:#2793d1; 
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+.ooid-bar:before {
+  left:50%;
+}
+.ooid-bar:after {
+  right:50%; 
+}
+.ooid-search:focus ~ .ooid-bar:before, .ooid-search:focus ~ .ooid-bar:after {
+  width:50%;
+}
+.ooid-select {
+  height: 29px;
+  padding: 2px 2px 1px;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1px solid #45494c;
+  border-left: 0;
+  background: none;
+  border-radius: 0;
+  line-height: 1.6;
+  box-shadow: none;
+  cursor: pointer;
+}
+.caret {
+  float: right;
+  margin-top: 10px;
+}
+.drop-down {
+  position: relative;
+  width: 70%;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  cursor: pointer;
+  -webkit-transition: all 0.15s linear;
+  -moz-transition: all 0.15s linear;
+  -ms-transition: all 0.15s linear;
+  -o-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+}
+.drop-down ul { margin: 0 }
+.drop-down li {
+  list-style: none;
+  border-bottom: 1px solid #ecf0f1;
+}
+.drop-down li.AllBlack {
+  -webkit-box-shadow: 3px 0 0 #1e1e20 inset;
+  -moz-box-shadow: 3px 0 0 #1e1e20 inset;
+  box-shadow: 3px 0 0 #1e1e20 inset;
+}
+
+.drop-down li.Campaign {
+  -webkit-box-shadow: 3px 0 0 #d870a9 inset;
+  -moz-box-shadow: 3px 0 0 #d870a9 inset;
+  box-shadow: 3px 0 0 #d870a9 inset;
+}
+
+.drop-down li.ClientOrg {
+  -webkit-box-shadow: 3px 0 0 #f6ba59 inset;
+  -moz-box-shadow: 3px 0 0 #f6ba59 inset;
+  box-shadow: 3px 0 0 #f6ba59 inset;
+}
+
+.drop-down li.Unit {
+  -webkit-box-shadow: 3px 0 0 #f6ba59 inset;
+  -moz-box-shadow: 3px 0 0 #f6ba59 inset;
+  box-shadow: 3px 0 0 #f6ba59 inset;
+}
+
+.drop-down li.Product {
+  -webkit-box-shadow: 3px 0 0 #e95546 inset;
+  -moz-box-shadow: 3px 0 0 #e95546 inset;
+  box-shadow: 3px 0 0 #e95546 inset;
+}
+
+.drop-down li.User {
+  -webkit-box-shadow: 3px 0 0 #977bd5 inset;
+  -moz-box-shadow: 3px 0 0 #977bd5 inset;
+  box-shadow: 3px 0 0 #977bd5 inset;
+}
+
+.drop-down li.Account {
+  -webkit-box-shadow: 3px 0 0 #8bc163 inset;
+  -moz-box-shadow: 3px 0 0 #8bc163 inset;
+  box-shadow: 3px 0 0 #8bc163 inset;
+}
+
+.drop-down li.Supplier {
+  -webkit-box-shadow: 3px 0 0#4b8ad6 inset;
+  -moz-box-shadow: 3px 0 0#4b8ad6 inset;
+  box-shadow: 3px 0 0#4b8ad6 inset;
+}
+
+.drop-down li.Catalogue {
+  -webkit-box-shadow: 3px 0 0#556270 inset;
+  -moz-box-shadow: 3px 0 0#556270 inset;
+  box-shadow: 3px 0 0#556270 inset;
+}
+
+.drop-down li.Template {
+  -webkit-box-shadow: 3px 0 0#FF9F80 inset;
+  -moz-box-shadow: 3px 0 0#FF9F80 inset;
+  box-shadow: 3px 0 0 #FF9F80 inset;
+}
+
+.drop-down li.ServiceConfig {
+  -webkit-box-shadow: 3px 0 0#64B6B1 inset;
+  -moz-box-shadow: 3px 0 0#64B6B1 inset;
+  box-shadow: 3px 0 0 #64B6B1 inset;
+}
+
+.drop-down li.Scheme {
+  -webkit-box-shadow: 3px 0 0#FFCC00 inset;
+  -moz-box-shadow: 3px 0 0#FFCC00 inset;
+   box-shadow: 3px 0 0 #FFCC00 inset;
+}
+
+.drop-down li.Warehouse {
+  -webkit-box-shadow: 3px 0 0#0B486B inset;
+  -moz-box-shadow: 3px 0 0#0B486B inset;
+   box-shadow: 3px 0 0 #0B486B inset;
+}
+.drop-down li.Outlet {
+  -webkit-box-shadow: 3px 0 0#c6af92 inset;
+  -moz-box-shadow: 3px 0 0#c6af92 inset;
+   box-shadow: 3px 0 0 #c6af92 inset;
+}
+.drop-down li.ProductLine{
+    -webkit-box-shadow: 3px 0 0#774F38 inset;
+  -moz-box-shadow: 3px 0 0#774F38 inset;
+   box-shadow: 3px 0 0 #774F38 inset;
+}
+
+.drop-down li.Schedule{
+    -webkit-box-shadow: 3px 0 0#C5E0DC inset;
+  -moz-box-shadow: 3px 0 0#C5E0DC inset;
+   box-shadow: 3px 0 0 #C5E0DC inset;
+}
+
+ .drop-down li.Goal {
+    -webkit-box-shadow: 3px 0 0#FF9C5B inset;
+    -moz-box-shadow: 3px 0 0#FF9C5B inset;
+    box-shadow: 3px 0 0 #FF9C5B inset;
+  }
+
+
+.drop-down a {
+  padding: 7px 15px;
+  display: block;
+  color: #1e1e20;
+}
+
+.drop-down li:hover,
+.drop-down a:hover { text-decoration: none }
+
+
+.toggler-container { min-height: 30px }
+
+.toggler {
+  color: #A1A1A4;
+  font-size: 1.25em;
+  margin-left: 8px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.toggler-refresh {
+    color: #A1A1A4;
+    font-size: 1.25em;
+    margin-left: 8px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.toggler.active { color: #556270 }
+
+.repeaterSpace { padding-bottom: 100px }
+
+.ooid-icon-padding { padding-right: 10px }
+
+.fa-plus.AllBlack { color: #1e1e20 }
+
+.fa-plus.ClientOrg { color: #f6ba59 }
+
+.fa-plus.Unit { color: #f6ba59 }
+
+.fa-plus.Product { color: #e95546 }
+
+.fa-plus.Campaign { color: #d870a9 }
+
+.fa-plus.User { color: #977bd5 }
+
+.fa-plus.Account { color: #8bc163 }
+
+.fa-plus.SupplierOrg { color: #4b8ad6 }
+
+.fa-plus.Supplier { color: #4b8ad6 }
+
+.fa-plus.Catalogue {color:#556270}
+
+.fa-plus.Template {color:#FF9F80}
+
+.fa-plus.ServiceConfig {color:#64B6B1}
+
+.fa-plus.ServiceScheme{color:#FFCC00}
+
+.fa-plus.Warehouse{color:#0B486B}
+
+.fa-plus.Outlet {color:#c6af92;}
+
+.fa-plus.ProductLine{color:#774F38}
+
+.fa-plus.FulfillmentSchedule{ color:#C5E0DC;}
+
+.fa-plus.Goal{color:#FF9C5B;}
+
+.fa-circle.AllBlack { color: #1e1e20 }
+
+.fa-circle.ClientOrg {
+  color: #f6ba59;
+  margin-left: -10px;
+}
+
+.fa-circle.Product {
+  color: #e95546;
+  margin-left: -10px;
+}
+
+.fa-circle.Campaign {
+  color: #d870a9;
+  margin-left: -10px;
+}
+
+.fa-circle.Associate {
+  color: #977bd5;
+  margin-left: -10px;
+}
+
+.fa-circle.Account {
+  color: #8bc163;
+  margin-left: -10px;
+}
+
+.fa-circle.SupplierOrg {
+  color: #4b8ad6;
+  margin-left: -10px;
+}
+
+.fa-circle.Supplier {
+  color: #4b8ad6;
+  margin-left: -10px;
+}
+
+.fa-circle.Catalogue {
+  color:#556270;
+  margin-left: -10px;
+}
+
+.fa-circle.MessageTemplate {
+  color: #FF9F80;
+  margin-left: -10px;
+}
+
+.fa-circle.ServiceConfig {
+  color: #64B6B1;
+  margin-left: -10px;
+}
+
+.fa-circle.ServiceScheme {
+  color: #FFCC00;
+  margin-left: -10px;
+}
+
+.fa-circle.Warehouse {
+  color: #0B486B;
+  margin-left:-10px;
+}
+
+.fa-circle.SalesOutlet {
+  color:#c6af92;
+  margin-left:-10px;
+}
+
+.fa-circle.ProductLine {
+  color: #774F38;
+  margin-left: -10px;
+}
+
+.fa-circle.FulfillmentSchedule{
+  color:#C5E0DC;
+  margin-left:-10px;
+}
+
+.fa-circle.Goal{
+  color:#FF9C5B;
+  margin-left:-10px;
+}
+
+.fa-circle.ClientOrg.cardCircle {
+  color: #f6ba59;
+  margin-left: 0;
+}
+
+.fa-circle.Product.cardCircle {
+  color: #e95546;
+  margin-left: 0;
+}
+
+.fa-circle.Campaign.cardCircle {
+  color: #d870a9;
+  margin-left: 0;
+}
+
+.fa-circle.Associate.cardCircle {
+  color: #977bd5;
+  margin-left: 0;
+}
+
+.fa-circle.Account.cardCircle {
+  color: #8bc163;
+  margin-left: 0;
+}
+
+.fa-circle.SupplierOrg.cardCircle {
+  color: #4b8ad6;
+  margin-left: 0;
+}
+
+.fa-circle.Supplier.cardCircle {
+  color: #4b8ad6;
+  margin-left: 0;
+}
+
+.fa-circle.Catalogue.cardCircle {
+  color:#556270;
+  margin-left: 0;
+}
+
+.fa-circle.NotificationTemplate.cardCircle {
+   color: #FF9F80;
+   margin-left: 0;
+}
+
+.fa-circle.ServiceConfig.cardCircle {
+   color: #64B6B1;
+   margin-left: 0;
+}
+
+.fa-circle.ServiceScheme.cardCircle {
+  color: #FFCC00;
+  margin-left: 0;
+}
+
+.fa-circle.Warehouse.cardCircle {
+  color: #0B486B;
+  margin-left: 0;
+}
+
+
+.fa-circle.SalesOutlet.cardCircle {
+  color:#c6af92;
+  margin-left: 0;
+}
+
+.fa-circle.ProductLine.cardCircle {
+  color: #774F38;
+  margin-left: 0;
+}
+
+.fa-circle.FulfillmentSchedule.cardCircle{
+  color:#C5E0DC;
+  margin-left:0;
+}
+
+.fa-circle.Goal.cardCircle{
+  color:#FF9C5B;
+  margin-left:0;
+}
+
+
+
+
+.list {
+  width: 95%;
+  height: auto;
+  min-height: 45px;
+  margin: 0 2.5% 5px;
+  border: 1px solid rgba(0, 0, 0, .1);
+  border-radius: 2px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 2px 1px rgba(170, 170, 170, 0.25);
+  cursor: pointer;
+}
+
+.card {
+  width: 35%;
+  float: left;
+  height: auto;
+  margin: 10px;
+  border: 1px solid rgba(0, 0, 0, .1);
+  border-radius: 2px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 2px 1px rgba(170, 170, 170, 0.25);
+  cursor: pointer;
+}
+
+.campaign-name { margin-left: -10px }
+
+.config-item-type {
+  position: relative;
+  top: 8px;
+  left: 8px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.config-item-name {
+  min-height: 40px;
+  font-size: 13px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.config-item.active { height: 400px }
+
+.circle {
+  width: 15px;
+  height: 15px;
+  margin: 10px;
+  border-radius: 100%;
+}
+
+.circle.ClientOrg { background: #f6ba59 }
+
+.circle.Product { background: #e95546 }
+
+.circle.Campaign { background: #d870a9 }
+
+.circle.Associate { background: #977bd5 }
+
+.circle.Account { background: #8bc163 }
+
+.circle.SupplierOrg { background: #4b8ad6 }
+
+.circle.Supplier { background: #4b8ad6 }
+
+.circle.Catalogue { background:#556270}
+
+.circle.MessageTemplate {background: #FF9F80}
+
+.circle.ServiceConfig {background: #64B6B1}
+
+.circle.ServiceScheme {background: #FFCC00}
+
+.circle.Warehouse {background:#0B486B}
+
+.circle.SalesOutlet {background:#c6af92}
+
+.circle.ProductLine{background:#774F38}
+
+.circle.FulfillmentSchedule{background:#C5E0DC}
+
+.circle.Goal{background:#FF9C5B;}
+
+.config-item-title { padding-bottom: 10px }
+
+.config-item-title-type { padding-top: 5px }
+
+.config-dates { padding-top: 15px }
+
+.fa-angle-double-down.ClientOrg { color: #f6ba59 }
+
+.fa-angle-double-down.Product { color: #e95546 }
+
+.fa-angle-double-down.Campaign { color: #d870a9 }
+
+.fa-angle-double-down.Associate { color: #977bd5 }
+
+.fa-angle-double-down.Account { color: #8bc163 }
+
+.fa-angle-double-down.SupplierOrg { color: #4b8ad6 }
+
+.fa-angle-double-down.Supplier { color: #4b8ad6 }
+
+.fa-angle-double-down.Catalogue { color: #556270 }
+
+.fa-angle-double-down.MessageTemplate {color: #FF9F80}
+
+.fa-angle-double-down.ServiceConfig{color: #64B6B1}
+
+.fa-angle-double-down.ServiceScheme{color: #FFCC00}
+
+.fa-angle-double-down.Warehouse{color: #0B486B}
+
+.fa-angle-double-down.SalesOutlet {color:#c6af92;}
+
+.fa-angle-double-down.ProductLine{color:#774F38}
+
+.fa-angle-double-down.Schedule{color:#C5E0DC;}
+
+.fa-angle-double-down.Goal{color:#FF9C5B;}
+
+.fa-angle-double-up.ClientOrg { color: #f6ba59 }
+
+.fa-angle-double-up.Product { color: #e95546 }
+
+.fa-angle-double-up.Campaign { color: #d870a9 }
+
+.fa-angle-double-up.Associate { color: #977bd5 }
+
+.fa-angle-double-up.Account { color: #8bc163 }
+
+.fa-angle-double-up.SupplierOrg { color: #4b8ad6 }
+
+.fa-angle-double-up.Supplier { color: #4b8ad6 }
+
+.fa-angle-double-up.Catalogue { color: #556270 }
+
+.fa-angle-double-up.MessageTemplate {color: #FF9F80}
+
+.fa-angle-double-up.ServiceConfig{color: #64B6B1}
+
+.fa-angle-double-up.ServiceScheme{color: #FFCC00}
+
+.fa-angle-double-up.Warehouse{color: #0B486B}
+
+.fa-angle-double-up.SalesOutlet {color:#c6af92;}
+
+.fa-angle-double-up.ProductLine{color:#774F38}
+
+.fa-angle-double-up.FulfillmentSchedule{color:#C5E0DC}
+
+.fa-angle-double-up.Goal{color:#FF9C5B;}
+
+
+
+.toggleList {
+  position: relative;
+  top: 0;
+  text-align: center;
+}
+
+.toggleList a {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-size: 20px;
+  cursor: default;
+  text-decoration: none;
+}
+
+.config-item.ClientOrg {
+  -webkit-box-shadow: 4px 0 0 #f6ba59 inset;
+  -moz-box-shadow: 4px 0 0 #f6ba59 inset;
+  box-shadow: 4px 0 0 #f6ba59 inset;
+}
+
+.config-item.list.ClientOrg:hover {
+  -webkit-box-shadow: 20px 0 0 #f6ba59 inset;
+  -moz-box-shadow: 20px 0 0 #f6ba59 inset;
+  box-shadow: 20px 0 0 #f6ba59 inset;
+}
+
+.config-item.Product {
+  -webkit-box-shadow: 4px 0 0 #e95546 inset;
+  -moz-box-shadow: 4px 0 0 #e95546 inset;
+  box-shadow: 4px 0 0 #e95546 inset;
+}
+
+.config-item.list.Product:hover {
+  -webkit-box-shadow: 20px 0 0 #e95546 inset;
+  -moz-box-shadow: 20px 0 0 #e95546 inset;
+  box-shadow: 20px 0 0 #e95546 inset;
+}
+
+.config-item.Campaign {
+  -webkit-box-shadow: 4px 0 0 #d870a9 inset;
+  -moz-box-shadow: 4px 0 0 #d870a9 inset;
+  box-shadow: 4px 0 0 #d870a9 inset;
+}
+
+.config-item.list.Campaign:hover {
+  -webkit-box-shadow: 20px 0 0 #d870a9 inset;
+  -moz-box-shadow: 20px 0 0 #d870a9 inset;
+  box-shadow: 20px 0 0 #d870a9 inset;
+}
+
+.config-item.Associate {
+  -webkit-box-shadow: 4px 0 0 #977bd5 inset;
+  -moz-box-shadow: 4px 0 0 #977bd5 inset;
+  box-shadow: 4px 0 0 #977bd5 inset;
+}
+
+.config-item.list.Associate:hover {
+  -webkit-box-shadow: 20px 0 0 #977bd5 inset;
+  -moz-box-shadow: 20px 0 0 #977bd5 inset;
+  box-shadow: 20px 0 0 #977bd5 inset;
+}
+
+.config-item.Account {
+  -webkit-box-shadow: 4px 0 0 #8bc163 inset;
+  -moz-box-shadow: 4px 0 0 #8bc163 inset;
+  box-shadow: 4px 0 0 #8bc163 inset;
+}
+
+.config-item.list.Account:hover {
+  -webkit-box-shadow: 20px 0 0 #8bc163 inset;
+  -moz-box-shadow: 20px 0 0 #8bc163 inset;
+  box-shadow: 20px 0 0 #8bc163 inset;
+}
+
+.config-item.SupplierOrg {
+  -webkit-box-shadow: 4px 0 0#4b8ad6 inset;
+  -moz-box-shadow: 4px 0 0#4b8ad6 inset;
+  box-shadow: 4px 0 0#4b8ad6 inset;
+}
+
+.config-item.list.SupplierOrg:hover {
+  -webkit-box-shadow: 20px 0 0#4b8ad6 inset;
+  -moz-box-shadow: 20px 0 0#4b8ad6 inset;
+  box-shadow: 20px 0 0#4b8ad6 inset;
+}
+
+.config-item.Catalogue {
+  -webkit-box-shadow: 4px 0 0 #556270 inset;
+  -moz-box-shadow: 4px 0 0 #556270 inset;
+  box-shadow: 4px 0 0 #556270 inset;
+}
+
+.config-item.list.Catalogue:hover {
+  -webkit-box-shadow: 20px 0 0 #556270 inset;
+  -moz-box-shadow: 20px 0 0 #556270 inset;
+  box-shadow: 20px 0 0 #556270 inset;
+}
+
+.config-item.MessageTemplate {
+  -webkit-box-shadow: 4px 0 0 #FF9F80 inset;
+  -moz-box-shadow: 4px 0 0 #FF9F80 inset;
+  box-shadow: 4px 0 0 #FF9F80 inset;
+}
+
+.config-item.list.MessageTemplate:hover {
+  -webkit-box-shadow: 20px 0 0 #FF9F80 inset;
+  -moz-box-shadow: 20px 0 0 #FF9F80 inset;
+  box-shadow: 20px 0 0 #FF9F80 inset;
+}
+
+.config-item.ServiceConfig {
+  -webkit-box-shadow: 4px 0 0 #64B6B1 inset;
+  -moz-box-shadow: 4px 0 0 #64B6B1 inset;
+  box-shadow: 4px 0 0 #64B6B1 inset;
+}
+
+.config-item.list.ServiceConfig:hover {
+  -webkit-box-shadow: 20px 0 0 #64B6B1 inset;
+  -moz-box-shadow: 20px 0 0 #64B6B1 inset;
+  box-shadow: 20px 0 0 #64B6B1 inset;
+}
+
+.config-item.ServiceScheme {
+  -webkit-box-shadow: 4px 0 0 #FFCC00 inset;
+  -moz-box-shadow: 4px 0 0 #FFCC00 inset;
+  box-shadow: 4px 0 0 #FFCC00 inset;
+}
+
+.config-item.list.ServiceScheme:hover {
+  -webkit-box-shadow: 20px 0 0 #FFCC00 inset;
+  -moz-box-shadow: 20px 0 0 #FFCC00 inset;
+  box-shadow: 20px 0 0 #FFCC00 inset;
+}
+
+.config-item.Warehouse {
+  -webkit-box-shadow: 4px 0 0 #0B486B inset;
+  -moz-box-shadow: 4px 0 0 #0B486B inset;
+  box-shadow: 4px 0 0 #0B486B inset;
+}
+
+.config-item.list.Warehouse:hover {
+  -webkit-box-shadow: 20px 0 0 #0B486B inset;
+  -moz-box-shadow: 20px 0 0 #0B486B inset;
+  box-shadow: 20px 0 0 #0B486B inset;
+}
+
+
+.config-item.SalesOutlet {
+  -webkit-box-shadow: 4px 0 0 #c6af92 inset;
+  -moz-box-shadow: 4px 0 0 #c6af92 inset;
+  box-shadow: 4px 0 0 #c6af92 inset;
+}
+
+.config-item.list.SalesOutlet:hover {
+  -webkit-box-shadow: 20px 0 0 #c6af92 inset;
+  -moz-box-shadow: 20px 0 0 #c6af92 inset;
+  box-shadow: 20px 0 0 #c6af92 inset;
+}
+
+.config-item.ProductLine {
+  -webkit-box-shadow: 4px 0 0 #774F38 inset;
+  -moz-box-shadow: 4px 0 0 #774F38 inset;
+  box-shadow: 4px 0 0 #774F38 inset;
+}
+
+.config-item.list.ProductLine:hover {
+  -webkit-box-shadow: 20px 0 0 #774F38 inset;
+  -moz-box-shadow: 20px 0 0 #774F38 inset;
+  box-shadow: 20px 0 0 #774F38 inset;
+}
+
+
+.config-item.FulfillmentSchedule {
+  -webkit-box-shadow: 4px 0 0 #C5E0DC inset;
+  -moz-box-shadow: 4px 0 0 #C5E0DC inset;
+  box-shadow: 4px 0 0 #C5E0DC inset;
+}
+
+.config-item.list.FulfillmentSchedule:hover {
+  -webkit-box-shadow: 20px 0 0 #C5E0DC inset;
+  -moz-box-shadow: 20px 0 0 #C5E0DC inset;
+  box-shadow: 20px 0 0 #C5E0DC inset;
+}
+
+.config-item.Goal {
+  -webkit-box-shadow: 4px 0 0 #FF9C5B inset;
+  -moz-box-shadow: 4px 0 0 #FF9C5B inset;
+  box-shadow: 4px 0 0 #FF9C5B inset;
+}
+
+.config-item.list.Goal:hover {
+  -webkit-box-shadow: 20px 0 0 #FF9C5B inset;
+  -moz-box-shadow: 20px 0 0 #FF9C5B inset;
+  box-shadow: 20px 0 0 #FF9C5B inset;
+}
+
+
+
+
+.ooids-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media only screen and (max-width: 1200px) { 
+    .card { display: none }
+
+    .toggler { display: none }
+
+    .ooid-owner { display: none }
+
+    .ooid-active { display: none }
+
+    .ooid-select{width:95%}
+
+    .ooid-input{width:95%}
+
+    .ooid-label{text-align:left!important}
+
+    
+}
+
+@media only screen and (max-width: 1154px) { 
+    .ooid-modified { display: none }
+}
+
+
+@media only screen and (min-width: 1900px) { 
+    .card { width: 46% }
+}
+
+@media only screen and (max-width: 1899px) { 
+    .card { width: 46% }
+}
+
+@media only screen and (max-width: 1825px) { 
+    .card { width: 45% }
+}
+
+@media only screen and (max-width: 1211px) { 
+    .card { width: 44% }
+}
+
+.card .ooid-modified { display: none }
+
+.card .ooid-owner { display: none }
+
+.card .ooid-active { display: none }
+
+.card .ooid-name { display: none }
+
+.card .toggleList {
+  margin-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+a[toggle].selected { border-bottom: 2px solid #2793d1 }
+
+.go-top {
+  position: fixed;
+  font-size: 20px;
+  display: none;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 15px;
+  bottom: 0;
+  color: #fff;
+  border: none;
+  box-shadow: 0 0 0 0 #f0f0f0, 0 0 0 0 rgba(90, 153, 212, 0.7);
+  border-radius: 100%;
+  background: #2793d1;
+  cursor: pointer;
+  text-decoration: none;
+  outline: none;
+}
+
+.go-top:hover { background-color: #2793d1 }
+
+
+/*Comment out angular transition for time being
+
+
+
+*/
+
+.animate-repeat {
+  list-style: none;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter,
+.animate-repeat.ng-leave {
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+}
+
+.animate-repeat.ng-leave.ng-leave-active,
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter {
+  opacity: 0;
+}
+
+.animate-repeat.ng-leave,
+.animate-repeat.ng-move.ng-move-active,
+.animate-repeat.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
+.list .animate-repeat.ng-move,
+.list .animate-repeat.ng-enter,
+.list .animate-repeat.ng-leave {
+  -webkit-transition: none;
+  transition: none;
+}
+
+.card .animate-repeat {
+  line-height: 5em;
+}
+.card .animate-repeat.ng-leave.ng-leave-active,
+.card .animate-repeat.ng-move,
+.card .animate-repeat.ng-enter {
+  height: 0;
+}
+.card .animate-repeat.ng-leave,
+.card .animate-repeat.ng-move.ng-move-active,
+.card .animate-repeat.ng-enter.ng-enter-active {
+  height: 5em;
+}
+
+

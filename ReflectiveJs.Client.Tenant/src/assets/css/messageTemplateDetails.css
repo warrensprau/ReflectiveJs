@@ -1,0 +1,30 @@
+﻿.ta-bind-disabled {
+    display: block;
+    width: 80%; 
+    border-radius: 4px;
+    background-color: #f5f8fa;
+    opacity: 1;
+    cursor: not-allowed;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    border: 1px solid #ccc;
+}
+.ta-button {
+    font-size: .85em;
+}
+.ta-toolbar {
+    width: 80%;
+    border-radius: 4px;
+    background-color: #f5f8fa;
+    padding: 5px;
+    margin: 0;
+    font-size: .85em;
+}
+.CodeMirror {
+    width: 80%;
+    border-radius: 4px;
+    background-color: #f5f8fa;
+    border: 1px solid #ccc;
+}

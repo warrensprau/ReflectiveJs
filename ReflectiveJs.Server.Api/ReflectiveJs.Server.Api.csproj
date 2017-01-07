@@ -212,6 +212,10 @@
   <ItemGroup>
     <Compile Include="App_Data\TenantSeeder.cs" />
     <Compile Include="App_Data\ISeeder.cs" />
+    <Compile Include="App_Data\UI\CustomViewSeeder.cs" />
+    <Compile Include="App_Data\UI\ActionSeeder.cs" />
+    <Compile Include="App_Data\UI\ModelAndDefaultViewSeeder.cs" />
+    <Compile Include="App_Data\UI\UiSeeder.cs" />
     <Compile Include="App_Start\BreezeWebApiConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />

@@ -44,38 +44,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.1.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.1.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.1.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.AI.Web, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.1.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.AI.WindowsServer, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.1.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.ApplicationInsights, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.2.1.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -96,10 +64,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Service References\Application Insights\ConnectedService.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -108,15 +72,88 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="scripts\ai.0.22.19-build00125.js" />
-    <Content Include="scripts\ai.0.22.19-build00125.min.js" />
+    <Content Include="src\app\app.js" />
+    <Content Include="src\app\config.js" />
+    <Content Include="src\app\services\datacaching.js" />
+    <Content Include="src\app\services\dataloader.js" />
+    <Content Include="src\app\services\entity_manager.js" />
+    <Content Include="src\app\services\flyout.js" />
+    <Content Include="src\app\services\messageservice.js" />
+    <Content Include="src\app\services\object_service.js" />
+    <Content Include="src\app\services\panel_service.js" />
+    <Content Include="src\app\services\persistence.module.js" />
+    <Content Include="src\app\services\request_util.js" />
+    <Content Include="src\app\services\util.js" />
+    <Content Include="src\app\services\view.js" />
+    <Content Include="src\app\views\analyze\listdetails.html" />
+    <Content Include="src\app\views\analyze\listdetails.js" />
+    <Content Include="src\app\views\analyze\mashboard.js" />
+    <Content Include="src\app\views\filter\list.js" />
+    <Content Include="src\app\views\filter\masterindex.js" />
+    <Content Include="src\app\views\home.html" />
+    <Content Include="src\app\views\home.js" />
+    <Content Include="src\app\views\maintain\custom\camporderexport.html" />
+    <Content Include="src\app\views\maintain\custom\camporderexport.js" />
+    <Content Include="src\app\views\maintain\custom\messagetemplatedetails.html" />
+    <Content Include="src\app\views\maintain\custom\messagetemplatedetails.js" />
+    <Content Include="src\app\views\maintain\custom\orderexport.html" />
+    <Content Include="src\app\views\maintain\custom\orderexport.js" />
+    <Content Include="src\app\views\maintain\generic\actiondetails.html" />
+    <Content Include="src\app\views\maintain\generic\actiondetails.js" />
+    <Content Include="src\app\views\maintain\generic\actiondetails.module.js" />
+    <Content Include="src\app\views\maintain\generic\actiondetailscreate.html" />
+    <Content Include="src\app\views\maintain\generic\actiondetailscreate.js" />
+    <Content Include="src\app\views\maintain\generic\actions.js" />
+    <Content Include="src\app\views\maintain\generic\grid.js" />
+    <Content Include="src\app\views\maintain\generic\masterdetails.html" />
+    <Content Include="src\app\views\maintain\generic\masterdetails.js" />
+    <Content Include="src\app\views\maintain\generic\masterdetails.module.js" />
+    <Content Include="src\app\views\maintain\generic\masterdetailscreate.html" />
+    <Content Include="src\app\views\maintain\generic\masterdetailscreate.js" />
+    <Content Include="src\app\views\maintain\generic\masterdetailsedit.html" />
+    <Content Include="src\app\views\maintain\generic\masterdetailsedit.js" />
+    <Content Include="src\app\views\maintain\routes.js" />
+    <Content Include="src\app\views\security\authorize_service.js" />
+    <Content Include="src\app\views\security\denied.html" />
+    <Content Include="src\app\views\security\principal_service.js" />
+    <Content Include="src\app\views\security\registration_service.js" />
+    <Content Include="src\app\views\security\restricted.html" />
+    <Content Include="src\app\views\security\security.module.js" />
+    <Content Include="src\app\views\security\securityCtrl.js" />
+    <Content Include="src\app\views\security\signin.html" />
+    <Content Include="src\app\views\util\messages.js" />
+    <Content Include="src\app\views\util\viewutil.module.js" />
+    <Content Include="src\assets\css\animate.css" />
+    <Content Include="src\assets\css\bootmenu.css" />
+    <Content Include="src\assets\css\bootstrap.css" />
+    <Content Include="src\assets\css\bootstrap.min.css" />
+    <Content Include="src\assets\css\breeze.directives.css" />
+    <Content Include="src\assets\css\checkbox.css" />
+    <Content Include="src\assets\css\core.css" />
+    <Content Include="src\assets\css\font-awesome.min.css" />
+    <Content Include="src\assets\css\login.css" />
+    <Content Include="src\assets\css\magpie.css" />
+    <Content Include="src\assets\css\messageTemplateDetails.css" />
+    <Content Include="src\assets\css\munkey.css" />
+    <Content Include="src\assets\css\MyFontsWebfontsKit.css" />
+    <Content Include="src\assets\css\navCss.css" />
+    <Content Include="src\assets\css\ooid.css" />
+    <Content Include="src\assets\css\panels.css" />
+    <Content Include="src\assets\css\pe-icon-7-stroke.css" />
+    <Content Include="src\assets\css\poid.css" />
+    <Content Include="src\assets\css\style.css" />
+    <Content Include="src\assets\img\magpie-logo-white.svg" />
+    <Content Include="src\assets\img\magpie-logo.svg" />
+    <Content Include="src\assets\img\required.svg" />
+    <Content Include="src\index.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
+    <Folder Include="src\assets\libsoverride\" />
+    <Folder Include="src\assets\libs\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

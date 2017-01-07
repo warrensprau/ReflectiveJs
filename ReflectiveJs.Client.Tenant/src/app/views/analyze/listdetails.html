@@ -1,0 +1,50 @@
+﻿<div class="routeControl" ng-controller='routeControl'>
+  <div class="masterDetails">
+
+    <div class="row nopadding">
+      <div class="col-xs-2">
+        <i class='pe-7s-close' ng-click="closePanel()"></i>
+      </div>
+
+      <div class="col-xs-4 col-xs-offset-6">
+        <i class='pe-7s-expand1 pull-right' ng-click="zoomPanel()"></i>
+      </div>
+    </div>
+
+    <div class="row nopadding">
+      <div class="col-xs-12" ng-controller="list">
+        <h3 class="panel-headings {{entityTypeName}}">{{entityTypeLabel}}</h3>
+
+        <div class="row">
+          <div class="col-xs-12 extra-padding space-top">
+
+            <button ng-click="performAction(action)" ng-repeat="action in actions | orderBy:'Displayorder'" class="{{action.Name}} btn btn-sm btn-primary">
+              {{action.Label}}
+            </button>
+
+
+            <div ng-if="exception">{{exception}}</div>
+          </div>
+        </div>
+        <div class="row">
+          <div ng-repeat="error in errors">{{error.propertyName}} - {{error.errorMessage}}</div>
+        </div>
+
+        <div class="row space nopadding">
+          <div class="col-xs-12">
+            <div>
+              <div kendo-grid="{{entityTypeName}}Grid" k-options="gridOptions" k-rebind="gridOptions" k-on-change="handleChange(data, dataItem)"></div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <button type="button" ng-click="reloadList()" class="btn btn-default btn-circle btn-space">
+                    <i class="glyphicon glyphicon-refresh"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,86 @@
+﻿<div class="routeControl" ng-controller='routeControl'>
+    <div class="masterDetails">
+        
+        <div class="row nopadding">
+            <div class="col-xs-2">
+                <i class='pe-7s-close' ng-click="closePanel()"></i>
+            </div>
+
+            <div class="col-xs-4 col-xs-offset-6">
+                <i class='pe-7s-expand1 pull-right' ng-click="zoomPanel()"></i>
+            </div>
+        </div>
+
+        <div class="row nopadding">
+            <div class="col-xs-12">
+                
+                <h3 ng-if="master.Name" class="panel-headings {{entityTypeName}}">{{master.Name}}</h3>
+                <h3 ng-if="!master.Name" class="panel-headings {{entityTypeName}}">{{entityTypeLabel}}</h3>
+
+                <div class="row">
+                    <div class="col-xs-12 extra-padding space-top" ng-controller="actionController">
+
+                        <button ng-click="performAction(action)" ng-repeat="action in actions | orderBy:'DisplayOrder'" class="{{action.Name}} btn btn-sm btn-primary">
+                            {{action.Label}}
+                        </button>
+
+                        <button ng-click="performAction(action)" ng-repeat="action in customActions | orderBy:'Displayorder'" class="{{action.Name}} btn btn-sm btn-primary">
+                            {{action.Label}}
+                        </button>
+
+                        <div ng-if="exception">{{exception}}</div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div ng-repeat="error in errors">{{error.propertyName}} - {{error.errorMessage}}</div>
+                </div>
+                
+                <div class="editBlock form-horizontal space">
+                    <div class="form-group" ng-repeat="field in nonCollectionFields | filter: {IsHidden:false} | orderBy:'DisplayOrder'" ng-switch on="getInputFieldType(field)">
+                        
+                        <label for="{{field.Label}}" class="fieldedit col-xs-3 panel-labels">{{field.Label}}</label>
+                        <div class="propedit col-xs-9" ng-switch-when=" number">
+                            <input type="text" class="form-control" name="{{master.entityType.shortName + '.' + field.Name}}" ng-model="master[field.Name]" ng-blur="validate($event)" ng-readonly="field.IsReadOnly" data-z-validate />
+                        </div>
+                        <div class="propedit col-xs-9" ng-switch-when="decimal">
+                            <input type="text" class="form-control" name="{{master.entityType.shortName + '.' + field.Name}}" ng-model="master[field.Name]" ng-blur="validate($event)" ng-readonly="field.IsReadOnly" data-z-validate />
+                        </div>
+                        <div class="propedit col-xs-9" ng-switch-when="textarea">
+                            <textarea name="{{master.entityType.shortName + '.' + field.Name}}" class="form-control" ng-model="master[field.Name]" ng-blur="validate($event)" ng-readonly="field.IsReadOnly" data-z-validate></textarea>
+                        </div>
+                        <div class="propedit col-xs-9" ng-switch-when="texteditor">
+                            <text-angular name="{{master.entityType.shortName + '.' + field.Name}}" ng-model="master[field.Name]"></text-angular>
+                        </div>
+                        <div class="propedit col-xs-9" ng-switch-when="select">
+                            <select class="form-control" name="{{master.entityType.shortName + '.' + field.Name}}" ng-init="getEnumValue(field)" ng-model="master[field.Name]" ng-blur="validate($event)" ng-options="getKeyValue(item) as getDisplayName(item) for item in options[getTable(master,field.Name)]" ng-disabled="field.IsReadOnly" data-z-validate></select>
+                        </div>
+                        <div class="propedit col-xs-9" ng-switch-when="checkbox">
+                            <div class="checkbox">
+                                <label>
+                                    <input name="{{master.entityType.shortName + '.' + field.Name}}" type="checkbox" ng-blur="validate($event)" ng-model="master[field.Name]" ng-readonly="field.IsReadOnly" ng-disabled="field.IsReadOnly" disabled>
+                                    <span class="glyphicon glyphicon-ok" ng-model="master[field.Name]"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="propedit col-xs-9" ng-switch-when="date">
+                            <datepicker date-format="MM/dd/yyyy" date-set-hidden="true">
+                                <input type="text" class="form-control" name="{{master.entityType.shortName + '.' + field.Name}}" ng-model="master[field.Name]" ng-blur="validate($event)" ng-readonly="field.IsReadOnly" data-z-validate />
+                            </datepicker>
+                        </div>
+                        <div class="propedit col-xs-9" ng-switch-when="time">
+                            <input type="text" class="form-control" name="{{master.entityType.shortName + '.' + field.Name}}" ng-model="master[field.Name]" ng-blur="validate($event)" ng-readonly="field.IsReadOnly" data-z-validate />
+                        </div>
+                        <div class="propedit col-xs-9" ng-switch-when="text">
+                            <input type="text" class="form-control" name="{{master.entityType.shortName + '.' + field.Name}}" ng-model="master[field.Name]" ng-blur="validate($event)" ng-readonly="field.IsReadOnly" data-z-validate />
+                        </div>
+                        <div ng-switch-default>"Oops Somthing happened here:" {{field.Name}}=>{{field.InputType}}</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

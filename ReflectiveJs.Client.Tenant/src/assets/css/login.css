@@ -1,0 +1,1021 @@
+﻿html { height: 100% }
+
+* { box-sizing: border-box }
+
+.login-area{
+  background-color: #1E1E20;
+  height:100%;
+  width:100%;
+  position:absolute;
+}
+
+.login-body {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 50px 50px 50px 50px;
+  overflow: hidden;
+
+}
+
+.login-screen {
+  height: 100%;
+
+}
+
+.logo-area { display: none }
+
+.version-one {
+  font-size: 60px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  color: #326BFF;
+  margin: 0!important;
+}
+
+.version-two {
+  font-size: 60px;
+  padding-bottom: 50px;
+  color: #326BFF;
+  margin: 0!important;
+}
+
+.version-three {
+  position: relative;
+  top: 50px;
+  font-size: 24px;
+  color: #326BFF;
+  margin: 0!important;
+}
+
+.login-form { margin-top: 20px }
+
+.register-text {
+  position: relative;
+  left: 5px;
+}
+
+.input-group-addon.login-divide {
+  border: none;
+  background-color: transparent;
+}
+
+.Absolute-Center {
+  margin: 190px auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.Absolute-Center.is-Responsive {
+  width: 40%;
+  min-width: 200px;
+}
+
+.Login-inputMaterial {
+  font-size: 14px;
+  padding: 10px 0;
+  display: block;
+  width: 100%;
+  border: none;
+  color:#fff;
+  background-color:transparent;
+}
+
+.Login-inputMaterial:focus { outline: none }
+
+.Login-inputMaterial::-ms-clear { display: none }
+
+.input-areas { height: 60px }
+
+.responsive-inputs{
+    position:relative;
+    left:25px;
+}
+
+.login-button {
+  width: 35%;
+  color: #fff;
+  background: #326BFF;
+  padding: 10px 16px;
+  margin: 15px 0 0 0;
+  border: 0;
+  outline: 0;
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: .5px;
+  -webkit-box-shadow: 0 2px 6px rgba(0,0,0,.1),0 3px 6px rgba(0,0,0,.1);
+  -moz-box-shadow: 0 2px 6px rgba(0,0,0,.1),0 3px 6px rgba(0,0,0,.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,.1),0 3px 6px rgba(0,0,0,.1);
+}
+
+.login-button.register-button:hover,
+.login-button.register-button:focus {
+  color: #fff;
+  text-decoration: none;
+  outline: none;
+}
+
+.login-button:hover { color: #fff }
+
+.register-button {
+  width: 35%;
+  color: #fff;
+  background: #404041;
+  padding: 10px 16px;
+  margin: 0 0 15px 0;
+  border: 0;
+  outline: 0;
+  line-height: 16px;
+  font-size: 11px;
+  letter-spacing: .5px;
+  -webkit-box-shadow: 0 2px 6px rgba(0,0,0,.1),0 3px 6px rgba(0,0,0,.1);
+  -moz-box-shadow: 0 2px 6px rgba(0,0,0,.1),0 3px 6px rgba(0,0,0,.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,.1),0 3px 6px rgba(0,0,0,.1);
+}
+
+.login-progress {
+  display: block;
+  color: #A1A1A4;
+  width: 100vw;
+  position: relative;
+  left: calc(-50vw + 50%);
+  z-index: 55000;
+}
+
+.Login-progress-bg {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  width: 100%;
+  height: 4px;
+  border-radius: 1px;
+  overflow: hidden;
+  background: #3F3F40;
+}
+
+.Login-progress-fg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 22vw;
+  left: 50px;
+  margin: 0;
+  background: #FFFFFF;
+}
+
+.Login-progress-fg-logging-in {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  max-width: 100%;
+  left: 0;
+  margin: 0;
+  background: #fff;
+  -webkit-animation-duration: 20s;
+  animation-duration: 20s;
+  -webkit-animation-name: loggingIn;
+  animation-name: loggingIn;
+  background: -webkit-linear-gradient(left,#151515);
+  background: linear-gradient(to right, #1515155);
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+.magpie-container {
+  height: 100%;
+  width: 27%;
+  position: relative;
+}
+
+.logo-box {
+  top: 40%;
+  position: relative;
+  height: 350px;
+}
+
+.logo-svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: -31%;
+  height: 100%;
+  width: 150%;
+  padding-bottom: 90%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 75% 50%;
+  display: inline-block;
+  vertical-align: middle;
+  background-image: url(../img/magpie-logo-white);
+}
+
+.logo-svg:before {
+  content: '';
+  float: left;
+  padding-bottom: 100%;
+}
+
+.logo-svg:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+@-webkit-keyframes loggingIn { 
+	0%,
+	100% {
+	  -webkit-transition-timing-function: cubic-bezier(1, 0, 0.65, 0.85);
+	  transition-timing-function: cubic-bezier(1, 0, 0.65, 0.85);
+	}
+
+	0% { width: 0 }
+
+	100% { width: 100% }
+}
+
+@keyframes loggingIn { 
+	0%,
+	100% {
+	  -webkit-transition-timing-function: cubic-bezier(1, 0, 0.65, 0.85);
+	  transition-timing-function: cubic-bezier(1, 0, 0.65, 0.85);
+	}
+
+	0% { width: 0 }
+
+	100% { width: 100% }
+}
+
+/* ===[ media queries for 15 inch  .-. ]===
+   ==================================================
+   ==================================================
+   ================================================== */
+
+@media only screen and (max-width: 1620px) { 
+	.responsive-inputs { width: 60% }
+}
+
+@media only screen and (max-width: 1610px) { 
+	.logo-svg { top: 3px }
+}
+
+@media only screen and (max-width: 1597px) { 
+	.logo-svg {
+	  left: -30%;
+	  padding-bottom: 94%;
+	}
+}
+
+@media only screen and (max-width: 1584px) { 
+	.Login-progress-fg { width: 23vw }
+}
+
+@media only screen and (max-width: 1543px) { 
+	.logo-svg { top: 5px }
+}
+
+@media only screen and (max-width: 1584px) { 
+	.Login-progress-fg { width: 24.5vw }
+}
+
+@media only screen and (max-width: 1534px) { 
+	.logo-svg {
+	  left: -27%;
+	  padding-bottom: 100%;
+	}
+}
+
+@media only screen and (max-width: 1502px) { 
+	.logo-svg { top: 10px }
+}
+
+@media only screen and (max-width: 1496px) { 
+	.Login-progress-fg { width: 24.2vw }
+}
+
+@media only screen and (max-width: 1445px) { 
+	.logo-svg { top: 10px }
+}
+
+@media only screen and (max-width: 1384px) { 
+	.logo-svg {
+	  top: 15px;
+	  left: -25%;
+	}
+}
+
+@media only screen and (max-width: 1376px) { 
+	.Login-progress-fg { width: 24.7vw }
+
+	.responsive-inputs { width: 70% }
+}
+
+@media only screen and (max-width: 1338px) { 
+	.logo-svg { left: -24% }
+}
+
+@media only screen and (max-width: 1376px) { 
+	.Login-progress-fg { width: 25.5vw }
+}
+
+@media only screen and (max-width: 1145px) { 
+	.login-button { width: 70% }
+
+	.register-button { width: 70% }
+}
+
+@media only screen and (max-width: 1376px) { 
+	.responsive-inputs { width: 80% }
+}
+
+@media only screen and (max-width: 1510px) { 
+	.responsive-inputs { width: 90% }
+}
+
+@media only screen and (max-width: 991px) { 
+	.login-button { width: 45% }
+
+	.register-button { width: 45% }
+}
+
+@media only screen and (max-width: 963px) { 
+	.magpie-container { display: none }
+
+	.logo-box { display: none }
+
+	.logo-svg { display: none }
+
+    .logo-area {
+        display: block;
+        position: relative;
+        top: -50px;
+        width: 100%;
+        height: 300px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url('../img/magpie-logo-white.svg');
+        fill:#fff;
+    }
+
+	.Absolute-Center { margin: 0 auto }
+
+	.version-one { padding-top: 0 }
+
+	.version-two { padding-bottom: 0 }
+
+	.version-three { top: 25px }
+
+	.logo-resize {
+	  position: relative;
+	  top: -50px;
+	}
+}
+
+@media only screen and (max-width: 960px) { 
+	.Absolute-Center.is-Responsive { width: 60% }
+
+	.login-button { width: 30% }
+
+	.register-button { width: 30% }
+}
+
+@media only screen and (max-width: 675px) { 
+	.Absolute-Center.is-Responsive { width: 80% }
+}
+
+@media only screen and (max-width: 530px) { 
+	.Absolute-Center.is-Responsive { width: 90% }
+}
+
+@media only screen and (max-width: 485px) { 
+	.Absolute-Center.is-Responsive { width: 90% }
+
+	.version-one { font-size: 50px }
+
+	.version-two { font-size: 50px }
+
+	.responsive-inputs { width: 100% }
+}
+
+@media only screen and (max-width: 440px) { 
+	.Absolute-Center.is-Responsive { width: 100% }
+}
+
+@media only screen and (max-width: 425px) { 
+	.version-one { font-size: 40px }
+
+	.version-two { font-size: 40px }
+}
+
+/* ===[ Height media queries for larger mac screen .-. ]===
+   ==================================================
+   ==================================================
+   ================================================== */
+
+@media screen and (min-width: 1920px) and (max-height: 1046px) { 
+	.logo-box { top: 38% }
+}
+
+@media screen and (min-height: 1105px) { 
+	.logo-box { top: 31% }
+}
+
+@media screen and (max-width: 1916px) and (min-height: 1104px) { 
+	.logo-box { top: 31% }
+}
+
+@media screen and (max-width: 1875px) and (min-height: 1104px) { 
+	.logo-svg { top: 5px }
+}
+
+@media screen and (max-width: 1837px) and (min-height: 1104px) { 
+	.logo-svg { top: 10px }
+}
+
+@media screen and (max-width: 1780px) and (min-height: 1104px) { 
+	.logo-svg { top: 15px }
+}
+
+@media screen and (max-width: 1736px) and (min-height: 1104px) { 
+	.logo-svg { top: 20px }
+}
+
+@media screen and (max-width: 1736px) and (min-height: 1104px) { 
+	.logo-svg { top: 25px }
+}
+
+@media screen and (max-width: 1686px) and (min-height: 1104px) { 
+	.logo-svg { top: 30px }
+}
+
+@media screen and (max-width: 1645px) and (min-height: 1104px) { 
+	.logo-box { top: 31% }
+
+	.logo-svg { top: 35px }
+}
+
+@media screen and (max-width: 1406px) and (min-height: 1104px) { 
+	.logo-svg { top: 75px }
+}
+
+@media screen and (max-width: 1405px) and (min-height: 1104px) { 
+	.logo-box { top: 28% }
+}
+
+@media screen and (max-width: 987px) and (min-height: 1104px) { 
+	.logo-svg { top: 70px }
+}
+
+@media screen and (max-width: 963px) and (min-height: 1104px) { 
+	.logo-area { display: none }
+
+	.Absolute-Center { margin: 200px auto }
+
+	.magpie-container { display: block }
+
+	.logo-box {
+	  display: block;
+	  top: 21%;
+	}
+
+	.logo-svg {
+	  display: block;
+	  top: 90px;
+	}
+}
+
+@media screen and (max-width: 961px) and (min-height: 1104px) { 
+	.logo-box { top: 30% }
+}
+
+@media screen and (max-width: 961px) and (min-height: 1104px) { 
+	.logo-box { top: 21% }
+}
+
+@media screen and (max-height: 955px) { 
+	.logo-svg { top: 0 }
+}
+
+@media screen and (max-height: 935px) { 
+	.logo-svg { top: 10px }
+}
+
+@media screen and (max-height: 932px) { 
+	.logo-svg { top: 15px }
+}
+
+@media screen and (max-height: 897px) { 
+	.logo-svg { top: 20px }
+}
+
+@media screen and (max-height: 876px) { 
+	.logo-svg { top: 32px }
+}
+
+@media screen and (max-height: 854px) { 
+	.logo-svg { top: 25px }
+
+	.logo-box { top: 42% }
+}
+
+@media screen and (max-height: 833px) { 
+	.logo-svg { top: 30px }
+}
+
+@media screen and (max-height: 820px) { 
+	.logo-svg { top: 25px }
+
+	.logo-box { top: 44% }
+}
+
+@media screen and (max-height: 806px) { 
+	.logo-svg { top: 35px }
+}
+
+@media screen and (max-height: 787px) { 
+	.logo-svg { top: 45px }
+}
+
+@media screen and (max-height: 755px) { 
+	.logo-svg { top: 55px }
+}
+
+@media screen and (max-height: 737px) { 
+	.logo-box { top: 46% }
+}
+
+@media screen and (max-height: 713px) { 
+	.logo-svg { top: 65px }
+}
+
+@media screen and (max-height:705px) { 
+	.Absolute-Center.is-Responsive { margin: 30px auto }
+
+	.logo-box { top: 35% }
+}
+
+@media screen and (max-height:695px) { 
+	.logo-svg { top: 65px }
+}
+
+@media screen and (max-height:670px) { 
+	.Absolute-Center.is-Responsive { margin: 0 auto }
+
+	.logo-box { top: 31% }
+}
+
+@media screen and (max-height:645px) { 
+	.logo-svg { top: 75px }
+
+	.version-three { top: 25px }
+}
+
+@media screen and (max-height:620px) { 
+	.logo-svg { top: 75px }
+
+	.version-one { padding-top: 25px }
+
+	.version-two { padding-bottom: 25px }
+
+	.logo-box { top: 22% }
+}
+
+@media screen and (max-height:590px) { 
+	.logo-svg { top: 85px }
+}
+
+@media screen and (max-height:585px) { 
+	.version-one { padding-top: 0 }
+
+	.version-two { padding-bottom: 0 }
+
+	.logo-box { top: 10% }
+
+	.logo-svg { top: 95px }
+}
+
+@media screen and (max-height:534px) { 
+	.version-three { padding-top: 0 }
+}
+
+@media screen and (min-width: 1920px) and (max-height: 2000px) { 
+	.logo-box { top: 35% }
+}
+
+@media screen and (min-width: 1920px) and (max-height: 1050px) { 
+	.logo-box { top: 38% }
+}
+
+@media screen and (max-width: 1916px) and (min-height: 984px) { 
+	.logo-box { top: 35% }
+}
+
+@media screen and (max-width: 1824px) and (min-height: 984px) { 
+	.logo-svg { top: 10px }
+}
+
+@media screen and (max-width: 1795px) and (min-height: 984px) { 
+	.logo-svg { top: 15px }
+}
+
+@media screen and (max-width: 1740px) and (min-height: 984px) { 
+	.logo-svg { top: 25px }
+}
+
+@media screen and (max-width: 1650px) and (min-height: 984px) { 
+	.logo-svg { top: 35px }
+}
+
+@media screen and (max-width: 1510px) and (min-height: 984px) { 
+	.logo-svg { top: 0 }
+
+	.logo-box { top: 39% }
+}
+
+@media screen and (max-width: 1415px) and (min-height: 984px) { 
+	.logo-svg { top: 10px }
+}
+
+@media screen and (max-width: 1915px) and (min-height: 937px) { 
+	.logo-box { top: 37% }
+}
+
+@media screen and (max-width: 1884px) and (min-height: 930px) { 
+	.logo-svg { top: -10px }
+}
+
+@media screen and (max-width: 1739px) and (min-height: 930px) { 
+	.logo-svg { top: 0 }
+}
+
+@media screen and (max-width: 1654px) and (min-height: 930px) { 
+	.logo-svg { top: 10px }
+}
+
+@media screen and (max-width: 1422px) and (min-height: 930px) { 
+	.logo-svg { top: 20px }
+}
+
+@media screen and (max-width: 1920px) and (min-height: 979px) { 
+	.logo-svg {
+	  position: absolute;
+	  top: 0;
+	  right: 0;
+	  left: -23.5%;
+	  height: 100%;
+	  width: 150%;
+	  padding-bottom: 75%;
+	  background-size: cover;
+	  background-repeat: no-repeat;
+	  background-position: 75% 50%;
+	  display: inline-block;
+	  vertical-align: middle;
+      background-image: url('../img/magpie-logo-white.svg');
+      fill:#fff;
+	}
+}
+
+@media screen and (max-width: 1915px) and (min-height: 925px) { 
+	.logo-svg {
+	  position: absolute;
+	  top: 0;
+	  right: 0;
+	  left: -23.5%;
+	  height: 100%;
+	  width: 150%;
+	  padding-bottom: 75%;
+	  background-size: cover;
+	  background-repeat: no-repeat;
+	  background-position: 75% 50%;
+	  display: inline-block;
+	  vertical-align: middle;
+      background-image: url('../img/magpie-logo-white.svg');
+      fill:#fff;
+	}
+
+	.logo-box { top: 43% }
+}
+
+@media screen and (max-width: 1306px) and (min-height: 925px) { 
+	.logo-svg { left: -22.5% }
+}
+
+@media screen and (max-width: 1294px) and (min-height: 925px) { 
+	.logo-svg { left: -21.5% }
+}
+
+@media screen and (max-width: 1290px) and (min-height: 925px) { 
+	.logo-svg { left: -21% }
+}
+
+@media screen and (max-width: 1270px) and (min-height: 925px) { 
+	.logo-svg { left: -20% }
+}
+
+@media screen and (max-width: 1250px) and (min-height: 925px) { 
+	.logo-svg { left: -19% }
+}
+
+@media screen and (max-width: 1245px) and (min-height: 925px) { 
+	.logo-svg { left: -18% }
+}
+
+@media screen and (max-width: 1235px) and (min-height: 925px) { 
+	.logo-svg { left: -17% }
+}
+
+@media screen and (max-width: 1225px) and (min-height: 925px) { 
+	.logo-svg { left: -16% }
+}
+
+@media screen and (max-width: 1210px) and (min-height: 925px) { 
+	.logo-svg { left: -15% }
+}
+
+@media screen and (max-width: 1200px) and (min-height: 925px) { 
+	.logo-svg { left: -14% }
+}
+
+@media screen and (max-width: 1190px) and (min-height: 925px) { 
+	.logo-svg { left: -13% }
+}
+
+@media screen and (max-width: 1180px) and (min-height: 925px) { 
+	.logo-svg { left: -12% }
+}
+
+@media screen and (max-width: 1170px) and (min-height: 925px) { 
+	.logo-svg { left: -11% }
+}
+
+@media screen and (max-width: 1160px) and (min-height: 925px) { 
+	.logo-svg { left: -10% }
+}
+
+@media screen and (max-width: 1150px) and (min-height: 925px) { 
+	.logo-svg { left: -9% }
+}
+
+@media screen and (max-width: 1140px) and (min-height: 925px) { 
+	.logo-svg { left: -8% }
+}
+
+@media screen and (max-width: 1130px) and (min-height: 925px) { 
+	.logo-svg { left: -7% }
+}
+
+@media screen and (max-width: 1120px) and (min-height: 925px) { 
+	.logo-svg { left: -6% }
+}
+
+@media screen and (max-width: 1110px) and (min-height: 925px) { 
+	.logo-svg { left: -5% }
+}
+
+@media screen and (max-width: 1100px) and (min-height: 925px) { 
+	.logo-svg { left: -4% }
+}
+
+@media screen and (max-width: 1090px) and (min-height: 925px) { 
+	.logo-svg { left: -3% }
+}
+
+@media screen and (max-width: 1080px) and (min-height: 925px) { 
+	.logo-svg { left: -2% }
+}
+
+@media screen and (max-width: 1070px) and (min-height: 925px) { 
+	.logo-svg { left: -1% }
+}
+
+@media screen and (max-width: 1060px) and (min-height: 925px) { 
+	.logo-svg { left: 0 }
+}
+
+@media screen and (max-width: 1899px) and (min-height: 531px) { 
+	.logo-svg { top: 75px }
+}
+
+@media screen and (max-width: 1909px) and (min-height: 817px) { 
+	.logo-svg {
+	  left: -24%;
+	  top: -10px;
+	}
+}
+
+@media screen and (max-width: 1806px) and (min-height: 817px) { 
+	.logo-svg {
+	  left: -24%;
+	  top: 0;
+	}
+}
+
+@media screen and (max-width: 1305px) and (max-height: 927px) { 
+	.logo-svg { left: -22% }
+}
+
+@media screen and (max-width: 1285px) and (max-height: 927px) { 
+	.logo-svg { left: -21% }
+}
+
+@media screen and (max-width: 1275px) and (max-height: 927px) { 
+	.logo-svg { left: -20% }
+}
+
+@media screen and (max-width: 1265px) and (max-height: 927px) { 
+	.logo-svg { left: -19% }
+}
+
+@media screen and (max-width: 1255px) and (max-height: 927px) { 
+	.logo-svg { left: -18% }
+}
+
+@media screen and (max-width: 1245px) and (max-height: 927px) { 
+	.logo-svg { left: -17% }
+}
+
+@media screen and (max-width: 1235px) and (max-height: 927px) { 
+	.logo-svg { left: -16% }
+}
+
+@media screen and (max-width: 1225px) and (max-height: 927px) { 
+	.logo-svg { left: -15% }
+}
+
+@media screen and (max-width: 1215px) and (max-height: 927px) { 
+	.logo-svg { left: -14% }
+}
+
+@media screen and (max-width: 1205px) and (max-height: 927px) { 
+	.logo-svg { left: -13% }
+}
+
+@media screen and (max-width: 1205px) and (max-height: 927px) { 
+	.logo-svg { left: -13% }
+}
+
+@media screen and (max-width: 1185px) and (max-height: 927px) { 
+	.logo-svg { left: -12% }
+}
+
+@media screen and (max-width: 1165px) and (max-height: 927px) { 
+	.logo-svg { left: -11% }
+}
+
+@media screen and (max-width: 1145px) and (max-height: 927px) { 
+	.logo-svg { left: -9% }
+}
+
+@media screen and (max-width: 1130px) and (max-height: 927px) { 
+	.logo-svg { left: -8% }
+}
+
+@media screen and (max-width: 1125px) and (max-height: 927px) { 
+	.logo-svg { left: -7.5% }
+}
+
+@media screen and (max-width: 1110px) and (max-height: 927px) { 
+	.logo-svg { left: -5.5% }
+}
+
+@media screen and (max-width: 1105px) and (max-height: 927px) { 
+	.logo-svg { left: -5% }
+}
+
+@media screen and (max-width: 1090px) and (max-height: 927px) { 
+	.logo-svg { left: -3% }
+}
+
+@media screen and (max-width: 1075px) and (max-height: 927px) { 
+	.logo-svg { left: -1.5% }
+}
+
+@media screen and (max-width: 1065px) and (max-height: 927px) { 
+	.logo-svg { left: -.5% }
+}
+
+@media screen and (max-width: 1055px) and (max-height: 927px) { 
+	.logo-svg { left: .5% }
+}
+
+@media screen and (max-width: 1045px) and (max-height: 927px) { 
+	.logo-svg { background-position: 70% 50% }
+}
+
+@media screen and (max-width: 1035px) and (max-height: 927px) { 
+	.logo-svg { background-position: 65% 50% }
+}
+
+@media screen and (max-width: 1005px) and (max-height: 927px) { 
+	.logo-svg { background-position: 62% 50% }
+}
+
+@media screen and (max-width: 995px) and (max-height: 927px) { 
+	.logo-svg { background-position: 60% 50% }
+}
+
+@media screen and (max-width: 985px) and (max-height: 927px) { 
+	.logo-svg { background-position: 57% 50% }
+}
+
+@media screen and (max-width: 970px) and (max-height: 927px) { 
+	.logo-svg { display: none }
+}
+
+/* random breakpoints found in playing around */
+
+@media screen and (max-width: 1911px) and (min-height: 819px) { 
+	.logo-svg { left: -24% }
+
+	.logo-box { top: 41% }
+}
+
+@media screen and (max-width: 1907px) and (min-height: 819px) { 
+	.logo-box { top: 45% }
+}
+
+@media screen and (max-width: 1850px) and (min-height: 819px) { 
+	.logo-svg { top: 0 }
+}
+
+@media screen and (max-width: 1750px) and (min-height: 819px) { 
+	.logo-svg { top: 10px }
+}
+
+@media screen and (max-width: 1670px) and (min-height: 819px) { 
+	.logo-svg { top: 20px }
+}
+
+@media screen and (max-width: 1415px) and (min-height: 819px) { 
+	.logo-svg { top: 30px }
+}
+
+@media screen and (max-width: 1310px) and (min-height: 819px) { 
+	.logo-svg { background-position: 50% 50% }
+}
+
+@media screen and (max-width: 1290px) and (min-height: 819px) { 
+	.logo-svg { background-position: 25% 50% }
+}
+
+@media screen and (max-width: 1201px) and (min-height: 819px) { 
+	.logo-svg { background-position: 0 50% }
+}
+
+@media screen and (max-width: 1117px) and (min-height: 802px) { 
+	.logo-box { top: 40% }
+
+	.logo-svg { background-position: 69% 50% }
+}
+
+@media screen and (max-width: 1200px) and (min-height: 818px) { 
+	.logo-box { top: 50% }
+
+	.logo-svg { background-position: 69% 50% }
+}
+
+@media screen and (max-width: 1025px) and (min-height: 819px) { 
+	.logo-svg { background-position: 63% 50% }
+}
+
+@media screen and (max-width: 1000px) and (min-height: 819px) { 
+	.logo-svg { background-position: 60% 50% }
+}
+
+@media screen and (max-width: 1000px) and (min-height: 819px) { 
+	.logo-svg { background-position: 57% 50% }
+}
+
+@media screen and (max-width: 1914px) and (min-height: 1077px) { 
+	.logo-box { top: 36% }
+}
+
+@media screen and (max-width: 1920px) and (min-height: 1060px) { 
+	.logo-svg { top: 15px }
+}
+
+@media screen and (max-width: 1890px) and (min-height: 1003px) { 
+	.logo-box { top: 40% }
+}
+
+@media screen and (max-width: 1740px) and (min-height: 1003px) { 
+	.logo-svg { top: 0 }
+}
+
+@media screen and (max-width: 1200px) and (min-height: 1003px) { 
+	.logo-svg { background-position: 10% 50% }
+}
+
+@media screen and (max-width: 1105px) and (min-height: 1003px) { 
+	.logo-svg { background-position: 15% 50% }
+}
+
+@media screen and (max-width: 1100px) and (min-height: 1003px) { 
+	.logo-svg { background-position: 15% 50% }
+}

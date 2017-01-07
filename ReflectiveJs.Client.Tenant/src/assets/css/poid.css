@@ -1,0 +1,487 @@
+﻿.performance-dash{
+  height:100%;
+  width:100%;
+  margin:0;
+  padding:0;
+}
+.container {
+  height:100%;
+   width:100%
+
+}
+.perf-container {
+  top: 50px;
+  height: 100%;
+  padding-left: 0;
+  background-color: #fff;
+  z-index: 0;
+}
+.page-content-wrapper-header{
+    width:100%;
+    height:50px;
+    background-color: #f9fcfe;
+    border-bottom:1px solid #eee;
+    color: #5d7592;
+}
+
+.poid-refresh-container{
+  height:50px;
+  width:70px;
+}
+
+.poid-refresh{
+  position:relative;
+  top:24px;
+  left:0;
+  right:0;
+  bottom:0;
+  color: #A1A1A4;
+  font-size: 1.25em;
+  cursor:pointer;
+}
+
+.datepicker-boxes{
+  height:50px;
+}
+
+.m {
+  top:6px;
+}
+
+.filter {
+  position:absolute;
+  top:10px;
+  float: left;
+  width: 75%;
+  left: 1.85em;
+}
+.filter .m {
+  color: #5d7592;
+  position: absolute;
+  margin-left: -1.25em;
+}
+.filter input {
+  position:absolute;
+  top:6px;
+  width: 100%;
+  vertical-align: bottom;
+  border: none;
+  background: #f9fcfe;
+  font-weight: 300;
+  color: #5d7592;
+  outline: none;
+  padding: 0 0.5em;
+}
+.poid-dates{
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid #45494c;
+  background-color:#f9fcfe;
+  box-shadow:none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+        border-radius: 0;
+}
+.poid-dates:focus{
+   outline:none;
+   box-shadow:none;
+}
+.poid-bar{
+   position:relative;
+   display:block;
+   width:100%;
+}
+.poid-bar:before, .poid-bar:after 	{
+  content:'';
+  height:2px; 
+  width:0;
+  bottom:4px; 
+  position:absolute;
+  background:#2793d1; 
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+.poid-bar:before {
+  left:50%;
+}
+.poid-bar:after {
+  right:50%; 
+}
+.poid-dates:focus ~ .poid-bar:before, .poid-dates:focus ~ .poid-bar:after {
+  width:50%;
+}
+.poid.has-feedback{
+    position:relative;
+    top:10px;
+    right:15px;
+}
+
+.has-feedback{
+    padding:0 10px;
+}
+
+.input-group{
+    width:100%;
+}
+
+.input-group-addon{
+    padding:8px 12px;
+}
+
+.page-content-wrapper-header-items{
+    max-height:100%;
+    margin:25px 0 0 30px;
+
+}
+.page-content-wrapper-header-items h5 {
+    font-size:20px;
+    display:inline-block;
+}
+
+.slider-date-input{
+    margin:30px 0 0 30px;
+}
+
+.check-health{
+    color:#EF6C44;
+    outline:none;
+}
+
+.health-good{
+    color:#A9CD86;
+    outline:none;
+}
+
+.search-icon-box{
+    height:100%;
+    background-color:#2793d1;
+}
+
+.row.no-pad {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.row.no-pad > [class*='col-'] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.perf-item {
+  width: 100%;
+  text-align: center;
+  display: block;
+  background-color: #FFFFFF;
+  padding-top: 15px;
+  cursor: pointer;
+}
+
+.perf-item .header {
+  padding: 15px 15px 0;
+  color: #53565a;
+}
+
+.perf-item .footer {
+  padding: 0;
+  background-color: transparent;
+  line-height: 30px;
+}
+
+.perf-item .footer .legend { padding: 5px 0 }
+
+.perf-item .footer div { display: inline-block }
+
+.fa-circle-o.target { color: #e2e2e2 }
+
+.fa-trophy.actual { color: #2793d1 }
+
+hr {
+  width: 50px;
+  height: 3px;
+  border: 0;
+  background: #eee;
+  margin: 20px auto;
+}
+
+.perf-number { font-size: 40px }
+
+.perf-type { font-size: 24px }
+
+.perf-refresh { color: #2793d1 }
+
+.fa-list-icon { color: #2793d1 }
+
+.mashboard {
+  position: absolute;
+  top: 53px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  overflow: scroll;
+}
+
+
+.toggledHide{
+    display:none;
+}
+
+.inside{
+
+}
+
+.legend{
+    width:100%;
+}
+
+
+.perf-details {
+  height: 120px;
+  width:50%;
+  background-color: #fefefe;
+  position: relative;
+  overflow: hidden;
+}
+.perf-details:after {
+  content: " ";
+  position: absolute;
+  width: 1px;
+  background-color: #e8e8e8;
+  z-index: 1;
+  right: 50%;
+  top: 26px;
+  bottom: 15px;
+}
+.perf-details .perf-block-info {
+  position:absolute;
+  top:35px;
+  width:100%;
+}
+.perf-details .perf-block-info h5 {
+  margin: 0;
+  color: #53565a;
+}
+
+.perf-search-bar {
+  height: 65px;
+  background: #eee;
+  position: absolute;
+  width:90%;
+  top: 0;
+  transition: width 300ms ease-in-out;
+}
+.perf-search-bar input {
+  outline: 0;
+  border: 0;
+  width: 100%;
+  margin:30px 0 0  0;
+  box-sizing: border-box;
+  padding: 0 70px;
+  background:#eee;
+}
+
+.perf-search-bar::-ms-clear {
+      font-size:12px;
+  }
+
+.perf-search {
+  width: 80px;
+  height: 65px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #2793d1;
+  transition: background 200ms ease-in-out;
+}
+.perf-search:hover {
+  background: #2793d1;
+  cursor: pointer;
+}
+.perf-search.perf-active .perf-search-icon {
+  width: 25px;
+  height: 25px;
+}
+.perf-search.perf-active .perf-search-icon:before, .perf-search.perf-active .perf-search-icon:after {
+  top: 2px;
+  right: 8px;
+}
+.perf-search.perf-active .perf-search-icon:after {
+  transform: rotate(45deg);
+}
+
+.perf-search-icon {
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border: 3px solid #fff;
+  display: block;
+  border-radius: 100%;
+  position: relative;
+  transition: all .2s ease-in-out;
+  margin: 20px 30px;
+}
+.perf-search-icon:before, .perf-search-icon:after {
+  width: 3px;
+  height: 13px;
+  display: block;
+  content: '';
+  background: #fff;
+  position: absolute;
+  top: 12px;
+  right: -5px;
+  transform: rotate(-45deg);
+  transition: all .2s ease-in-out;
+}
+
+
+
+@media only screen and (max-width: 991px) { 
+	.perf-details {width:30% }
+}
+
+@media only screen and (max-width: 400px) { 
+	.perf-details {width:40% }
+}
+
+
+@media only screen and (max-width: 250px) {
+    .perf-details { width: 80%}
+}
+
+@media only screen and (max-width: 997px) { 
+	.page-content-wrapper-header-items {margin:25px 0 0 10px }
+}
+
+@media only screen and (max-width: 820px) { 
+	.page-content-wrapper-header-items {margin:25px 0 0 0 }
+}
+
+@media only screen and (max-width: 768px) { 
+	.slider-area.col-sm-5 {padding:0 25px }
+}
+
+
+
+/*Overides for datepicker*/
+
+._720kb-datepicker-calendar-body, ._720kb-datepicker-calendar-days-header, ._720kb-datepicker-calendar-header, ._720kb-datepicker-calendar-years-pagination-pages, .datepicker, [datepicker], datepicker{
+  font-family: FFKievitWeb,Helvetica,sans-serif;
+}
+
+._720kb-datepicker-calendar{
+  width:100%;
+}
+
+._720kb-datepicker-calendar-header:nth-child(2n+1){
+  background: #2793d1;
+}
+
+._720kb-datepicker-calendar-header a, ._720kb-datepicker-calendar-header a:hover{
+  color:#fff;
+}
+
+._720kb-datepicker-calendar-month span{
+  color:#fff;
+  font-weight:normal;
+}
+
+._720kb-datepicker-calendar-header a:hover{
+  color:#fff;
+  outline:none;
+}
+
+._720kb-datepicker-calendar-day._720kb-datepicker-disabled, ._720kb-datepicker-calendar-day._720kb-datepicker-disabled:hover, ._720kb-datepicker-calendar-years-pagination a._720kb-datepicker-active._720kb-datepicker-disabled, ._720kb-datepicker-calendar-years-pagination a._720kb-datepicker-active._720kb-datepicker-disabled:hover, ._720kb-datepicker-calendar-years-pagination a._720kb-datepicker-disabled, ._720kb-datepicker-calendar-years-pagination a._720kb-datepicker-disabled:hover{
+  display:none;
+}
+
+._720kb-datepicker-calendar-years-pagination-pages{
+  display:none;
+}
+
+
+.bottom-nav-container{
+  position:absolute;
+  bottom:0;
+  left:2.5%;
+  right:2.5%;
+  background:#326BFF;
+  height:80px;
+}
+
+
+.toggled.bottom-nav-container {
+  position: absolute;
+  bottom: 0;
+  left: 1.5%;
+  right: 1.5%;
+  background: #326BFF;
+  height: 80px;
+}
+
+.bottom-nav-container-inner{
+  position:relative;
+  top:5px;
+  bottom:5px;
+  display:inline;
+  background-color:inherit;
+}
+
+.poid-label{
+  color:#fff;
+  font-size:12px;
+}
+
+
+.filter-bottom-search-area, .filter-bottom-sort-area, .filter-bottom-filter-area, .filter-bottom-date-area{
+  min-height:50px;
+  top:5px;
+}
+
+.filter-date, .filter-filters, .filter-sorts{
+  height:100%;
+  top:10px;
+}
+
+.filter-bottom-search{
+  height:100%;
+  width:100%;
+  margin:5px;
+}
+
+.filter-bottom-search input {
+  position:absolute;
+  width: 95%;
+  vertical-align: bottom;
+  border: none;
+  border-bottom:2px solid #fff;
+  background: #326BFF;
+  font-weight: 300;
+  color: #fff;
+  outline: none;
+}
+
+
+.filter-bottom-sort{
+
+}
+
+
+.btn-filters{
+  color:#fff;
+  background-color:#0295FF;
+  border-radius: 100px;
+}
+
+.btnSelected{
+  color:#fff;
+  background-color:#1E1E20;
+  border-radius: 100px;
+}
+
+
+
+#textAngular-editableFix-010203040506070809 {
+display:none;
+
+}

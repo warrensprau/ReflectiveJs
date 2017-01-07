@@ -1,0 +1,86 @@
+﻿.navbar-default .navbar-brand { color: #1e1e20 }
+
+.navbar-brand a {
+  color: #1e1e20;
+  cursor: default;
+  text-decoration: none;
+}
+
+.nav-icon {
+  position: relative;
+  height: 22px;
+  top: 7px;
+}
+
+.navbar {
+  height: 50px;
+  z-index: 5000;
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+  background-color: #fff;
+  margin-bottom: 0;
+}
+
+.navbar-top-links {
+  position: relative;
+  top: -8px;
+  height: 100%;
+  min-height: 35px;
+}
+
+.nav-dropdown {
+  position: relative;
+  left: -15px;
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+  background-color: transparent;
+  outline: none;
+}
+
+.nav .open > a { background-color: transparent }
+
+.nav .open > a:hover { background-color: transparent }
+
+.nav .open > a:focus { background-color: transparent }
+
+.navbar-collapse.in { background-color: #F0F0F0 }
+
+.nav-justified > li > a { color: #1e1e20 }
+
+.nav > li { margin: 0 auto }
+
+@media all and (min-width:768px) { 
+	.navbar > .container .navbar-brand,
+	.navbar > .container-fluid .navbar-brand { margin-left: -18px }
+
+	.navbar-right { margin-right: 0 }
+
+	.nav-justified > li {
+	  display: list-item;
+	  width: 3%;
+	}
+}
+
+.md__button--round {
+  position: absolute;
+  top: 10px;
+  width: 2em;
+  height: 2em;
+  background: #2793d1;
+  display: block;
+  border-radius: 50%;
+  text-align: center;
+  padding-top: 0.3em!important;
+  text-decoration: none;
+  color: white;
+}
+
+
+.md-bars{
+    position:absolute;
+    top:8px;
+    left:0;
+    right:0;
+    color:#fff
+}

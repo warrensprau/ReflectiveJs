@@ -31,6 +31,8 @@ namespace ReflectiveJs.Server.Api.App_Data
             CreateUser("admin@client1.com", "Admin123!", new Collection<string> { "admin" }, userMgr, dbContext);
 
             dbContext.SaveChanges();
+
+            new UiSeeder().Seed(dbContext, magpieRootUser);
         }
 
         protected User CreateUser(

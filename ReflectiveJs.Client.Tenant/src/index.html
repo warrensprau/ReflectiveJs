@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang="en-us" ng-app="cvApp" id="ng-app">
+<head>
+
+    <!--[if IE]>
+    <meta http-equiv="Page-Enter" content="blendTrans(duration=0)" />
+    <meta http-equiv="Page-Exit" content="blendTrans(duration=0)" />
+    <![endif]-->
+
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Magpie CRM</title>
+
+    <link rel="stylesheet" href="assets/libs/agGrid/ag-grid.css" />
+    <link rel="stylesheet" href="assets/libs/agGrid/theme-fresh.css"/>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <link rel="stylesheet" href="assets/css/pe-icon-7-stroke.css" />
+    <link rel="stylesheet" href="assets/libs/angularjs-datepicker/angular-datepicker.min.css" />
+    <link rel="stylesheet" href="assets/libs/v-accordion/v-accordion.css" />
+    <link rel="stylesheet" href="assets/libs/textAngular/textAngular.css" />
+    <link rel="stylesheet" href="assets/css/messageTemplateDetails.css" />
+    <link rel="stylesheet" href="assets/css/core.css" />
+    <link rel="stylesheet" href="assets/css/magpie.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/panels.css" />
+    <link rel="stylesheet" href="assets/css/login.css" />
+    <link rel="stylesheet" href="assets/css/ooid.css" />
+    <link rel="stylesheet" href="assets/css/poid.css" />
+    <link rel="stylesheet" href="assets/css/checkbox.css" />
+    <link rel="stylesheet" href="assets/css/navCss.css" />
+    <link rel="stylesheet" href="assets/css/bootmenu.css" />
+    <link rel="stylesheet" href="assets/css/MyFontsWebfontsKit.css" />
+
+    <script src="assets/libs/jquery/jquery.js"></script>
+    <script src="assets/libs/bootstrap/bootstrap.js"></script>
+
+    <script src="assets/libs/agGrid/ag-grid.js"></script>
+    <script src="assets/libs/angular/angular.js"></script>
+    <script src="assets/libs/angular-animate/angular-animate.js"></script>
+    <script src="assets/libs/angular-growing-input/angular-grow.js"></script>
+    <script src="assets/libs/angular-cookies/angular-cookies.js"></script>
+    <script src="assets/libs/angular-ui-router/angular-ui-router.js"></script>
+    <script src="assets/libs/angularjs-datepicker/angular-datepicker.min.js"></script>
+
+    <script src="assets/libs/breeze-client/breeze.debug.js"></script>
+    <script src="assets/libs/breeze-client/breeze.min.js"></script>
+    <script src="assets/libs/breeze-client/breeze.bridge.angular.js"></script>
+    <script src="assets/libs/breeze-client/breeze.ajax.angular.js"></script>
+    <script src="assets/libs/breeze-client-labs/breeze.savequeuing.js"></script>
+
+    <script src="assets/libsoverride/breeze-client-labs/breeze.directives.js"></script>
+    <script src="assets/libsoverride/kendo-ui/kendo.all.min.js"></script>
+
+    <script src="assets/libs/ng-csv/ng-csv.min.js"></script>
+    <script src="assets/libs/v-accordion/v-accordion.js"></script>
+
+    <!-- main startup javascript for the dashboard / SPA -->
+    <!-- App/Config -->
+
+    <script type="text/javascript" src="app/config.js"></script>
+
+    <script type="text/javascript" src="app/services/util.js"></script>
+    <script type="text/javascript" src="app/services/persistence.module.js"></script>
+    <script type="text/javascript" src="app/services/entity_manager.js"></script>
+    <script type="text/javascript" src="app/services/object_service.js"></script>
+    <script type="text/javascript" src="app/services/panel_service.js"></script>
+    <script type="text/javascript" src="app/services/datacaching.js"></script>
+    <script type="text/javascript" src="app/services/dataloader.js"></script>
+    <script type="text/javascript" src="app/views/security/security.module.js"></script>
+    <script type="text/javascript" src="app/views/security/principal_service.js"></script>
+    <script type="text/javascript" src="app/views/security/authorize_service.js"></script>
+    <script type="text/javascript" src="app/views/security/registration_service.js"></script>
+    <script type="text/javascript" src="app/views/security/securityCtrl.js"></script>
+    <script type="text/javascript" src="app/services/view.js"></script>
+    <script type="text/javascript" src="app/services/flyout.js"></script>
+    <script type="text/javascript" src="app/views/filter/list.js"></script>
+
+    <script type="text/javascript" src="app/app.js"></script>
+
+    <script type="text/javascript" src="app/services/messageservice.js"></script>
+    <script type="text/javascript" src="app/views/home.js"></script>
+    <script type="text/javascript" src="app/views/analyze/mashboard.js"></script>
+    <script type="text/javascript" src="app/views/filter/masterindex.js"></script>
+    <script type="text/javascript" src="app/views/util/viewutil.module.js"></script>
+    <script type="text/javascript" src="app/views/util/messages.js"></script>
+    <script type="text/javascript" src="app/views/maintain/custom/camporderexport.js"></script>
+    <script type="text/javascript" src="app/views/maintain/generic/actiondetails.module.js"></script>
+    <script type="text/javascript" src="app/views/maintain/generic/actiondetails.js"></script>
+    <script type="text/javascript" src="app/views/maintain/generic/actiondetailscreate.js"></script>
+    <script type="text/javascript" src="app/views/analyze/listdetails.js"></script>
+    <script type="text/javascript" src="app/views/maintain/generic/actions.js"></script>
+    <script type="text/javascript" src="app/views/maintain/generic/grid.js"></script>
+    <script type="text/javascript" src="app/views/maintain/generic/masterdetails.module.js"></script>
+    <script type="text/javascript" src="app/views/maintain/generic/masterdetails.js"></script>
+    <script type="text/javascript" src="app/views/maintain/generic/masterdetailscreate.js"></script>
+    <script type="text/javascript" src="app/views/maintain/generic/masterdetailsedit.js"></script>
+    <script type="text/javascript" src="app/views/maintain/custom/messagetemplatedetails.js"></script>
+    <script type="text/javascript" src="app/views/maintain/custom/orderexport.js"></script>
+    <script type="text/javascript" src="app/views/maintain/routes.js"></script>
+
+</head>
+<body>
+    <div class="overlay-loading" ng-show="showLoading()" ng-controller="MessagesController">
+        <div class="loading fadeInDown">
+            <div class="well">
+                <ul>
+                    <li ng-repeat="message in getLoadingMessages()">{{message}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div ui-view="content" class="home"></div>
+</body>
+</html>
+
