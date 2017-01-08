@@ -16,7 +16,7 @@ namespace ReflectiveJs.Server.Api.Controllers
         [HttpGet]
         public IQueryable<Org> Orgs()
         {
-            return ContextProvider.Context.Orgs;
+            return ContextProvider.Context.SetOwnable<Org>("1");
         }
 
         [Route("Members")]

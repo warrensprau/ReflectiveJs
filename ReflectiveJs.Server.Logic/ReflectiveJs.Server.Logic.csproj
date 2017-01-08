@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Common\Execution\Caller.cs" />
     <Compile Include="Common\Execution\ICaller.cs" />
+    <Compile Include="Common\Persistence\FilteredDbSet.cs" />
     <Compile Include="Common\Persistence\LandlordDbContext.cs" />
     <Compile Include="Common\Persistence\ApplicationDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

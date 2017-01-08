@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement;
 using ReflectiveJs.Server.Model.Common;
 using ReflectiveJs.Server.Model.Organizational;
+using ReflectiveJs.Server.Model.UI;
 
 namespace ReflectiveJs.Server.Logic.Common.Persistence
 {
@@ -109,5 +110,21 @@ namespace ReflectiveJs.Server.Logic.Common.Persistence
         public DbSet<Member> Members { get; set; }
         public DbSet<Org> Orgs { get; set; }
         public DbSet<OrgMember> OrgMembers { get; set; }
+
+        // UI
+
+        // Meta
+
+        public DbSet<UiAction> UiActions { get; set; }
+        public DbSet<UiField> UiFields { get; set; }
+        public DbSet<UiModel> UiModels { get; set; }
+        public DbSet<UiView> UiViews { get; set; }
+        public DbSet<UiViewAction> UiViewActions { get; set; }
+        public DbSet<UiViewField> UiViewFields { get; set; }
+
+        public IDbSet<TEntity> SetOwnable<TEntity>(string currentUserId) where TEntity : class, IAuditable
+        {
+            return new FilteredDbSet<TEntity>(this, entity => entity.CreatedById == null, entity => entity.CreatedById = currentUserId);
+        }
     }
 }

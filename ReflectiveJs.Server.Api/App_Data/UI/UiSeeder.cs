@@ -8,7 +8,7 @@ using ReflectiveJs.Server.Logic.Common.Persistence;
 using ReflectiveJs.Server.Model.Common;
 using ReflectiveJs.Server.Model.Organizational;
 
-namespace ReflectiveJs.Server.Api.App_Data
+namespace ReflectiveJs.Server.Api.App_Data.UI
 {
     public class UiSeeder : IDbSeeder
     {

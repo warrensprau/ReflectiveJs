@@ -51,6 +51,11 @@
     <Compile Include="Organizational\OrgMember.cs" />
     <Compile Include="Organizational\Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\UiField.cs" />
+    <Compile Include="UI\UiModel.cs" />
+    <Compile Include="UI\UiView.cs" />
+    <Compile Include="UI\UiViewAction.cs" />
+    <Compile Include="UI\UiViewField.cs" />
     <Compile Include="UI\UiAction.cs" />
   </ItemGroup>
   <ItemGroup>

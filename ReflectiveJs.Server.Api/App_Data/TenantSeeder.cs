@@ -32,7 +32,7 @@ namespace ReflectiveJs.Server.Api.App_Data
 
             dbContext.SaveChanges();
 
-            new UiSeeder().Seed(dbContext, magpieRootUser);
+            //new UiSeeder().Seed(dbContext, magpieRootUser);
         }
 
         protected User CreateUser(
