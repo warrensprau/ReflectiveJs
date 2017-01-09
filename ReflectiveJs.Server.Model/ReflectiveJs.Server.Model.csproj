@@ -40,12 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\OrgEntity.cs" />
     <Compile Include="Common\EnumType.cs" />
     <Compile Include="Common\User.cs" />
     <Compile Include="Common\AuditedEntity.cs" />
     <Compile Include="Common\BaseEntity.cs" />
     <Compile Include="Common\IAuditable.cs" />
-    <Compile Include="Organizational\Client.cs" />
     <Compile Include="Organizational\Member.cs" />
     <Compile Include="Organizational\Org.cs" />
     <Compile Include="Organizational\OrgMember.cs" />

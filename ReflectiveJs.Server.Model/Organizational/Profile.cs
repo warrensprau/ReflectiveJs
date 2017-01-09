@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using ReflectiveJs.Server.Model.Common;
 
 namespace ReflectiveJs.Server.Model.Organizational
 {
-    public class Profile
+    public class Profile : OrgEntity
     {
         [Key, ForeignKey("Member")]
         public int Id { get; set; }

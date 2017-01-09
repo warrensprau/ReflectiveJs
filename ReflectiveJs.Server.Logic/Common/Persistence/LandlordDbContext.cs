@@ -28,6 +28,6 @@ namespace ReflectiveJs.Server.Logic.Common.Persistence
             return connnectionString;
         }
 
-        public DbSet<Client> Client { get; set; }
+        
     }
 }

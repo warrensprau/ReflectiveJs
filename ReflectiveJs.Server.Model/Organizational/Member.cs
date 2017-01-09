@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using ReflectiveJs.Server.Model.Common;
 
 namespace ReflectiveJs.Server.Model.Organizational
 {
-    public class Member
+    public class Member : OrgEntity
     {
         public Member()
         {

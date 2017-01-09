@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Http;
 using Breeze.WebApi2;
 using ReflectiveJs.Server.Model.Organizational;
@@ -16,14 +12,15 @@ namespace ReflectiveJs.Server.Api.Controllers
         [HttpGet]
         public IQueryable<Org> Orgs()
         {
-            return ContextProvider.Context.SetOwnable<Org>("1");
+            return ContextProvider.Context.Orgs;
         }
 
         [Route("Members")]
         [HttpGet]
         public IQueryable<Member> Members()
         {
-            return ContextProvider.Context.Members;
+            var currentUserId = Caller.UserId();
+            return ContextProvider.Context.SetOwnable<Member>(currentUserId);
         }
     }
 }

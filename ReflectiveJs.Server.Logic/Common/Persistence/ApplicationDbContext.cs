@@ -33,6 +33,8 @@ namespace ReflectiveJs.Server.Logic.Common.Persistence
         public ApplicationDbContext(ShardMap shardMap, int shardingKey, string connectionStr) 
             : base(CreateDDRConnection(shardMap, shardingKey, connectionStr), true /* contextOwnsConnection */) 
         {
+            //Configuration.ProxyCreationEnabled = false;
+            //Configuration.LazyLoadingEnabled = false;
         }
 
         // Only static methods are allowed in calls into base class c'tors 
@@ -122,9 +124,10 @@ namespace ReflectiveJs.Server.Logic.Common.Persistence
         public DbSet<UiViewAction> UiViewActions { get; set; }
         public DbSet<UiViewField> UiViewFields { get; set; }
 
-        public IDbSet<TEntity> SetOwnable<TEntity>(string currentUserId) where TEntity : class, IAuditable
+        public IDbSet<TEntity> SetOwnable<TEntity>(string currentUserId) where TEntity : OrgEntity
         {
-            return new FilteredDbSet<TEntity>(this, entity => entity.CreatedById == null, entity => entity.CreatedById = currentUserId);
+            var visibleOrgs = ModelVisibilityManager.VisibleOrgs(currentUserId, this);
+            return new FilteredDbSet<TEntity>(this, entity => visibleOrgs.Contains(entity.OrgId), null);
         }
     }
 }

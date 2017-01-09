@@ -3,7 +3,7 @@ using ReflectiveJs.Server.Model.Common;
 
 namespace ReflectiveJs.Server.Model.Organizational
 {
-    public class OrgMember
+    public class OrgMember : OrgEntity
     {
         public int Id { get; set; }
 

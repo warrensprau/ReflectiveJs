@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Web;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNet.Identity.Owin;
 using ReflectiveJs.Server.Logic.Common.Persistence;
 using ReflectiveJs.Server.Model.Common;
 using ReflectiveJs.Server.Model.Organizational;
@@ -17,7 +15,7 @@ namespace ReflectiveJs.Server.Api.App_Data
             var roleMgr = new ApplicationRoleManager(new RoleStore<IdentityRole>(dbContext));
             var userMgr = new ApplicationUserManager(new UserStore<User>(dbContext));
 
-            var rootOrg = new Org()
+            var rootOrg = new Org
             {
                 Name = "Client"
             };
@@ -28,7 +26,9 @@ namespace ReflectiveJs.Server.Api.App_Data
             roleMgr.Create(new IdentityRole("mgmt"));
             roleMgr.Create(new IdentityRole("ops"));
 
-            CreateUser("admin@client1.com", "Admin123!", new Collection<string> { "admin" }, userMgr, dbContext);
+            dbContext.SaveChanges();
+
+            CreateUser("admin@client1.com", "Admin123!", new Collection<string> {"admin"}, userMgr, rootOrg, dbContext);
 
             dbContext.SaveChanges();
 
@@ -36,12 +36,13 @@ namespace ReflectiveJs.Server.Api.App_Data
         }
 
         protected User CreateUser(
-            string name, string password, ICollection<string> roleNames, ApplicationUserManager userMgr, ApplicationDbContext dbContext)
+            string name, string password, ICollection<string> roleNames, ApplicationUserManager userMgr, Org org,
+            ApplicationDbContext dbContext)
         {
             var user = userMgr.FindByName(name);
             if (user != null) return user;
 
-            user = new User { UserName = name, Email = name };
+            user = new User {UserName = name, Email = name, Org = org};
             //var identityResult = UserMgr.Create(user, password);
             userMgr.Create(user, password);
             foreach (var roleName in roleNames)
@@ -51,7 +52,6 @@ namespace ReflectiveJs.Server.Api.App_Data
 
             userMgr.SetLockoutEnabled(user.Id, false);
 
-            dbContext.SaveChanges();
             return user;
         }
     }
