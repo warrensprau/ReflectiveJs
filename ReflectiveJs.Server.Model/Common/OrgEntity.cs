@@ -3,11 +3,11 @@ using ReflectiveJs.Server.Model.Organizational;
 
 namespace ReflectiveJs.Server.Model.Common
 {
-    public abstract class OrgEntity : AuditedEntity
+    public abstract class OrgEntity : AuditedEntity, IOwned
     {
-        [ForeignKey("Org")]
-        public int OrgId { get; set; }
+        [ForeignKey("Owner")]
+        public int OwnerId { get; set; }
 
-        public virtual Org Org { get; set; }
+        public virtual Org Owner { get; set; }
     }
 }

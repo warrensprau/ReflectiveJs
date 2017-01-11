@@ -7,12 +7,12 @@ using ReflectiveJs.Server.Model.Organizational;
 
 namespace ReflectiveJs.Server.Model.Common
 {
-    public class User : IdentityUser
+    public class User : IdentityUser, IOwned
     {
-        [ForeignKey("Org")]
-        public int OrgId { get; set; }
+        [ForeignKey("Owner")]
+        public int OwnerId { get; set; }
 
-        public virtual Org Org { get; set; }
+        public virtual Org Owner { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager,
             string authenticationType)

@@ -127,7 +127,7 @@ namespace ReflectiveJs.Server.Logic.Common.Persistence
         public IDbSet<TEntity> SetOwnable<TEntity>(string currentUserId) where TEntity : OrgEntity
         {
             var visibleOrgs = ModelVisibilityManager.VisibleOrgs(currentUserId, this);
-            return new FilteredDbSet<TEntity>(this, entity => visibleOrgs.Contains(entity.OrgId), null);
+            return new FilteredDbSet<TEntity>(this, entity => visibleOrgs.Contains(entity.OwnerId), null);
         }
     }
 }

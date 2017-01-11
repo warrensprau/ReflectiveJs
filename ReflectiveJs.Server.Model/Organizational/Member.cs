@@ -17,7 +17,11 @@ namespace ReflectiveJs.Server.Model.Organizational
 
         public string LastName { get; set; }
 
-        public string LoginId { get; set; }
+        [ForeignKey("User")]
+        public string UserId { get; set; }
+
+        public virtual User User { get; set; }
+
 
         [ForeignKey("Profile")]
         public int? ProfileId { get; set; }

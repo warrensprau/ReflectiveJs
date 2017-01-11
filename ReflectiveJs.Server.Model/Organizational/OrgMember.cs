@@ -12,10 +12,10 @@ namespace ReflectiveJs.Server.Model.Organizational
 
         public virtual Org Org { get; set; }
 
-        [ForeignKey("Associate")]
-        public int AssociateId { get; set; }
+        [ForeignKey("Member")]
+        public int MemberId { get; set; }
 
-        public virtual Member Associate { get; set; }
+        public virtual Member Member { get; set; }
 
         [ForeignKey("OrgAssociateType")]
         public string OrgAssociateTypeId { get; set; }

@@ -29,7 +29,7 @@ namespace ReflectiveJs.Server.Api.Controllers
                     var userName = User.Identity.GetUserName();
                     var appUser = UserManager.FindByName(userName);
 
-                    var associate = DbContext.Members.SingleOrDefault(a => a.LoginId == appUser.Email);
+                    var associate = DbContext.Members.SingleOrDefault(m => m.User.UserName == appUser.Email);
                     var associateTimeZone = TimeZoneInfo.Local;
 
                     var associateProfile = associate?.Profile;

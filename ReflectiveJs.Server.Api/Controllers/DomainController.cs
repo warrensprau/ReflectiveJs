@@ -22,5 +22,14 @@ namespace ReflectiveJs.Server.Api.Controllers
             var currentUserId = Caller.UserId();
             return ContextProvider.Context.SetOwnable<Member>(currentUserId);
         }
+
+        [Route("OrgMembers")]
+        [HttpGet]
+        public IQueryable<OrgMember> OrgMembers()
+        {
+            var currentUserId = Caller.UserId();
+            return ContextProvider.Context.SetOwnable<OrgMember>(currentUserId);
+        }
+
     }
 }

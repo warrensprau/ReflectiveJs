@@ -28,7 +28,25 @@ namespace ReflectiveJs.Server.Api.App_Data
 
             dbContext.SaveChanges();
 
-            CreateUser("admin@client1.com", "Admin123!", new Collection<string> {"admin"}, userMgr, rootOrg, dbContext);
+            var rootUser = CreateUser("admin@client1.com", "Admin123!", new Collection<string> {"admin"}, userMgr, rootOrg, dbContext);
+
+            dbContext.SaveChanges();
+
+            var adminMember = new Member
+            {
+                Owner = rootOrg,
+                User = rootUser,
+                OrgMembers = new List<OrgMember>()
+                {
+                    new OrgMember()
+                    {
+                        Owner = rootOrg,
+                        Org = rootOrg
+                    }
+                }
+            };
+
+            dbContext.Members.Add(adminMember);
 
             dbContext.SaveChanges();
 
@@ -36,13 +54,13 @@ namespace ReflectiveJs.Server.Api.App_Data
         }
 
         protected User CreateUser(
-            string name, string password, ICollection<string> roleNames, ApplicationUserManager userMgr, Org org,
+            string name, string password, ICollection<string> roleNames, ApplicationUserManager userMgr, Org owner,
             ApplicationDbContext dbContext)
         {
             var user = userMgr.FindByName(name);
             if (user != null) return user;
 
-            user = new User {UserName = name, Email = name, Org = org};
+            user = new User {UserName = name, Email = name, Owner = owner};
             //var identityResult = UserMgr.Create(user, password);
             userMgr.Create(user, password);
             foreach (var roleName in roleNames)
