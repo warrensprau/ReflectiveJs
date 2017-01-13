@@ -110,6 +110,8 @@ namespace ReflectiveJs.Server.Logic.Common.Persistence
             return base.SaveChangesAsync();
         }
 
+        public DbSet<EnumType> EnumTypes { get; set; }
+
         public DbSet<Member> Members { get; set; }
         public DbSet<Org> Orgs { get; set; }
         public DbSet<OrgMember> OrgMembers { get; set; }

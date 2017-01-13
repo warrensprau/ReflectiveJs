@@ -18,22 +18,18 @@ namespace ReflectiveJs.Server.Model.Performance
 
         [ForeignKey("GoalType")]
         public string GoalTypeId { get; set; }
-
         public virtual GoalType GoalType { get; set; }
 
         [ForeignKey("Org")]
         public int OrgId { get; set; }
-
-        public virtual Org ClientOrg { get; set; }
+        public virtual Org Org { get; set; }
 
         [ForeignKey("GoalMetricType")]
         public string GoalMetricTypeId { get; set; }
-
         public virtual GoalMetricType GoalMetricType { get; set; }
 
         [ForeignKey("GoalTimePeriodType")]
         public string GoalTimePeriodTypeId { get; set; }
-
         public virtual GoalTimePeriodType GoalTimePeriodType { get; set; }
 
         public int Target { get; set; }

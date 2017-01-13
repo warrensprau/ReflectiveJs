@@ -19,7 +19,7 @@ function mashboardController($scope, $rootScope, flyoutService, $http, apiUrl, $
       $scope.refreshPoids = function () {
 
           $rootScope.$emit('loadingData', 'Loading Poids...');
-          $http.get(apiUrl() + "/api/performancesummary", {
+          $http.get(apiUrl() + "/performancesummary?tenantId=1", {
               params: {
                   metricFilter: '',
                   breakdownFilter: '',
@@ -37,7 +37,7 @@ function mashboardController($scope, $rootScope, flyoutService, $http, apiUrl, $
 
       $scope.autoRefreshPoids = function () {
 
-          $http.get(apiUrl() + "/api/performancesummary", {
+          $http.get(apiUrl() + "/performancesummary?tenantId=1", {
               params: {
                   metricFilter: '',
                   breakdownFilter: '',
