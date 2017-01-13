@@ -5,9 +5,9 @@ namespace ReflectiveJs.Server.Model.Common
 {
     public abstract class OrgEntity : AuditedEntity, IOwned
     {
-        [ForeignKey("Owner")]
-        public int OwnerId { get; set; }
+        [ForeignKey("OwningOrg")]
+        public int OwningOrgId { get; set; }
 
-        public virtual Org Owner { get; set; }
+        public virtual Org OwningOrg { get; set; }
     }
 }

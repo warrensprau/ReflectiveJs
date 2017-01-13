@@ -210,6 +210,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Data\ConstantAutoSeeder.cs" />
     <Compile Include="App_Data\TenantSeeder.cs" />
     <Compile Include="App_Data\ISeeder.cs" />
     <Compile Include="App_Data\UI\CustomViewSeeder.cs" />
@@ -222,6 +223,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DomainController.cs" />
+    <Compile Include="Controllers\MashboardController.cs" />
     <Compile Include="Controllers\NTierController.cs" />
     <Compile Include="Controllers\ResourceController.cs" />
     <Compile Include="App_Data\TenantModelInitializer.cs" />

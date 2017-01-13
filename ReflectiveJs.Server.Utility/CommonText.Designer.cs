@@ -61,6 +61,15 @@ namespace ReflectiveJs.Server.Utility {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Org.
+        /// </summary>
+        public static string EntityType_Org {
+            get {
+                return ResourceManager.GetString("EntityType_Org", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Created.
         /// </summary>
         public static string FieldName_Created {

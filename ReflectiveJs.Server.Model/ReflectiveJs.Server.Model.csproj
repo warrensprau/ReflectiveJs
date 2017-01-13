@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\IEntity.cs" />
+    <Compile Include="Common\INamedEntity.cs" />
     <Compile Include="Common\IOwned.cs" />
     <Compile Include="Common\OrgEntity.cs" />
     <Compile Include="Common\EnumType.cs" />
@@ -51,6 +53,9 @@
     <Compile Include="Organizational\Org.cs" />
     <Compile Include="Organizational\OrgMember.cs" />
     <Compile Include="Organizational\Profile.cs" />
+    <Compile Include="Performance\DaySummary.cs" />
+    <Compile Include="Performance\GoalType.cs" />
+    <Compile Include="Performance\OrgGoal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\UiField.cs" />
     <Compile Include="UI\UiModel.cs" />

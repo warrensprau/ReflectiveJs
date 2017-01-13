@@ -11,7 +11,7 @@ function SecurityController($rootScope, $scope, $state, principal, registrationS
     $rootScope.isLoggedIn = false;
     $rootScope.loginBox = true;
 
-    $scope.username = 'admin@rustycog.com';
+    $scope.username = 'admin@client1.com';
     $scope.password = 'Admin123!';
     $scope.oldPassword ='';
     $scope.confirmPassword = '';

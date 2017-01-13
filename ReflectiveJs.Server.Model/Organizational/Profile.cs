@@ -11,6 +11,13 @@ namespace ReflectiveJs.Server.Model.Organizational
 
         public virtual Member Member { get; set; }
 
+        public string SearchSet { get; set; }
+
         public string DefaultTimeZone { get; set; }
+
+        public Profile()
+        {
+            SearchSet = "org,member";
+        }
     }
 }

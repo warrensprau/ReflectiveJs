@@ -21,7 +21,7 @@ angular.module('security')
                     return $http({
                         transformRequest: transformRequestAsFormPost,
                         method: 'post',
-                        url: apiUrl() + '/api/Token',
+                        url: apiUrl() + '/Token',
                         data: {
                             'username': username,
                             'password': password,

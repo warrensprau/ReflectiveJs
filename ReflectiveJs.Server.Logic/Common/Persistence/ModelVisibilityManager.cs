@@ -8,7 +8,7 @@ namespace ReflectiveJs.Server.Logic.Common.Persistence
         {
             var visibleOrgs = new List<int>();
             var user = dbContext.Users.Find(userId);
-            var org = dbContext.Orgs.Find(user.OwnerId);
+            var org = dbContext.Orgs.Find(user.OwningOrgId);
             visibleOrgs.Add(org.Id);
 
             return visibleOrgs.ToArray();

@@ -9,10 +9,10 @@ namespace ReflectiveJs.Server.Model.Common
 {
     public class User : IdentityUser, IOwned
     {
-        [ForeignKey("Owner")]
-        public int OwnerId { get; set; }
+        [ForeignKey("OwningOrg")]
+        public int OwningOrgId { get; set; }
 
-        public virtual Org Owner { get; set; }
+        public virtual Org OwningOrg { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager,
             string authenticationType)

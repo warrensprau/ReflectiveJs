@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement;
 using ReflectiveJs.Server.Model.Common;
 using ReflectiveJs.Server.Model.Organizational;
+using ReflectiveJs.Server.Model.Performance;
 using ReflectiveJs.Server.Model.UI;
 
 namespace ReflectiveJs.Server.Logic.Common.Persistence
@@ -113,6 +114,10 @@ namespace ReflectiveJs.Server.Logic.Common.Persistence
         public DbSet<Org> Orgs { get; set; }
         public DbSet<OrgMember> OrgMembers { get; set; }
 
+        // Performance
+        public DbSet<OrgGoal> OrgGoals { get; set; }
+        public DbSet<DaySummaryMetric> DaySummaryMetrics { get; set; }
+
         // UI
 
         // Meta
@@ -124,10 +129,16 @@ namespace ReflectiveJs.Server.Logic.Common.Persistence
         public DbSet<UiViewAction> UiViewActions { get; set; }
         public DbSet<UiViewField> UiViewFields { get; set; }
 
+        public IDbSet<Org> SetOwnableOrgs(string currentUserId) 
+        {
+            var visibleOrgs = ModelVisibilityManager.VisibleOrgs(currentUserId, this);
+            return new FilteredDbSet<Org>(this, entity => visibleOrgs.Contains(entity.Id), null);
+        }
+
         public IDbSet<TEntity> SetOwnable<TEntity>(string currentUserId) where TEntity : OrgEntity
         {
             var visibleOrgs = ModelVisibilityManager.VisibleOrgs(currentUserId, this);
-            return new FilteredDbSet<TEntity>(this, entity => visibleOrgs.Contains(entity.OwnerId), null);
+            return new FilteredDbSet<TEntity>(this, entity => visibleOrgs.Contains(entity.OwningOrgId), null);
         }
     }
 }

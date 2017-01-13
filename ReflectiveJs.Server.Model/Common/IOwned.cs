@@ -4,8 +4,8 @@ namespace ReflectiveJs.Server.Model.Common
 {
     public interface IOwned
     {
-        int OwnerId { get; set; }
+        int OwningOrgId { get; set; }
 
-        Org Owner { get; set; }
+        Org OwningOrg { get; set; }
     }
 }

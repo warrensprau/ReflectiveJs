@@ -34,21 +34,28 @@ namespace ReflectiveJs.Server.Api.App_Data
 
             var adminMember = new Member
             {
-                Owner = rootOrg,
+                OwningOrg = rootOrg,
                 User = rootUser,
                 OrgMembers = new List<OrgMember>()
                 {
                     new OrgMember()
                     {
-                        Owner = rootOrg,
+                        OwningOrg = rootOrg,
                         Org = rootOrg
                     }
+                },
+                Profile = new Profile()
+                {
+                    OwningOrg = rootOrg
                 }
             };
 
             dbContext.Members.Add(adminMember);
 
             dbContext.SaveChanges();
+
+            // Common
+            new ConstantAutoSeeder().Seed(dbContext, rootUser);
 
             //new UiSeeder().Seed(dbContext, magpieRootUser);
         }
@@ -60,7 +67,7 @@ namespace ReflectiveJs.Server.Api.App_Data
             var user = userMgr.FindByName(name);
             if (user != null) return user;
 
-            user = new User {UserName = name, Email = name, Owner = owner};
+            user = new User {UserName = name, Email = name, OwningOrg = owner};
             //var identityResult = UserMgr.Create(user, password);
             userMgr.Create(user, password);
             foreach (var roleName in roleNames)

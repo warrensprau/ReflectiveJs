@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Error.cs" />
+    <Compile Include="Common\ResourceHelper.cs" />
     <Compile Include="OrganizationalText.Designer.cs">
       <DependentUpon>OrganizationalText.resx</DependentUpon>
       <AutoGen>True</AutoGen>
