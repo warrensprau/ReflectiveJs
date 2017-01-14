@@ -1,24 +1,18 @@
 ﻿using System;
-using System.Threading.Tasks;
 using ReflectiveJs.Server.Logic.Common.Persistence;
 
 namespace ReflectiveJs.Server.Logic.Common.Execution
 {
-    public abstract class BaseAsyncModelLogic : BaseLogic
+    public abstract class BaseSyncModelLogic : BaseLogic
     {
         public bool AutoSave { get; set; }
         public ApplicationDbContext DbContext { get; set; }
 
-        protected BaseAsyncModelLogic()
-        {
-            AutoSave = false;
-        }
-
-        public async Task<bool> ExecuteAsync()
+        public bool Execute()
         {
             Successful = true;
 
-            if (!await CanExecute())
+            if (!CanExecute())
             {
                 Valid = false;
                 Successful = false;
@@ -28,10 +22,10 @@ namespace ReflectiveJs.Server.Logic.Common.Execution
 
             try
             {
-                await BasicExecute();
+                BasicExecute();
                 if (AutoSave)
                 {
-                    await Save();
+                    Save();
                 }
             }
             catch (Exception e)
@@ -42,7 +36,7 @@ namespace ReflectiveJs.Server.Logic.Common.Execution
             return Successful;
         }
 
-        protected async Task<bool> CanExecute()
+        protected bool CanExecute()
         {
             if (Caller == null)
             {
@@ -50,19 +44,19 @@ namespace ReflectiveJs.Server.Logic.Common.Execution
                 return false;
             }
 
-            return await BasicValidate();
+            return BasicValidate();
         }
 
-        protected virtual async Task<bool> BasicValidate()
+        protected virtual bool BasicValidate()
         {
-            return await Task.FromResult(true);
+            return true;
         }
 
-        protected abstract Task BasicExecute();
+        protected abstract void BasicExecute();
 
-        protected async Task Save()
+        protected void Save()
         {
-            await DbContext.SaveChangesAsync();
+            DbContext.SaveChanges();
         }
     }
 }

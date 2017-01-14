@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\BaseActionEntity.cs" />
     <Compile Include="Common\IEntity.cs" />
     <Compile Include="Common\INamedEntity.cs" />
     <Compile Include="Common\IOwned.cs" />
@@ -50,6 +51,7 @@
     <Compile Include="Common\BaseEntity.cs" />
     <Compile Include="Common\IAuditable.cs" />
     <Compile Include="Organizational\Member.cs" />
+    <Compile Include="Organizational\MemberCancel.cs" />
     <Compile Include="Organizational\Org.cs" />
     <Compile Include="Organizational\OrgMember.cs" />
     <Compile Include="Organizational\Profile.cs" />

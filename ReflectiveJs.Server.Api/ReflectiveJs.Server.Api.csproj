@@ -223,6 +223,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DomainController.cs" />
+    <Compile Include="Controllers\DomainLogicController.cs" />
     <Compile Include="Controllers\MashboardController.cs" />
     <Compile Include="Controllers\NTierController.cs" />
     <Compile Include="Controllers\ResourceController.cs" />
@@ -240,6 +241,8 @@
     <Compile Include="Providers\ShardManager.cs" />
     <Compile Include="Providers\SqlDbUtils.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
+    <Compile Include="Actions\BaseBreezeAction.cs" />
+    <Compile Include="Actions\CancelMemberAction.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

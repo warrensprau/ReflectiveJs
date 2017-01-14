@@ -70,6 +70,15 @@ namespace ReflectiveJs.Server.Utility {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Comment.
+        /// </summary>
+        public static string FieldName_Comment {
+            get {
+                return ResourceManager.GetString("FieldName_Comment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Created.
         /// </summary>
         public static string FieldName_Created {
@@ -120,6 +129,15 @@ namespace ReflectiveJs.Server.Utility {
         public static string FieldName_LastUpdatedBy {
             get {
                 return ResourceManager.GetString("FieldName_LastUpdatedBy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Member.
+        /// </summary>
+        public static string FieldName_Member {
+            get {
+                return ResourceManager.GetString("FieldName_Member", resourceCulture);
             }
         }
     }

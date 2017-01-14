@@ -120,6 +120,9 @@
   <data name="EntityType_Org" xml:space="preserve">
     <value>Org</value>
   </data>
+  <data name="FieldName_Comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
   <data name="FieldName_Created" xml:space="preserve">
     <value>Created</value>
   </data>
@@ -137,5 +140,8 @@
   </data>
   <data name="FieldName_LastUpdatedBy" xml:space="preserve">
     <value>Last Updated By</value>
+  </data>
+  <data name="FieldName_Member" xml:space="preserve">
+    <value>Member</value>
   </data>
 </root>
