@@ -1,7 +1,9 @@
 ﻿
 angular
     .module('masterdetails')
-    .directive('masterdetails', function($rootScope) {
+
+    .directive('masterdetails', function ($rootScope) {
+
         return {
             restrict: 'E',
             controller: 'routeControl',
