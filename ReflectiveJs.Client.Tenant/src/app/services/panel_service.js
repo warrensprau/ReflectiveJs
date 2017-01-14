@@ -6,11 +6,7 @@ var MAX_PANELS_PER_SIDE = 20;
 angular
     .module('panelService', ['ng'])
 
-    .factory('panelService', function ($http, $compile) {
-        return {
-
-        };
-    })
+    .factory('panelService', function ($http, $compile) {return {};})
 
     .provider('panelService', {
 

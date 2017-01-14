@@ -1,13 +1,10 @@
 ﻿angular
     .module('messaging', ['ng'])
 
-    .factory('messageService', function () {
-        return {
-
-        };
-    })
+    .factory('messageService', function () {return {};})
 
     .provider('messageService', {
+
         $get: function ($rootScope) {
 
             var loadingMessages = [];

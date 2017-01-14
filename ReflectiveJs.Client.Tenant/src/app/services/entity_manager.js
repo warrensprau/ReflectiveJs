@@ -1,9 +1,10 @@
 ﻿
 angular
     .module('persistence')
+
     .factory('entityManagerFactory', ['breeze', 'apiUrl', function(breeze, apiUrl) {
 
-            var serviceName = apiUrl() + '/api';
+            var serviceName = apiUrl();
             magpieUrl = apiUrl();
 
             var factory = {

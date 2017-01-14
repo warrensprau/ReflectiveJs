@@ -1,9 +1,10 @@
-﻿angular.
-    module('initialDataLoaderService', ['ng', 'persistence'])
-    .factory('initialDataLoaderService', function ($http, objectService) {
-        return {};
-    })
+﻿angular
+    .module('initialDataLoaderService', ['ng', 'persistence'])
+
+    .factory('initialDataLoaderService', function ($http, objectService) { return {}; })
+
     .provider('initialDataLoaderService', {
+
         $get: function ($http, $rootScope, entityManagerFactory, $timeout, objectService, enumLookupService) {
 
             var cService = {};

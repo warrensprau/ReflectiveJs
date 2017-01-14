@@ -1,7 +1,9 @@
 ﻿// I provide a request-transformation method that is used to prepare the outgoing
 // request as a FORM post instead of a JSON packet.
 
-angular.module('requestUtils')
+angular
+    .module('requestUtils')
+
     .factory('transformRequestAsFormPost', function () {
 
         // I prepare the request data for the form post.

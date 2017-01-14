@@ -1,7 +1,10 @@
 ﻿using System.Linq;
 using System.Web.Http;
 using Breeze.WebApi2;
+using ReflectiveJs.Server.Model.Common;
 using ReflectiveJs.Server.Model.Organizational;
+using ReflectiveJs.Server.Utility;
+using ReflectiveJs.Server.Utility.Common;
 
 namespace ReflectiveJs.Server.Api.Controllers
 {
@@ -31,5 +34,21 @@ namespace ReflectiveJs.Server.Api.Controllers
             return ContextProvider.Context.SetOwnable<OrgMember>(currentUserId);
         }
 
+        [Route("EnumTypes")]
+        [HttpGet]
+        public IQueryable<EnumType> EnumTypes()
+        {
+            foreach (var enumItem in ContextProvider.Context.EnumTypes)
+            {
+                enumItem.Description = ResourceHelper.EnumMessage(enumItem.Name, typeof(CommonText));
+            }
+            return ContextProvider.Context.EnumTypes;
+        }
+
     }
 }
+
+
+
+
+

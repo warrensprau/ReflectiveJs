@@ -227,6 +227,7 @@
     <Compile Include="Controllers\NTierController.cs" />
     <Compile Include="Controllers\ResourceController.cs" />
     <Compile Include="App_Data\TenantModelInitializer.cs" />
+    <Compile Include="Controllers\UiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

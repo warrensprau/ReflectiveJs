@@ -103,7 +103,7 @@ namespace ReflectiveJs.Server.Api
             //string connString = "";
 
             var tenantIdString = context.Request.Query.Get("tenantId");
-            var tenantId = tenantIdString?.AsInt() ?? -1;
+            var tenantId = tenantIdString?.AsInt() ?? 1;
 
             if (tenantId < 0)
             {

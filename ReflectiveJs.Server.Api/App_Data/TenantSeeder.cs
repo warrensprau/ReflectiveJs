@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using ReflectiveJs.Server.Api.App_Data.UI;
 using ReflectiveJs.Server.Logic.Common.Persistence;
 using ReflectiveJs.Server.Model.Common;
 using ReflectiveJs.Server.Model.Organizational;
@@ -55,9 +56,10 @@ namespace ReflectiveJs.Server.Api.App_Data
             dbContext.SaveChanges();
 
             // Common
+
             new ConstantAutoSeeder().Seed(dbContext, rootUser);
 
-            //new UiSeeder().Seed(dbContext, magpieRootUser);
+            new UiSeeder().Seed(dbContext, rootUser);
         }
 
         protected User CreateUser(

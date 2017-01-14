@@ -24,7 +24,7 @@ namespace ReflectiveJs.Server.Api.Controllers
                 toDate = DateTime.Now;
             }
 
-            var results = await GetSearchSetAsync.With(fromDate, toDate, sort, DbContext, Caller);
+            var results = await GetSearchSetAsync.With(fromDate, toDate, sort, DbContext, await CallerAsync());
 
             return Ok(results);
         }
@@ -50,7 +50,7 @@ namespace ReflectiveJs.Server.Api.Controllers
 
             toDate = toDate.Date;
 
-            var results = await GetMashupMetrics.With(metricFilter, breakdownFilter, fromDate, toDate, DbContext, Caller);
+            var results = await GetMashupMetrics.With(metricFilter, breakdownFilter, fromDate, toDate, DbContext, await CallerAsync());
 
             return Ok(results);
         }

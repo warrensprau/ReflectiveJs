@@ -1,6 +1,5 @@
 ﻿
 angular
-
     .module('flyoutService', ['ng', 'view'])
 
     .provider('flyoutService', {
@@ -46,7 +45,7 @@ angular
 
             flyoutService.exploreMetric = function (item) {
 
-                $http.get(apiUrl() + "/api/mashboard/" + item.entityType)
+                $http.get(apiUrl() + "/mashboard/" + item.entityType)
                     .success(function (data, status, headers, config) {
 
                         viewService.viewListDetails(item.entityType, item.entityLabel, data);

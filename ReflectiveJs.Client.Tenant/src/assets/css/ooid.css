@@ -131,7 +131,7 @@
   box-shadow: 3px 0 0 #d870a9 inset;
 }
 
-.drop-down li.ClientOrg {
+.drop-down li.Org {
   -webkit-box-shadow: 3px 0 0 #f6ba59 inset;
   -moz-box-shadow: 3px 0 0 #f6ba59 inset;
   box-shadow: 3px 0 0 #f6ba59 inset;
@@ -256,7 +256,7 @@
 
 .fa-plus.AllBlack { color: #1e1e20 }
 
-.fa-plus.ClientOrg { color: #f6ba59 }
+.fa-plus.Org { color: #f6ba59 }
 
 .fa-plus.Unit { color: #f6ba59 }
 
@@ -292,7 +292,7 @@
 
 .fa-circle.AllBlack { color: #1e1e20 }
 
-.fa-circle.ClientOrg {
+.fa-circle.Org {
   color: #f6ba59;
   margin-left: -10px;
 }
@@ -372,7 +372,7 @@
   margin-left:-10px;
 }
 
-.fa-circle.ClientOrg.cardCircle {
+.fa-circle.Org.cardCircle {
   color: #f6ba59;
   margin-left: 0;
 }
@@ -508,7 +508,7 @@
   border-radius: 100%;
 }
 
-.circle.ClientOrg { background: #f6ba59 }
+.circle.Org { background: #f6ba59 }
 
 .circle.Product { background: #e95546 }
 
@@ -546,7 +546,7 @@
 
 .config-dates { padding-top: 15px }
 
-.fa-angle-double-down.ClientOrg { color: #f6ba59 }
+.fa-angle-double-down.Org { color: #f6ba59 }
 
 .fa-angle-double-down.Product { color: #e95546 }
 
@@ -578,7 +578,7 @@
 
 .fa-angle-double-down.Goal{color:#FF9C5B;}
 
-.fa-angle-double-up.ClientOrg { color: #f6ba59 }
+.fa-angle-double-up.Org { color: #f6ba59 }
 
 .fa-angle-double-up.Product { color: #e95546 }
 
@@ -627,13 +627,13 @@
   text-decoration: none;
 }
 
-.config-item.ClientOrg {
+.config-item.Org {
   -webkit-box-shadow: 4px 0 0 #f6ba59 inset;
   -moz-box-shadow: 4px 0 0 #f6ba59 inset;
   box-shadow: 4px 0 0 #f6ba59 inset;
 }
 
-.config-item.list.ClientOrg:hover {
+.config-item.list.Org:hover {
   -webkit-box-shadow: 20px 0 0 #f6ba59 inset;
   -moz-box-shadow: 20px 0 0 #f6ba59 inset;
   box-shadow: 20px 0 0 #f6ba59 inset;

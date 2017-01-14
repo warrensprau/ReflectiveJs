@@ -1,12 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Web;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNet.Identity.Owin;
-using ReflectiveJs.Server.Logic.Common.Persistence;
+﻿using ReflectiveJs.Server.Logic.Common.Persistence;
 using ReflectiveJs.Server.Model.Common;
-using ReflectiveJs.Server.Model.Organizational;
 
 namespace ReflectiveJs.Server.Api.App_Data.UI
 {
@@ -16,7 +9,7 @@ namespace ReflectiveJs.Server.Api.App_Data.UI
         {
             new ModelAndDefaultViewSeeder().Seed(dbContext, user);
             new ActionSeeder().Seed(dbContext, user);
-            new CustomViewSeeder().Seed(dbContext, user);
+            //new CustomViewSeeder().Seed(dbContext, user);
 
             dbContext.SaveChanges();
         }

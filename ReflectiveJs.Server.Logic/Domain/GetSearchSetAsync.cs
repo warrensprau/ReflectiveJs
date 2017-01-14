@@ -47,7 +47,7 @@ namespace ReflectiveJs.Server.Logic.Domain
                 var orgs = DbContext.SetOwnableOrgs(this.Caller.UserId()).ToList();
                 foreach (var org in orgs)
                 {
-                    results.Add(CreateEntity(org.Id, org.Name, "ClientOrg", ResourceHelper.Message("EntityType_Org", typeof(CommonText)), null, org.Created, org.LastUpdated));
+                    results.Add(CreateEntity(org.Id, org.Name, "Org", ResourceHelper.Message("EntityType_Org", typeof(CommonText)), null, org.Created, org.LastUpdated));
                 }
             }
 

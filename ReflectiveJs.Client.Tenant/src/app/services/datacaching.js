@@ -1,15 +1,13 @@
 ﻿angular
     .module('datacaching', ['ng', 'persistence'])
-    .factory('enumLookupService', function() {
-        return {
 
-        };
-    })
+    .factory('enumLookupService', function () { return {}; })
+
     .provider('enumLookupService', {
+
         $get: function ($rootScope, entityManagerFactory) {
 
             var enumsByType = {};
-
             var enumLookupService = {}
 
             enumLookupService.loadEnum = function (enumTypeName, $scope) {

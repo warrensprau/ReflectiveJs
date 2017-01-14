@@ -10,22 +10,24 @@ function homeController($cookies, $scope, $rootScope, $compile, panelService, ob
 
     initialDataLoaderService.loadAll($rootScope);
 
-    var entityQuery =
-        breeze.EntityQuery
-            .from('associate')
-            .where('LoginId', '==', $rootScope.loginId)
-            .expand('AssociateProfile');
+    //var entityQuery =
+    //    breeze.EntityQuery
+    //        .from('associate')
+    //        .where('LoginId', '==', $rootScope.loginId)
+    //        .expand('AssociateProfile');
 
-    entityManagerFactory
-        .executeQuery(entityQuery)
-        .then(function (data) {
-            var associate = data.results[0];
-            $rootScope.userName = associate.FirstName;
-            var ap = associate.AssociateProfile;
-        })
-        .catch(function (error) {
-            alert('No route exists to download ' + error.entityQuery.resourceName + ' data from the server. Please add a Controller, Route, and DBSet for ' + error.entityQuery.resourceName);
-        });
+    //entityManagerFactory
+    //    .executeQuery(entityQuery)
+    //    .then(function (data) {
+    //        var associate = data.results[0];
+    //        $rootScope.userName = associate.FirstName;
+    //        var ap = associate.AssociateProfile;
+    //    })
+    //    .catch(function (error) {
+    //        alert('No route exists to download ' + error.entityQuery.resourceName + ' data from the server. Please add a Controller, Route, and DBSet for ' + error.entityQuery.resourceName);
+    //    });
+
+    $rootScope.userName = $rootScope.loginId;
 
     $scope.signout = function () {
         principal.authenticate(null);

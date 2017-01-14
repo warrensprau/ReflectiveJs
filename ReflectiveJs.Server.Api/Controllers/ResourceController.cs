@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Net.Http;
 using System.Resources;
+using System.Threading.Tasks;
 using System.Web.Http;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -27,6 +29,10 @@ namespace ReflectiveJs.Server.Api.Controllers
                 if (_caller == null)
                 {
                     var userName = User.Identity.GetUserName();
+                    if (userName == null)
+                    {
+                        userName = "admin@client1.com";
+                    }
                     var appUser = UserManager.FindByName(userName);
 
                     var associate = DbContext.Members.SingleOrDefault(m => m.User.UserName == appUser.Email);
@@ -50,6 +56,39 @@ namespace ReflectiveJs.Server.Api.Controllers
 
                 return _caller;
             }
+        }
+
+        protected async Task<ICaller> CallerAsync()
+        {
+            if (_caller == null)
+            {
+                var userName = User.Identity.GetUserName();
+                if (userName == null)
+                {
+                    userName = "admin@client1.com";
+                }
+                var appUser = await UserManager.FindByNameAsync(userName);
+
+                var associate = await DbContext.Members.SingleOrDefaultAsync(m => m.User.UserName == appUser.Email);
+                var associateTimeZone = TimeZoneInfo.Local;
+
+                var associateProfile = associate?.Profile;
+
+                if (!string.IsNullOrEmpty(associateProfile?.DefaultTimeZone))
+                {
+                    try
+                    {
+                        associateTimeZone = TimeZoneInfo.FindSystemTimeZoneById(associateProfile.DefaultTimeZone);
+                    }
+                    catch (Exception e)
+                    {
+                    }
+                }
+
+                _caller = new Caller(appUser, associate, associateTimeZone);
+            }
+
+            return _caller;
         }
 
         protected ApplicationDbContext DbContext

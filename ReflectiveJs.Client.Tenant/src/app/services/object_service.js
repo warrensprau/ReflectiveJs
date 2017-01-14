@@ -2,11 +2,10 @@
 angular
     .module('persistence')
 
-    .factory('objectService', function () {
-        return {
-        };
-    })
+    .factory('objectService', function () { return {}; })
+
     .provider('objectService', {
+
         $get: function (entityManagerFactory, $rootScope, enumLookupService) {
 
             var objectService = {}; //new Object();
