@@ -1,23 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
+﻿using System.Web.Http;
 using Breeze.ContextProvider;
 using Breeze.WebApi2;
 using Newtonsoft.Json.Linq;
+using ReflectiveJs.Server.Api.Actions;
 
 namespace ReflectiveJs.Server.Api.Controllers
 {
     [BreezeController]
     public class DomainLogicController : NTierController
     {
-        [Route("addaccountcommentsavechanges")]
+        [Route("membercancel")]
         [HttpPost]
-        public SaveResult AddAccountCommentSaveChanges(JObject saveBundle)
+        public SaveResult MemberCancelSaveChanges(JObject saveBundle)
         {
-            var logicDelegate = new AddAccountCommentAction(Caller);
-            ContextProvider.BeforeSaveEntitiesDelegate = logicDelegate.AddAccountCommentSaveChanges;
+            var logicDelegate = new CancelMemberAction(Caller);
+            ContextProvider.BeforeSaveEntitiesDelegate = logicDelegate.CancelMemberSaveChanges;
             return ContextProvider.SaveChanges(saveBundle);
         }
     }

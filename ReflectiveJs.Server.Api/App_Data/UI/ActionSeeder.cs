@@ -2,6 +2,8 @@
 using ReflectiveJs.Server.Logic.Common.Persistence;
 using ReflectiveJs.Server.Model.Common;
 using ReflectiveJs.Server.Model.UI;
+using ReflectiveJs.Server.Utility;
+using ReflectiveJs.Server.Utility.Common;
 
 namespace ReflectiveJs.Server.Api.App_Data.UI
 {
@@ -79,9 +81,31 @@ namespace ReflectiveJs.Server.Api.App_Data.UI
                     {
                         uiView.UiViewActions.Add(new UiViewAction {UiAction = editAction, Label = editActionLabel});
                         uiView.UiViewActions.Add(new UiViewAction {UiAction = deleteAction, Label = deleteActionLabel});
+
+                        var modelName = uiModel.Name;
+                        var modelActionTypes = typeof(OrgEntity).Assembly.GetTypes().Where(type => type.IsSubclassOf(typeof(BaseActionEntity)) && type.Name.StartsWith(modelName) && type.Name.Length > modelName.Length);
+
+                        foreach (var modelActionType in modelActionTypes)
+                        {
+                            uiView.UiViewActions.Add(
+                                new UiViewAction()
+                                {
+                                    UiAction = new UiAction()
+                                    {
+                                        Name = modelActionType.Name,
+                                        Route = modelActionType.Name.ToLower() + "savechanges",
+                                        ActionModel = modelActionType.Name
+                                    },
+                                    Label = ResourceHelper.Message("ActionName_MemberCancel", typeof(CommonText))
+                                });
+                        }
                     }
                 }
             }
         }
     }
 }
+
+
+
+

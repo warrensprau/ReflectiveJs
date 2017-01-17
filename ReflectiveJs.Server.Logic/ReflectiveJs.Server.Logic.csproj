@@ -56,7 +56,6 @@
     <Compile Include="Common\Persistence\ModelVisibilityManager.cs" />
     <Compile Include="Domain\CancelMember.cs" />
     <Compile Include="Domain\GetMetrics.cs" />
-    <Compile Include="Domain\GetSearchSetAsync.cs" />
     <Compile Include="Domain\GetSummaryMetrics.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
