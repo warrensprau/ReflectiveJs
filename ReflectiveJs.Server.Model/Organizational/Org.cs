@@ -6,7 +6,7 @@ using ReflectiveJs.Server.Utility;
 
 namespace ReflectiveJs.Server.Model.Organizational
 {
-    public class Org : AuditedEntity
+    public class Org : AuditedEntity, INamedEntity
     {
         public Org()
         {

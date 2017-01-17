@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Resources;
 using System.Threading.Tasks;
 using System.Web.Http;
+using EntityFramework.DynamicFilters;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using ReflectiveJs.Server.Logic.Common.Execution;
@@ -93,7 +94,29 @@ namespace ReflectiveJs.Server.Api.Controllers
 
         protected ApplicationDbContext DbContext
         {
-            get { return _dbContext ?? (_dbContext = Request.GetOwinContext().Get<ApplicationDbContext>()); }
+            get
+            {
+                if (_dbContext != null)
+                {
+                    return _dbContext;
+                }
+
+                var requestDbContext = Request.GetOwinContext().Get<ApplicationDbContext>();
+
+                var userName = User.Identity.GetUserName();
+                if (userName == null)
+                {
+                    userName = "admin@client1.com";
+                }
+                var appUser = UserManager.FindByName(userName);
+                
+                requestDbContext.CurrentUserId = appUser.Id;
+                var visibleOrgs = ModelVisibilityManager.VisibleOrgs(appUser.Id, requestDbContext);
+                requestDbContext.EnableFilter("IsVisible");
+                requestDbContext.SetFilterScopedParameterValue("IsVisible", "visibleOrgsList", visibleOrgs);
+
+                return _dbContext = requestDbContext;
+            }
             private set { _dbContext = value; }
         }
 

@@ -22,16 +22,14 @@ namespace ReflectiveJs.Server.Api.Controllers
         [HttpGet]
         public IQueryable<Member> Members()
         {
-            var currentUserId = Caller.UserId();
-            return ContextProvider.Context.SetOwnable<Member>(currentUserId);
+            return ContextProvider.Context.Members;
         }
 
         [Route("OrgMembers")]
         [HttpGet]
         public IQueryable<OrgMember> OrgMembers()
         {
-            var currentUserId = Caller.UserId();
-            return ContextProvider.Context.SetOwnable<OrgMember>(currentUserId);
+            return ContextProvider.Context.OrgMembers;
         }
 
         [Route("EnumTypes")]

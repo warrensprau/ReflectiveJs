@@ -2,16 +2,16 @@
 
 namespace ReflectiveJs.Server.Logic.Common.Persistence
 {
-    internal static class ModelVisibilityManager
+    public static class ModelVisibilityManager
     {
-        public static int[] VisibleOrgs(string userId, ApplicationDbContext dbContext)
+        public static List<int> VisibleOrgs(string userId, ApplicationDbContext dbContext)
         {
             var visibleOrgs = new List<int>();
             var user = dbContext.Users.Find(userId);
             var org = dbContext.Orgs.Find(user.OwningOrgId);
             visibleOrgs.Add(org.Id);
 
-            return visibleOrgs.ToArray();
+            return visibleOrgs;
         }
     }
 }

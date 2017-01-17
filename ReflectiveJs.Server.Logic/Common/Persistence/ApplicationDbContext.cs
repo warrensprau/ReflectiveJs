@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using EntityFramework.DynamicFilters;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement;
 using ReflectiveJs.Server.Model.Common;
@@ -16,6 +18,9 @@ namespace ReflectiveJs.Server.Logic.Common.Persistence
 {
     public class ApplicationDbContext : IdentityDbContext<User>
     {
+        public string CurrentUserId { get; set; }
+        public List<int> VisibleOrgs { get; set; }
+
         // only used to satisfy signature of EFContextProvider
         public ApplicationDbContext()
         {
@@ -56,6 +61,9 @@ namespace ReflectiveJs.Server.Logic.Common.Persistence
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+
+            modelBuilder.Filter("IsVisible", (IOwned o, List<int> visibleOrgsList) => visibleOrgsList.Contains(o.OwningOrgId), () => VisibleOrgs);
+            modelBuilder.DisableFilterGlobally("IsVisible");
         }
 
         public override int SaveChanges()
@@ -117,6 +125,7 @@ namespace ReflectiveJs.Server.Logic.Common.Persistence
         public DbSet<OrgMember> OrgMembers { get; set; }
 
         // Performance
+
         public DbSet<OrgGoal> OrgGoals { get; set; }
         public DbSet<DaySummaryMetric> DaySummaryMetrics { get; set; }
 
@@ -130,17 +139,5 @@ namespace ReflectiveJs.Server.Logic.Common.Persistence
         public DbSet<UiView> UiViews { get; set; }
         public DbSet<UiViewAction> UiViewActions { get; set; }
         public DbSet<UiViewField> UiViewFields { get; set; }
-
-        public IDbSet<Org> SetOwnableOrgs(string currentUserId) 
-        {
-            var visibleOrgs = ModelVisibilityManager.VisibleOrgs(currentUserId, this);
-            return new FilteredDbSet<Org>(this, entity => visibleOrgs.Contains(entity.Id), null);
-        }
-
-        public IDbSet<TEntity> SetOwnable<TEntity>(string currentUserId) where TEntity : OrgEntity
-        {
-            var visibleOrgs = ModelVisibilityManager.VisibleOrgs(currentUserId, this);
-            return new FilteredDbSet<TEntity>(this, entity => visibleOrgs.Contains(entity.OwningOrgId), null);
-        }
     }
 }

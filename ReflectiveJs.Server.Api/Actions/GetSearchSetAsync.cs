@@ -47,26 +47,9 @@ namespace ReflectiveJs.Server.Api.Actions
 
             foreach (var entityType in entityTypes)
             {
-                if (searchSet.Contains(entityType.Name))
+                if (searchSet.Contains(entityType.Name.ToLower()))
                 {
-                    if (entityType.Name == "Org")
-                    {
-                        var orgs = DbContext.SetOwnableOrgs(Caller.UserId()).ToList();
-                        foreach (var org in orgs)
-                        {
-                            results.Add(CreateEntity(org.Id, org.Name, "Org",
-                                ResourceHelper.Message("EntityType_Org", typeof(CommonText)), null, org.Created,
-                                org.LastUpdated));
-                        }
-                    }
-                    else
-                    {
-                        var entities = await DbContext.Set(entityType).ToListAsync();
-                        foreach (var entity in entities)
-                        {
-                            results.Add(CreateEntity(entity, entityType);
-                        }
-                    }
+                    await DbContext.Set(entityType).ForEachAsync(entity => results.Add(CreateEntity((INamedEntity)entity, entityType)));
                 }
             }
 
@@ -95,19 +78,19 @@ namespace ReflectiveJs.Server.Api.Actions
             Result = results;
         }
 
-        protected DashEntityModel CreateEntity(object entityid, Type entityType)
+        protected DashEntityModel CreateEntity(INamedEntity entity, Type entityType)
         {
-            var formattedCreated = (created ?? DateTime.Now).ToString("MM-dd-yy");
-            var formattedModified = (modified ?? DateTime.Now).ToString("MM-dd-yy");
+            var formattedCreated = (((IAuditable)entity).Created ?? DateTime.Now).ToString("MM-dd-yy");
+            var formattedModified = (((IAuditable)entity).LastUpdated ?? DateTime.Now).ToString("MM-dd-yy");
 
             return new DashEntityModel
             {
-                Id = id,
-                Name = name,
-                Type = type,
-                TypeLabel = typeLabel,
-                Meta = meta ?? new List<Meta>(),
-                IsNew = id == -1,
+                Id = entity.Id,
+                Name = entity.Name,
+                Type = entityType.FullName,
+                TypeLabel = "",
+                Meta = new List<Meta>(),
+                IsNew = entity.Id == -1,
                 Created = formattedCreated,
                 Modified = formattedModified
             };
