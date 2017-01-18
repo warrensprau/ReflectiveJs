@@ -39,7 +39,8 @@ namespace ReflectiveJs.Server.Api.Actions
         {
             var results = new List<DashEntityModel>();
 
-            var member = DbContext.Members.Find(Caller.MemberId());
+            var memberId = Caller.MemberId();
+            var member = DbContext.Members.Include(m => m.Profile).Single(m => m.Id == memberId);
             var searchSet = member.Profile.SearchSet.Split(',');
 
             var entityTypes =
@@ -87,7 +88,7 @@ namespace ReflectiveJs.Server.Api.Actions
             {
                 Id = entity.Id,
                 Name = entity.Name,
-                Type = entityType.FullName,
+                Type = entityType.Name,
                 TypeLabel = "",
                 Meta = new List<Meta>(),
                 IsNew = entity.Id == -1,

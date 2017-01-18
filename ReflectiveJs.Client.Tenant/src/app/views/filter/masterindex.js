@@ -55,7 +55,7 @@ function masterIndexController($scope, $rootScope, flyoutService, $http, apiUrl,
 
     $scope.loadOoids = function () {
         $rootScope.$emit('loadingData', 'Loading ToolKit...');
-        $http.get(apiUrl() + "/api/dash/simple", {
+        $http.get(apiUrl() + "/dash/simple", {
             params: {
                 from: $scope.from,
                 to: $scope.to
@@ -110,7 +110,7 @@ function masterIndexController($scope, $rootScope, flyoutService, $http, apiUrl,
 
     $scope.reloadOoids = function () {
         $rootScope.$emit('loadingData', 'Refreshing ToolKit...');
-        $http.get(apiUrl() + "/api/dash/simple", {
+        $http.get(apiUrl() + "/dash/simple", {
             params: {
                 from: $scope.from,
                 to: $scope.to

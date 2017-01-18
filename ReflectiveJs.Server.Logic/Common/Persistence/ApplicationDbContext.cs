@@ -39,8 +39,8 @@ namespace ReflectiveJs.Server.Logic.Common.Persistence
         public ApplicationDbContext(ShardMap shardMap, int shardingKey, string connectionStr) 
             : base(CreateDDRConnection(shardMap, shardingKey, connectionStr), true /* contextOwnsConnection */) 
         {
-            //Configuration.ProxyCreationEnabled = false;
-            //Configuration.LazyLoadingEnabled = false;
+            Configuration.ProxyCreationEnabled = false;
+            Configuration.LazyLoadingEnabled = false;
         }
 
         // Only static methods are allowed in calls into base class c'tors 
