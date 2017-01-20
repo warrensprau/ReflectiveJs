@@ -103,13 +103,12 @@ namespace ReflectiveJs.Server.Api
             //string connString = "";
 
             var tenantIdString = context.Request.Query.Get("tenantId");
-            var tenantId = tenantIdString?.AsInt() ?? 1;
 
-            if (tenantId < 0)
+            if (String.IsNullOrEmpty(tenantIdString))
             {
                 throw new Exception("Tenant Id missing.");
             }
-            return new ApplicationDbContext(AppGlobals.ShardManager.ShardMap, tenantId, AppGlobals.ShardManager.ConnectionString);
+            return new ApplicationDbContext(AppGlobals.ShardManager.ShardMap, tenantIdString.AsInt(), AppGlobals.ShardManager.ConnectionString);
         }
     }
 }

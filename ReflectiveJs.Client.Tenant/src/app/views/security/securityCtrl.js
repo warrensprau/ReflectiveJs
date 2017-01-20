@@ -24,6 +24,21 @@ function SecurityController($rootScope, $scope, $state, principal, registrationS
 
         var ajaxAdapter = breeze.config.getAdapterInstance('ajax');
 
+        var clientId;
+
+        var rsc = registrationService.clientId($scope.username);
+
+        rsc.success(function (result) {
+
+            clienbtId = result[0];
+
+        }).error(function (result) {
+
+            alert('rsl.error(): Database Connection in use. Try closing the connection and open table data panes in Server Explorer....');
+            $rootScope.spinner = false;
+            $rootScope.loginBox = true;
+        });
+
         var rsl = registrationService.login($scope.username, $scope.password, transformRequestAsFormPost);
 
         rsl.success(function(result) {

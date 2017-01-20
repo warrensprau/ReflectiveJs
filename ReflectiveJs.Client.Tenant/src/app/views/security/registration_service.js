@@ -16,13 +16,24 @@ angular.module('security')
                         }
                     });
                 },
-                login: function (username, password, transformRequestAsFormPost) {
+                clientid: function (username) {
+
+                    return $http({
+                        method: 'get',
+                        url: apiUrl() + '/api/Security/ClientId',
+                        data: {
+                            'username': username
+                        }
+                    });
+                },
+                login: function (username, password, clientId, transformRequestAsFormPost) {
 
                     return $http({
                         transformRequest: transformRequestAsFormPost,
                         method: 'post',
                         url: apiUrl() + '/Token',
                         data: {
+                            'tenantdId': clientId,
                             'username': username,
                             'password': password,
                             'grant_type': 'password'
