@@ -102,11 +102,11 @@ namespace ReflectiveJs.Server.Api
             //Sharding sharding = new Sharding();
             //string connString = "";
 
-            var tenantIdString = context.Request.Query.Get("tenantId");
+            var tenantIdString = context.Request.Query.Get("clientId");
 
             if (String.IsNullOrEmpty(tenantIdString))
             {
-                throw new Exception("Tenant Id missing.");
+                throw new Exception("Client Id missing.");
             }
             return new ApplicationDbContext(AppGlobals.ShardManager.ShardMap, tenantIdString.AsInt(), AppGlobals.ShardManager.ConnectionString);
         }
