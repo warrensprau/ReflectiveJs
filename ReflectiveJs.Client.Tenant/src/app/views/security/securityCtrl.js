@@ -26,63 +26,65 @@ function SecurityController($rootScope, $scope, $state, principal, registrationS
 
         var clientId;
 
-        var rsc = registrationService.clientId($scope.username);
+        var getClientId = registrationService.getClientId($scope.username);
 
-        rsc.success(function (result) {
+        getClientId.success(function (result) {
 
-            clienbtId = result[0];
+            clientId = result[0];
+
+            var getToken = registrationService.getToken($scope.username, $scope.password, clientId, transformRequestAsFormPost);
+
+            getToken.success(function (result) {
+
+                principal.authenticate({
+                    name: result.userName,
+                    roles: ['User']
+                });
+
+                localStorage.setItem("authorizationToken", result.access_token);
+                $rootScope.loginId = result.userName;
+
+                // set fixed headers
+                ajaxAdapter.defaultSettings = {
+                    headers: {
+                        "Authorization": 'bearer ' + result.access_token
+                    },
+                };
+                //        angular.element('#' + sideAbbr + 'flyout' + panelNumber).html($compile(directive)($scope)).addClass(side + '1').addClass(panelSize).append($compile(s)($scope));
+
+                $rootScope.spinner = false;
+                $rootScope.loginBox = true;
+                $rootScope.loggingIn = true;
+
+                panelService.setPositioning($rootScope);
+
+                if ($scope.returnToState) {
+                    $state.go($scope.returnToState.name, $scope.returnToStateParams);
+                } else {
+                    $state.go('home');
+                }
+
+            }).error(function (result) {
+
+                if (result.toString().indexOf('Cannot drop database') > 0) {
+                    alert('rsl.error(): Database Connection in use. Try closing the connection and open table data panes in Server Explorer....');
+                } else if (result.error_description) {
+                    alert('rsl.error(): ' + result.error_description);
+                } else {
+                    alert(result.substring(result.indexOf('<i>') + 3, result.indexOf("</i>")));
+                }
+                $rootScope.spinner = false;
+                $rootScope.loginBox = true;
+            });
 
         }).error(function (result) {
 
-            alert('rsl.error(): Database Connection in use. Try closing the connection and open table data panes in Server Explorer....');
+            alert('Could not determine client Id...');
             $rootScope.spinner = false;
             $rootScope.loginBox = true;
+            return;
         });
 
-        var rsl = registrationService.login($scope.username, $scope.password, transformRequestAsFormPost);
-
-        rsl.success(function(result) {
-
-            principal.authenticate({
-                name: result.userName,
-                roles: ['User']
-            });
-
-            localStorage.setItem("authorizationToken", result.access_token);
-            $rootScope.loginId = result.userName;
-
-            // set fixed headers
-            ajaxAdapter.defaultSettings = {
-                headers: {
-                    "Authorization": 'bearer ' + result.access_token
-                },
-            };
-            //        angular.element('#' + sideAbbr + 'flyout' + panelNumber).html($compile(directive)($scope)).addClass(side + '1').addClass(panelSize).append($compile(s)($scope));
-
-            $rootScope.spinner = false;
-            $rootScope.loginBox = true;
-            $rootScope.loggingIn = true;
-
-            panelService.setPositioning($rootScope);
-            
-            if ($scope.returnToState) {
-                $state.go($scope.returnToState.name, $scope.returnToStateParams);
-            } else {
-                $state.go('home');
-            }
-
-        }).error(function(result) {
-
-            if (result.toString().indexOf('Cannot drop database') > 0) {
-                alert('rsl.error(): Database Connection in use. Try closing the connection and open table data panes in Server Explorer....');
-            } else if (result.error_description) {
-                alert('rsl.error(): ' + result.error_description);
-            } else {
-                alert(result.substring(result.indexOf('<i>') + 3, result.indexOf("</i>")));
-            }
-            $rootScope.spinner = false;
-            $rootScope.loginBox = true;
-        });
     };
 
     $scope.changePassword = function() {

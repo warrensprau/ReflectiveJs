@@ -16,7 +16,7 @@ angular.module('security')
                         }
                     });
                 },
-                clientid: function (username) {
+                getClientId: function (username) {
 
                     return $http({
                         method: 'get',
@@ -26,14 +26,14 @@ angular.module('security')
                         }
                     });
                 },
-                login: function (username, password, clientId, transformRequestAsFormPost) {
+                getToken: function (username, password, clientId, transformRequestAsFormPost) {
 
                     return $http({
                         transformRequest: transformRequestAsFormPost,
                         method: 'post',
                         url: apiUrl() + '/Token',
                         data: {
-                            'tenantdId': clientId,
+                            'clientId': clientId,
                             'username': username,
                             'password': password,
                             'grant_type': 'password'
