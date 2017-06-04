@@ -20,9 +20,10 @@ angular.module('security')
 
                     return $http({
                         method: 'get',
-                        url: apiUrl() + '/api/Security/ClientId',
+                        url: apiUrl() + '/api/Security/ClientId?username=' + username,
                         data: {
-                            'username': username
+                            'username': username,
+                            'clientId': '0'
                         }
                     });
                 },

@@ -1,19 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
 using System.Web.WebPages;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.Google;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
-using ReflectiveJs.Server.Api.App_Data;
-using ReflectiveJs.Server.Api.Providers;
 using ReflectiveJs.Server.Api.Models;
+using ReflectiveJs.Server.Api.Providers;
 using ReflectiveJs.Server.Logic.Common.Persistence;
 
 namespace ReflectiveJs.Server.Api
@@ -76,39 +70,30 @@ namespace ReflectiveJs.Server.Api
             //InitializeSharding(app);
         }
 
-        public static void InitializeSharding(IAppBuilder app)
-        {
-            var connStrBldr = new SqlConnectionStringBuilder
-            {
-                UserID = "landlord",
-                Password = "Landl0rd.",
-                ApplicationName = "reflective"
-            };
-
-            // Bootstrap the shard map manager, register shards, and store mappings of tenants to shards 
-            // Note that you can keep working with existing shard maps. There is no need to  
-            // re-create and populate the shard map from scratch every time. 
-            Console.WriteLine("Checking for existing shard map and creating new shard map if necessary.");
-
-            var shardMgr = new ShardManager("tcp:reflective.database.windows.net,1433", "reflective_landlord", connStrBldr.ConnectionString, new TenantModelInitializer(new TenantSeeder()));
-            shardMgr.RegisterNewShard("tcp:reflective.database.windows.net,1433", "reflective_client1", connStrBldr.ConnectionString, 1);
-            //shardMgr.RegisterNewShard("tcp:reflective.database.windows.net,1433", "reflective_client2", connStrBldr.ConnectionString, 2);
-
-            AppGlobals.ShardManager = shardMgr;
-        }
-
-        public static ApplicationDbContext CreateApplicationDbContext(IdentityFactoryOptions<ApplicationDbContext> options, IOwinContext context)
+        public static ApplicationDbContext CreateApplicationDbContext(
+            IdentityFactoryOptions<ApplicationDbContext> options, IOwinContext context)
         {
             //Sharding sharding = new Sharding();
             //string connString = "";
 
-            var tenantIdString = context.Request.Query.Get("clientId");
+            //var tenantIdString = context.Request.Query.Get("clientId");
 
-            if (String.IsNullOrEmpty(tenantIdString))
-            {
-                throw new Exception("Client Id missing.");
-            }
-            return new ApplicationDbContext(AppGlobals.ShardManager.ShardMap, tenantIdString.AsInt(), AppGlobals.ShardManager.ConnectionString);
+            //if (string.IsNullOrEmpty(tenantIdString))
+            //{
+            //    if ("api/Security/ClientId".Contains(context.Request.Path.ToString()))
+            //    {
+            //        tenantIdString = "0";
+            //    }
+            //    else
+            //    {
+            //        throw new Exception("Client Id missing.");
+            //    }
+            //}
+
+            var tenantIdString = "1";
+
+            return new ApplicationDbContext(AppGlobals.ShardManager.ShardMap, tenantIdString.AsInt(),
+                AppGlobals.ShardManager.ConnectionString);
         }
     }
 }

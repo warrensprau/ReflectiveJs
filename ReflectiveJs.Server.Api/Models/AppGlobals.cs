@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using ReflectiveJs.Server.Api.Providers;
+﻿using ReflectiveJs.Server.Logic.Common.Persistence;
 
 namespace ReflectiveJs.Server.Api.Models
 {

@@ -216,6 +216,8 @@
   <ItemGroup>
     <Compile Include="Actions\GetSearchSetAsync.cs" />
     <Compile Include="App_Data\ConstantAutoSeeder.cs" />
+    <Compile Include="App_Data\LandlordSeeder.cs" />
+    <Compile Include="App_Data\LandlordModelInitializer.cs" />
     <Compile Include="App_Data\TenantSeeder.cs" />
     <Compile Include="App_Data\ISeeder.cs" />
     <Compile Include="App_Data\UI\CustomViewSeeder.cs" />
@@ -244,8 +246,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationContextProvider.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
-    <Compile Include="Providers\ShardManager.cs" />
-    <Compile Include="Providers\SqlDbUtils.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Actions\BaseBreezeAction.cs" />
     <Compile Include="Actions\CancelMemberAction.cs" />

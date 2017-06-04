@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling;
 
-namespace ReflectiveJs.Server.Api.Providers
+namespace ReflectiveJs.Server.Logic.Common.Persistence
 {
     internal static class SqlDatabaseUtils
     {
